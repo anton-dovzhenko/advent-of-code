@@ -34,3 +34,9 @@ if[not 1079=.aoc.d7.t2 read0 hsym`$input.dir,"2017_7.input"; '"[AssertionExcepti
 //Task 9
 if[not 8337=.aoc.d9.t1 read0 hsym`$input.dir,"2017_9.input"; '"[AssertionException] .aoc.d9.t1 case 1"];
 if[not 4330=.aoc.d9.t2 read0 hsym`$input.dir,"2017_9.input"; '"[AssertionException] .aoc.d9.t2 case 1"];
+
+
+//------------------------------------
+//Task 16
+if[not "baedc"~.aoc.d16.t1[5#.Q.a;"s1,x3/4,pe/b"]; '"[AssertionException] .aoc.d16.t1 case 1"];
+if[not "abcde"~.aoc.d16.t2[5#.Q.a;"s1,x3/4,pe/b"]; '"[AssertionException] .aoc.d16.t2 case 1"];

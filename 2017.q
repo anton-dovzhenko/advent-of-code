@@ -234,3 +234,44 @@
     x: 1_{$[x=1;$[y=">";2;1];$[y="<";1;0]]} scan (0,x);
     (sum x>0)-2*sum x=2
  };
+
+
+//------------------------------------
+//Task 16
+.aoc.d16.nextOrder: {[p;cmd]
+    swap: {tmp: x y 0; x[y 0]: x y 1; x[y 1]: tmp; x};
+
+    if["s"=cmd 0; :{(count[x]-y) rotate x}[p;"I"$1_cmd]];
+    if["x"=cmd 0; :swap[p;"J"$"/" vs 1_cmd]];
+    if["p"=cmd 0; :swap[p;p?"/" vs 1_cmd]];
+    '"[Illegal Command] ", cmd
+ };
+
+//@x - original order
+//@y - comma delimited commands
+.aoc.d16.t1: {.aoc.d16.nextOrder over enlist[x], "," vs y};
+
+
+//@x - original order
+//@y - comma delimited commands
+.aoc.d16.t2: {
+    cmds: "," vs y;
+    //check how many cycles are required to return to initial order
+    danceCycle: 0;
+    initOrder: x;
+    order: initOrder;
+    flag: 1b;
+    while[flag;
+        order: .aoc.d16.nextOrder over enlist[order], cmds;
+        danceCycle +: 1;
+        flag: not order~initOrder;
+    ];
+    //dance remainder after last cycle
+    toDance: 1000000000 mod danceCycle;
+    do[toDance;
+        initOrder: .aoc.d16.nextOrder over enlist[initOrder], cmds
+    ];
+    initOrder
+ };
+
+
