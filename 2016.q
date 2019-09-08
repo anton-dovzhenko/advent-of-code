@@ -205,6 +205,73 @@
 
 
 //------------------------------------
+//Task 10
+//bots are marked with same number: key 1 corresponds to bot 1
+//bins are marked with (-1 - number): key -1 corresponds to bin 0, key -2 to bin 1 etc.
+.aoc.d15.parse: {[data]
+    parsed: {
+        $["bot"~x 0;
+            (`r; "J"$x 1; {i: "J"$x 6 11; isBot: "bot"~/:x 5 10; ?[isBot;i; -1+neg i]}x);
+            (`b;"J"$x 5;"J"$x 1)
+        ]
+    } each " " vs/:"\n" vs data;
+    rules: (!) . flip 1_'parsed where parsed[;0]=`r;
+    bots: {g: group x 0; key[g]! (x 1)@/:value g}flip 1_'parsed where parsed[;0]=`b;
+    bins: (::) _ enlist[]!enlist(::);
+    (rules;bots;bins)
+ };
+
+
+//Example: .aoc.d15.t1[data;17 61]
+.aoc.d15.t1: {[data;target]
+    state: .aoc.d15.parse data;
+    rules: state 0;
+    bots: state 1;
+    bins: state 2;
+    target: asc target;
+
+    while[
+        (not null b:(key bots)@first where 2=count each value bots)&not target in asc each value bots;
+        r: rules@b;
+        $[-1 < r 0;
+            [if[not r[0] in key bots; bots[r 0]: ()]; bots[r 0]: bots[r 0], min bots b];
+            [if[not r[0] in key bins; bins[r 0]: ()]; bins[r 0]: bins[r 0], min bots b]
+        ];
+        $[-1 < r 1;
+            [if[not r[1] in key bots; bots[r 1]: ()]; bots[r 1]: bots[r 1], max bots b];
+            [if[not r[1] in key bins; bins[r 1]: ()]; bins[r 1]: bins[r 1], max bots b]
+        ];
+        bots[b]: ();
+    ];
+    (key bots)@first where target~/:asc each value bots
+ };
+
+
+//Example: .aoc.d15.t2[data;0 1 2]
+.aoc.d15.t2: {[data;outputPrd]
+    state: .aoc.d15.parse data;
+    rules: state 0;
+    bots: state 1;
+    bins: state 2;
+
+    while[
+        not null b:(key bots)@first where 2=count each value bots;
+        r: rules@b;
+        $[-1 < r 0;
+            [if[not r[0] in key bots; bots[r 0]: ()]; bots[r 0]: bots[r 0], min bots b];
+            [if[not r[0] in key bins; bins[r 0]: ()]; bins[r 0]: bins[r 0], min bots b]
+        ];
+        $[-1 < r 1;
+            [if[not r[1] in key bots; bots[r 1]: ()]; bots[r 1]: bots[r 1], max bots b];
+            [if[not r[1] in key bins; bins[r 1]: ()]; bins[r 1]: bins[r 1], max bots b]
+        ];
+        bots[b]: ();
+    ];
+    prd first each bins@-1+neg outputPrd
+ };
+
+
+//------------------------------------
 //Task 19
 .aoc.d19.t1: {
     first {
