@@ -60,6 +60,18 @@ dvrsen
 enarar"; '"[AssertionException] .aoc.d6.t1 case 2"];
 
 //------------------------------------
+//Task 12
+if[not 42 ~ .aoc.d12.t1
+"cpy 41 a
+inc a
+inc a
+dec a
+jnz a 2
+dec a"
+    ; '"[AssertionException] .aoc.d12.t1 case 1"];
+
+
+//------------------------------------
 //Task 19
 if[not 3 ~ .aoc.d19.t1 5; '"[AssertionException] .aoc.d19.t1 case 1"];
 if[not 1842613 ~ .aoc.d19.t1 3018458; '"[AssertionException] .aoc.d19.t1 case 2"];

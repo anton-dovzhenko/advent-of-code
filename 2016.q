@@ -208,7 +208,7 @@
 //Task 10
 //bots are marked with same number: key 1 corresponds to bot 1
 //bins are marked with (-1 - number): key -1 corresponds to bin 0, key -2 to bin 1 etc.
-.aoc.d15.parse: {[data]
+.aoc.d10.parse: {[data]
     parsed: {
         $["bot"~x 0;
             (`r; "J"$x 1; {i: "J"$x 6 11; isBot: "bot"~/:x 5 10; ?[isBot;i; -1+neg i]}x);
@@ -223,8 +223,8 @@
 
 
 //Example: .aoc.d15.t1[data;17 61]
-.aoc.d15.t1: {[data;target]
-    state: .aoc.d15.parse data;
+.aoc.d10.t1: {[data;target]
+    state: .aoc.d10.parse data;
     rules: state 0;
     bots: state 1;
     bins: state 2;
@@ -247,9 +247,9 @@
  };
 
 
-//Example: .aoc.d15.t2[data;0 1 2]
-.aoc.d15.t2: {[data;outputPrd]
-    state: .aoc.d15.parse data;
+//Example: .aoc.d10.t2[data;0 1 2]
+.aoc.d10.t2: {[data;outputPrd]
+    state: .aoc.d10.parse data;
     rules: state 0;
     bots: state 1;
     bins: state 2;
@@ -269,6 +269,29 @@
     ];
     prd first each bins@-1+neg outputPrd
  };
+
+
+//------------------------------------
+//Task 12
+.aoc.d12.common: {[data;r]
+    data: "\n" vs data;
+    i: 0;
+
+    while[
+        i<count data;
+        cmd: " " vs data@i;
+        if["inc"~cmd 0;r[first cmd 1]:r[first cmd 1] + 1];
+        if["dec"~cmd 0;r[first cmd 1]:r[first cmd 1] - 1];
+        if["cpy"~cmd 0;r[first cmd 2]: $[(first cmd 1) in key r;r[first cmd 1];"J"$cmd 1]];
+        $["jnz"~cmd 0; i: i + $[(r[first cmd 1]=0)|0="J"$first cmd 1;1;"J"$cmd 2]; i:i+1];
+        //0N!(i;r;cmd);
+    ];
+
+    r"a"
+ };
+
+.aoc.d12.t1: .aoc.d12.common[;"abcd"!4#0];
+.aoc.d12.t2: .aoc.d12.common[;"abcd"!0 0 1 0];
 
 
 //------------------------------------
