@@ -318,10 +318,10 @@
  };
 
 
-.aoc.d13.t2: {[number;target]
+.aoc.d13.t2: {[number;stepCount]
     paths: enlist[1 1]!enlist 0;
     positions: enlist 1 1;
-    do[50;
+    do[stepCount;
         result: raze .aoc.d13.nextPositions[;number;paths] each positions;
         paths: paths, result;
         positions: key result;

@@ -75,6 +75,7 @@ dec a"
 //------------------------------------
 //Task 13
 if[not 11 ~ .aoc.d13.t1[10;7 4]; '"[AssertionException] .aoc.d13.t1 case 1"];
+if[not 138 ~ .aoc.d13.t2[1362;50]; '"[AssertionException] .aoc.d13.t2 case 1"];
 
 //------------------------------------
 //Task 19
