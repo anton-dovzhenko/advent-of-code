@@ -59,6 +59,7 @@ vrdear
 dvrsen
 enarar"; '"[AssertionException] .aoc.d6.t1 case 2"];
 
+
 //------------------------------------
 //Task 12
 if[not 42 ~ .aoc.d12.t1
@@ -70,6 +71,10 @@ jnz a 2
 dec a"
     ; '"[AssertionException] .aoc.d12.t1 case 1"];
 
+
+//------------------------------------
+//Task 13
+if[not 11 ~ .aoc.d13.t1[10;7 4]; '"[AssertionException] .aoc.d13.t1 case 1"];
 
 //------------------------------------
 //Task 19

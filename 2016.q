@@ -295,6 +295,42 @@
 
 
 //------------------------------------
+//Task 13
+.aoc.d13.isOpen: {[x;y] 0=mod[sum 2 vs y+(x[0]*x[0])+(3*x[0])+(2*x[0]*x[1])+x[1]+x[1]*x[1];2]};
+.aoc.d13.nextPositions: {[x;number;paths]
+    orig: x;
+    x: x+/:(0 1; 1 0; 0 -1; -1 0);
+    x: x where .aoc.d13.isOpen[;number] each x;
+    x: x where not x in key paths;
+    x: x where all each x>=0;
+    x!(count x)#first 1+paths orig
+ };
+
+.aoc.d13.t1: {[number;target]
+    paths: enlist[1 1]!enlist 0;
+    positions: enlist 1 1;
+    while[not target in key paths;
+        result: raze .aoc.d13.nextPositions[;number;paths] each positions;
+        paths: paths, result;
+        positions: key result;
+    ];
+    paths target
+ };
+
+
+.aoc.d13.t2: {[number;target]
+    paths: enlist[1 1]!enlist 0;
+    positions: enlist 1 1;
+    do[50;
+        result: raze .aoc.d13.nextPositions[;number;paths] each positions;
+        paths: paths, result;
+        positions: key result;
+    ];
+    count paths
+ };
+
+
+//------------------------------------
 //Task 19
 .aoc.d19.t1: {
     first {
