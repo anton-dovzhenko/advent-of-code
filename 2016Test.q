@@ -77,6 +77,13 @@ dec a"
 if[not 11 ~ .aoc.d13.t1[10;7 4]; '"[AssertionException] .aoc.d13.t1 case 1"];
 if[not 138 ~ .aoc.d13.t2[1362;50]; '"[AssertionException] .aoc.d13.t2 case 1"];
 
+
+//------------------------------------
+//Task 14
+if[not 25427 ~ .aoc.d14.t1"yjdafjpo"; '"[AssertionException] .aoc.d14.t1 case 1"];
+if[not 22045 ~ .aoc.d14.t2"yjdafjpo"; '"[AssertionException] .aoc.d14.t2 case 1"];
+
+
 //------------------------------------
 //Task 19
 if[not 3 ~ .aoc.d19.t1 5; '"[AssertionException] .aoc.d19.t1 case 1"];

@@ -330,6 +330,40 @@
  };
 
 
+
+//------------------------------------
+//Task 14
+.aoc.d14.getIndex: {[hashes]
+    hashes: flip{i: {x,$[y;y+last x;0]} over `long$x=next x; (first x where i>=2; distinct x where i>=4)} each hashes;
+    s3: {i: where not x~\:" "; flip(x[i];i)}hashes 0;
+    s5: {(first each key x)!value x}enlist[""]_ group hashes 1;
+    cnt: 0;
+    i: 0;
+    while[(cnt < 64)&i<count s3;
+        isIndex: any (raze s5(s3 i)0) within 1 1000+(s3 i)1;
+        cnt+: isIndex;
+        i +: 1;
+    ];
+    (s3@i-1)1
+ };
+
+
+//N.B. It would be better to start with less hashes and generate more if
+// original amount is excausted. Below 30K of hashes (enough for solving the problem) are always generated
+.aoc.d14.t1: {[salt]
+    hashes: salt,/:string til 30000;
+    hashes: raze each string md5 each hashes;
+    .aoc.d14.getIndex hashes
+ };
+
+
+.aoc.d14.t2: {[salt]
+    hashes: salt,/:string til 30000;
+    hashes: {do[2017; x: raze string md5 x]; x} each hashes;
+    .aoc.d14.getIndex hashes
+ };
+
+
 //------------------------------------
 //Task 19
 .aoc.d19.t1: {
