@@ -36,6 +36,27 @@ if[not 8337=.aoc.d9.t1 read0 hsym`$input.dir,"2017_9.input"; '"[AssertionExcepti
 if[not 4330=.aoc.d9.t2 read0 hsym`$input.dir,"2017_9.input"; '"[AssertionException] .aoc.d9.t2 case 1"];
 
 //------------------------------------
+//Task 12
+if[not 6~.aoc2017.d12.t1
+"0 <-> 2
+1 <-> 1
+2 <-> 0, 3, 4
+3 <-> 2, 4
+4 <-> 2, 3, 6
+5 <-> 6
+6 <-> 4, 5"
+ ; '"[AssertionException] .aoc2017.d12.t1 case 1"];
+if[not 2~.aoc2017.d12.t2
+"0 <-> 2
+1 <-> 1
+2 <-> 0, 3, 4
+3 <-> 2, 4
+4 <-> 2, 3, 6
+5 <-> 6
+6 <-> 4, 5"
+ ; '"[AssertionException] .aoc2017.d12.t2 case 1"];
+
+//------------------------------------
 //Task 15
 if[not 588~.aoc.d15.t1[65;8921;16807;48271]; '"[AssertionException] .aoc.d15.t1 case 1"];
 if[not 309~.aoc.d15.t2[65;8921;16807;48271]; '"[AssertionException] .aoc.d15.t2 case 1"];

@@ -237,6 +237,57 @@
 
 
 //------------------------------------
+//Task 11
+.aoc.d11.t1: {
+    x: count each group`$"," vs x;
+    adjX: `n`ne`se!3#0;
+    adjX[`n]: (0^x`n)-0^x`s;
+    adjX[`ne]: (0^x`ne)-0^x`sw;
+    adjX[`se]: (0^x`se)-0^x`nw;
+
+    if[(signum adjX`n)=(signum adjX `se)
+        ; l: (signum adjX`n)*min abs adjX`n`se
+        ; adjX[`ne]+: l
+        ; adjX[`n]-: l
+        ; adjX[`se]-: l
+    ];
+
+    if[(signum adjX`n)<>(signum adjX `ne)
+        ; l: min abs adjX`n`ne
+        ; adjX[`se]+: (signum adjX`n)*l
+        ; adjX[`n]-: (signum adjX`n)*l
+        ; adjX[`ne]-: (signum adjX`ne)*l
+    ];
+
+    if[(signum adjX`ne)<>(signum adjX `se)
+        ; l: min abs adjX`ne`se
+        ; adjX[`n]+: (neg signum adjX`se)*l
+        ; adjX[`ne]-: (signum adjX`ne)*l
+        ; adjX[`se]-: (signum adjX`se)*l
+    ];
+
+
+    sum abs adjX
+ };
+
+
+//------------------------------------
+//Task 12
+.aoc2017.d12.t1: {
+    x: (!). flip{x:"J"$", " vs/:" <-> " vs x; (first x 0; x 1)}each "\n" vs x;
+    count[x] - count first {(x[1] _ x[0];raze x[0] x[1])}/[(x;0)]
+ };
+
+
+.aoc2017.d12.t2: {
+    x: (!). flip{x:"J"$", " vs/:" <-> " vs x; (first x 0; x 1)}each "\n" vs x;
+    groupCnt: 0;
+    while[0<count x; x: first {(x[1] _ x[0];raze x[0] x[1])}/[(x;enlist first key x)];groupCnt+:1];
+    groupCnt
+ };
+
+
+//------------------------------------
 //Task 15
 .aoc.d15.t1: {[v1;v2;p1;p2]
     matched: 0;
