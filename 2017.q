@@ -288,6 +288,26 @@
 
 
 //------------------------------------
+//Task 13
+.aoc2017.d13.t1: {
+    x: "J"$": " vs/:"\n" vs x;
+    sum prd each x where {{x=`int$x}x[0]%2*x[1]-1} each x
+ };
+
+
+.aoc2017.d13.t2: {
+    x: flip "J"$": " vs/:"\n" vs x;
+    delay: -1;
+    s: 1;
+    while[s<>0;
+        delay+:1;
+        s: sum{{x=`int$x}(x[0]+y)%2*x[1]-1}[x;delay];
+    ];
+    delay
+ };
+
+
+//------------------------------------
 //Task 15
 .aoc.d15.t1: {[v1;v2;p1;p2]
     matched: 0;
