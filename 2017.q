@@ -1,17 +1,18 @@
 //------------------------------------
 //Task 1
-.aoc.d1.t1: {sum x where 0=deltas x: "J"$/:x,x 0};
-.aoc.d1.t2: {sum"J"$/:x where x=(`int$.5*count x)rotate x};
+.aoc2017.d1.t1: {sum x where 0=deltas x: "J"$/:x,x 0};
+//N.B. 0 is prepended to list to avoid issues with empty lists
+.aoc2017.d1.t2: {sum 0,"J"$/:x where x=(`int$.5*count x)rotate x};
 
 //------------------------------------
 //Task 2
-.aoc.d2.t1: {sum {max[x]-min x} each x};
-.aoc.d2.t2: {sum {$[null i:first where 0=mod[(1_x)%x 0;1]; .z.s 1_x; x[i+1]%x 0] } each asc each x};
+.aoc2017.d2.t1: {sum {max[x]-min x} each "J"$"\t" vs/:"\n" vs x};
+.aoc2017.d2.t2: {`long$sum raze{x where {(x=`int$x)&x<>1}x:raze x%/:x} each x:"J"$"\t" vs/:"\n" vs x};
 
 
 //------------------------------------
 //Task 3
-.aoc.d3.t1: {
+.aoc2017.d3.t1: {
     c: 0.5*-1+{$[0=x mod 2;x-1;x]}floor sqrt x-1;
     c1:c1*c1:(1+2*c);
     c2:c2*c2:(1+2*c+1);
@@ -22,7 +23,7 @@
  };
 
 
-.aoc.d3.getNextKeys: {
+.aoc2017.d3.getNextKeys: {
     l: last x;
     n:(l[0]-til y),\:l[1]+1;
     l: last n;
@@ -35,14 +36,14 @@
  };
 
 
-.aoc.d3.resolveValues: {.tmp.dict[x]: sum .tmp.dict x+/:(0 1; -1 1; -1 0; -1 -1; 0 -1; 1 -1; 1 0; 1 1)};
+.aoc2017.d3.resolveValues: {.tmp.dict[x]: sum .tmp.dict x+/:(0 1; -1 1; -1 0; -1 -1; 0 -1; 1 -1; 1 0; 1 1)};
 
 
-.aoc.d3.t2: {[x]
+.aoc2017.d3.t2: {[x]
     .tmp.dict: enlist[0 0]!enlist 1;
     size: 2;
     while[x>max value .tmp.dict;
-        .aoc.d3.resolveValues each .aoc.d3.getNextKeys[key .tmp.dict;size];
+        .aoc2017.d3.resolveValues each .aoc2017.d3.getNextKeys[key .tmp.dict;size];
         size+: 2
     ];
     result: {i:x binr y; x@$[y=x@i;i+1;i]}[value .tmp.dict;x];
@@ -53,14 +54,14 @@
 
 //------------------------------------
 //Task 4
-.aoc.d4.t1: {sum {all 1>=count each group " " vs x} each x};
-.aoc.d4.t2: {sum {all 1>=count each group asc each " " vs x} each x};
+.aoc2017.d4.t1: {`long$sum (count each distinct each x)=count each x:" " vs/:"\n" vs x};
+.aoc2017.d4.t2: {`long$sum {all 1>=count each group asc each " " vs x} each "\n" vs x};
 
 
 //------------------------------------
 //Task 5
-.aoc.d5.t1: {[offsets]
-    offsets: "J"$offsets;
+.aoc2017.d5.t1: {[offsets]
+    offsets: "J"$"\n" vs offsets;
     p: 0; //pointer
     steps: 0;
     while[p within (0;-1+count offsets);
@@ -73,8 +74,8 @@
  };
 
 
-.aoc.d5.t2: {[offsets]
-    offsets: "J"$offsets;
+.aoc2017.d5.t2: {[offsets]
+    offsets: "J"$"\n" vs offsets;
     p: 0; //pointer
     steps: 0;
     while[p within (0;-1+count offsets);
@@ -90,7 +91,7 @@
 
 //------------------------------------
 //Task 6
-.aoc.d6.t1: {
+.aoc2017.d6.t1: {
     L: count x;
     mult: `long$reverse 10 xexp til L;
     conf: sum x * mult;
@@ -108,7 +109,7 @@
  };
 
 
-.aoc.d6.t2: {
+.aoc2017.d6.t2: {
     L: count x;
     mult: `long$reverse 10 xexp til L;
     conf: sum x * mult;
@@ -130,8 +131,8 @@
 
 //------------------------------------
 //Task 7
-.aoc.d7.t1: {
-    x: (!) . flip{x: " -> " vs x; (`$first " " vs x 0;$[1<count x;`$", "vs x 1;0#`])} each x;
+.aoc2017.d7.t1: {
+    x: (!) . flip{x: " -> " vs x; (`$first " " vs x 0;$[1<count x;`$", "vs x 1;0#`])} each "\n" vs x;
     first key {
         if[1=count x;:x];
         del: key[x]@where 0=count each value x;
@@ -142,10 +143,10 @@
  };
 
 
-.aoc.d7.t2: {
+.aoc2017.d7.t2: {
 
-    graph: (!) . flip{x: " -> " vs x; (`$first " " vs x 0;$[1<count x;`$", "vs x 1;0#`])} each x;
-    weights: {(`$x 0)!"J"$x 1}flip{ " (" vs first ")" vs x}each x;
+    graph: (!) . flip{x: " -> " vs x; (`$first " " vs x 0;$[1<count x;`$", "vs x 1;0#`])} each "\n" vs x;
+    weights: {(`$x 0)!"J"$x 1}flip{ " (" vs first ")" vs x}each  "\n" vs x;
 
     // get root and cummulated weights
     tuple: {
@@ -180,7 +181,7 @@
 
 //------------------------------------
 //Task 8
-.aoc.d8.t1: {
+.aoc2017.d8.t1: {
     .tmp.dict: (0#`)!0#0N;
     {
         x: " "vs x;
@@ -193,14 +194,14 @@
         //clause: eval parse string[0^.tmp.dict`$x 4], comp, x 6;
         clause: (first((`$("<";">";">=";"<=";"==";"!="))!({x<y};{x>y};{x>=y};{x<=y};{x=y};{not x=y})) `$x 5) . (0^.tmp.dict`$x 4;"J"$x 6);
         if[clause;.tmp.dict[v]+:mult*i];
-    } each x;
+    } each "\n" vs x;
     m: max .tmp.dict;
     delete dict from `.tmp;
     m
  };
 
 
-.aoc.d8.t2: {
+.aoc2017.d8.t2: {
     .tmp.dict: (0#`)!0#0N;
     .tmp.maxVal: 0;
     {
@@ -209,7 +210,7 @@
         inc: $["inc"~x 1;1;-1]*"J"$x 2;
         clause: (first((`$("<";">";">=";"<=";"==";"!="))!({x<y};{x>y};{x>=y};{x<=y};{x=y};{not x=y})) `$x 5) . (0^.tmp.dict`$x 4;"J"$x 6);
         if[clause;.tmp.dict[v]+: inc; .tmp.maxVal: .tmp.maxVal|.tmp.dict[v]];
-    } each x;
+    } each "\n" vs x;
     m: .tmp.maxVal;
     delete dict, maxVal from `.tmp;
     m
@@ -218,18 +219,18 @@
 
 //------------------------------------
 //Task 9
-.aoc.d9.t1: {
+.aoc2017.d9.t1: {
     x: x where 0=1_{$[x=1;2;$[y="!";1;0]]} scan (0,x);
     x: x where 0=1_{$[x=1;$[y=">";2;1];$[y="<";1;0]]} scan (0,x);
     last {
         if[y="{";x[0]+:1];
         if[(y="}")&x[0]>0;x[1]+:x[0];x[0]-:1];
-
+        x
     }over enlist[(0;0)], x
  };
 
 
-.aoc.d9.t2: {
+.aoc2017.d9.t2: {
     x: x where 0=1_{$[x=1;2;$[y="!";1;0]]} scan (0,x);
     x: 1_{$[x=1;$[y=">";2;1];$[y="<";1;0]]} scan (0,x);
     (sum x>0)-2*sum x=2
@@ -238,7 +239,7 @@
 
 //------------------------------------
 //Task 11
-.aoc.d11.t1: {
+.aoc2017.d11.t1: {
     x: count each group`$"," vs x;
     adjX: `n`ne`se!3#0;
     adjX[`n]: (0^x`n)-0^x`s;
@@ -309,7 +310,7 @@
 
 //------------------------------------
 //Task 15
-.aoc.d15.t1: {[v1;v2;p1;p2]
+.aoc2017.d15.t1: {[v1;v2;p1;p2]
     matched: 0;
     do[40000000;
         v1: mod[v1 * p1; 2147483647];
@@ -320,7 +321,7 @@
  };
 
 
-.aoc.d15.t2: {[v1;v2;p1;p2]
+.aoc2017.d15.t2: {[v1;v2;p1;p2]
     matched: 0;
     do[5000000;
         v1: mod[p1 * v1;2147483647];
@@ -335,7 +336,7 @@
 
 //------------------------------------
 //Task 16
-.aoc.d16.nextOrder: {[p;cmd]
+.aoc2017.d16.nextOrder: {[p;cmd]
     swap: {tmp: x y 0; x[y 0]: x y 1; x[y 1]: tmp; x};
 
     if["s"=cmd 0; :{(count[x]-y) rotate x}[p;"I"$1_cmd]];
@@ -346,12 +347,12 @@
 
 //@x - original order
 //@y - comma delimited commands
-.aoc.d16.t1: {.aoc.d16.nextOrder over enlist[x], "," vs y};
+.aoc2017.d16.t1: {.aoc2017.d16.nextOrder over enlist[x], "," vs y};
 
 
 //@x - original order
 //@y - comma delimited commands
-.aoc.d16.t2: {
+.aoc2017.d16.t2: {
     cmds: "," vs y;
     //check how many cycles are required to return to initial order
     danceCycle: 0;
@@ -359,14 +360,14 @@
     order: initOrder;
     flag: 1b;
     while[flag;
-        order: .aoc.d16.nextOrder over enlist[order], cmds;
+        order: .aoc2017.d16.nextOrder over enlist[order], cmds;
         danceCycle +: 1;
         flag: not order~initOrder;
     ];
     //dance remainder after last cycle
     toDance: 1000000000 mod danceCycle;
     do[toDance;
-        initOrder: .aoc.d16.nextOrder over enlist[initOrder], cmds
+        initOrder: .aoc2017.d16.nextOrder over enlist[initOrder], cmds
     ];
     initOrder
  };
