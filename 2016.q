@@ -1,6 +1,6 @@
 //------------------------------------
 //Task 1
-.aoc.d1.t1: {
+.aoc2016.d1.t1: {
     endBlock: {[x;y]
         dir: x 1;
         turn: `$y 0;
@@ -11,7 +11,7 @@
     sum abs endBlock[0]
  };
 
-.aoc.d1.t2: {
+.aoc2016.d1.t2: {
     dots: {[x;y]
         dir: x 1;
         turn: `$y 0;
@@ -29,7 +29,7 @@
 
 //------------------------------------
 //Task 2
-.aoc.d2.t1: {
+.aoc2016.d2.t1: {
     x,: "\n";
     x: {[x;y]
         point: x 0;
@@ -44,7 +44,7 @@
  };
 
 
-.aoc.d2.t2: {
+.aoc2016.d2.t2: {
     x,: "\n";
     x: {[x;y]
         point: x 0;
@@ -61,25 +61,20 @@
 
 //------------------------------------
 //Task 3
-.aoc.d3.parseInput: {
- -1_{x where not null x} each "J"$"  " vs/: "\n" vs x
+.aoc2016.d3.parseInput: {"J"$" " vs/:"\n" vs x};
+
+.aoc2016.d3.t1: {
+    `long$sum {x: asc x; x[2]<x[0]+x[1]} each .aoc2016.d3.parseInput x
  };
 
 
-.aoc.d3.t1: {
-    x: .aoc.d3.parseInput x;
-    sum {x: asc x; x[2]<x[0]+x[1]} each x
- };
-
-
-.aoc.d3.t2: {
-    x: .aoc.d3.parseInput x;
-    sum {x: asc x; x[2]<x[0]+x[1]} each raze flip each 3 cut x
+.aoc2016.d3.t2: {
+    `long$sum {x: asc x; x[2]<x[0]+x[1]} each raze 3 cut/:flip .aoc2016.d3.parseInput x
  };
 
 //------------------------------------
 //Task 4
-.aoc.d4.t1: {
+.aoc2016.d4.t1: {
     x: "\n" vs x;
     sum {
         x: "-" vs x;
@@ -93,7 +88,7 @@
  };
 
 
-.aoc.d4.t2: {
+.aoc2016.d4.t2: {
     x: "\n" vs x;
     words: flip `w`ID ! flip {
         x: "-" vs x;
@@ -115,18 +110,18 @@
 
 //------------------------------------
 //Task 5
-.aoc.d5.t1: {
+.aoc2016.d5.t1: {
     password: "";
     i: 0;
     while[8>count password;
-        if[(md: raze string md5 phrase,string i) like "00000*"; password,: md 5];
+        if[(md: raze string md5 x,string i) like "00000*"; password,: md 5];
         i+:1
     ];
     password
  };
 
 
-.aoc.d5.t2: {
+.aoc2016.d5.t2: {
     password: 8#" ";
     i: 0;
     while[0<sum password=" ";
@@ -141,30 +136,28 @@
 
 //------------------------------------
 //Task 6
-.aoc.d6.t1: {
+.aoc2016.d6.t1: {
     raze {key[x] where min[i]=i:count each value x}each group each flip"\n" vs x
  };
 
-.aoc.d6.t2: {
+.aoc2016.d6.t2: {
     raze {key[x] where max[i]=i:count each value x}each group each flip"\n" vs x
  };
 
 
 //------------------------------------
 //Task 7
-.aoc.d7.t1: {
-    x: "\n" vs x;
-    sum {
+.aoc2016.d7.t1: {
+    `long$sum {
         x: raze"]" vs/:"[" vs x;
         x: where {any {(x[y]=x[y+3])&(x[y+1]=x[y+2])&(x[y]<>x[y+1])}[x] each til 0|-3+count x} each x;
         (any mod[x;2]=0)& not any mod[x;2]=1
-    } each x
+    } each "\n" vs x
  };
 
 
-.aoc.d7.t2: {
-    x: "\n" vs x;
-    sum {
+.aoc2016.d7.t2: {
+    `long$sum {
         x: raze"]" vs/:"[" vs x;
         x1: x@2*til `long$0.5*count x;
         x2: x@1+2*til `long$0.5*count x;
@@ -172,33 +165,31 @@
         x1: raze {[aba;x] i:aba x; (x@i),'x@i+1}[aba]each x1;
         x2: raze {[aba;x] i:aba x; (x@i+1),'x@i}[aba]each x2;
         0<count x1 inter x2
-    } each x
+    } each "\n" vs x
  };
 
 
 //------------------------------------
 //Task 8
-.aoc.d8.t1: {
-   x: "\n" vs x;
+.aoc2016.d8.t1: {
    actions:  {
         if[x like "rect*"; :({x[til z;til y]: not x[til z;til y]; x};"J"$"x" vs (count"rect ")_x)];
         if[x like "rotate row*"; :({x[y]: neg[z] rotate x[y]; x};"J"$"by" vs (count"rotate row y=")_x)];
         if[x like "rotate column*"; :({x[;y]: neg[z] rotate x[;y]; x};"J"$"by" vs (count"rotate column x=")_x)];
         '"[IllegalArgumentException]"
-    } each x;
+    } each "\n" vs x;
     m: 50 cut (6 * 50)#0b;
-    sum sum each {y[0] . (enlist[x],y[1])}over(enlist[m], actions)
+    `long$sum sum each {y[0] . (enlist[x],y[1])}over(enlist[m], actions)
  };
 
 
-.aoc.d8.t2: {
-   x: "\n" vs x;
+.aoc2016.d8.t2: {
    actions:  {
         if[x like "rect*"; :({x[til z;til y]: not x[til z;til y]; x};"J"$"x" vs (count"rect ")_x)];
         if[x like "rotate row*"; :({x[y]: neg[z] rotate x[y]; x};"J"$"by" vs (count"rotate row y=")_x)];
         if[x like "rotate column*"; :({x[;y]: neg[z] rotate x[;y]; x};"J"$"by" vs (count"rotate column x=")_x)];
         '"[IllegalArgumentException]"
-    } each x;
+    } each "\n" vs x;
     m: 50 cut (6 * 50)#0b;
     "\n"sv (01b!"~#") {y[0] . (enlist[x],y[1])}over(enlist[m], actions)
  };
@@ -208,7 +199,7 @@
 //Task 10
 //bots are marked with same number: key 1 corresponds to bot 1
 //bins are marked with (-1 - number): key -1 corresponds to bin 0, key -2 to bin 1 etc.
-.aoc.d10.parse: {[data]
+.aoc2016.d10.parse: {[data]
     parsed: {
         $["bot"~x 0;
             (`r; "J"$x 1; {i: "J"$x 6 11; isBot: "bot"~/:x 5 10; ?[isBot;i; -1+neg i]}x);
@@ -222,9 +213,9 @@
  };
 
 
-//Example: .aoc.d15.t1[data;17 61]
-.aoc.d10.t1: {[data;target]
-    state: .aoc.d10.parse data;
+//Example: .aoc2016.d15.t1[data;17 61]
+.aoc2016.d10.t1: {[data;target]
+    state: .aoc2016.d10.parse data;
     rules: state 0;
     bots: state 1;
     bins: state 2;
@@ -247,9 +238,9 @@
  };
 
 
-//Example: .aoc.d10.t2[data;0 1 2]
-.aoc.d10.t2: {[data;outputPrd]
-    state: .aoc.d10.parse data;
+//Example: .aoc2016.d10.t2[data;0 1 2]
+.aoc2016.d10.t2: {[data;outputPrd]
+    state: .aoc2016.d10.parse data;
     rules: state 0;
     bots: state 1;
     bins: state 2;
@@ -273,7 +264,7 @@
 
 //------------------------------------
 //Task 12
-.aoc.d12.common: {[data;r]
+.aoc2016.d12.common: {[data;r]
     data: "\n" vs data;
     i: 0;
 
@@ -290,27 +281,27 @@
     r"a"
  };
 
-.aoc.d12.t1: .aoc.d12.common[;"abcd"!4#0];
-.aoc.d12.t2: .aoc.d12.common[;"abcd"!0 0 1 0];
+.aoc2016.d12.t1: .aoc2016.d12.common[;"abcd"!4#0];
+.aoc2016.d12.t2: .aoc2016.d12.common[;"abcd"!0 0 1 0];
 
 
 //------------------------------------
 //Task 13
-.aoc.d13.isOpen: {[x;y] 0=mod[sum 2 vs y+(x[0]*x[0])+(3*x[0])+(2*x[0]*x[1])+x[1]+x[1]*x[1];2]};
-.aoc.d13.nextPositions: {[x;number;paths]
+.aoc2016.d13.isOpen: {[x;y] 0=mod[sum 2 vs y+(x[0]*x[0])+(3*x[0])+(2*x[0]*x[1])+x[1]+x[1]*x[1];2]};
+.aoc2016.d13.nextPositions: {[x;number;paths]
     orig: x;
     x: x+/:(0 1; 1 0; 0 -1; -1 0);
-    x: x where .aoc.d13.isOpen[;number] each x;
+    x: x where .aoc2016.d13.isOpen[;number] each x;
     x: x where not x in key paths;
     x: x where all each x>=0;
     x!(count x)#first 1+paths orig
  };
 
-.aoc.d13.t1: {[number;target]
+.aoc2016.d13.t1: {[number;target]
     paths: enlist[1 1]!enlist 0;
     positions: enlist 1 1;
     while[not target in key paths;
-        result: raze .aoc.d13.nextPositions[;number;paths] each positions;
+        result: raze .aoc2016.d13.nextPositions[;number;paths] each positions;
         paths: paths, result;
         positions: key result;
     ];
@@ -318,11 +309,11 @@
  };
 
 
-.aoc.d13.t2: {[number;stepCount]
+.aoc2016.d13.t2: {[number;stepCount]
     paths: enlist[1 1]!enlist 0;
     positions: enlist 1 1;
     do[stepCount;
-        result: raze .aoc.d13.nextPositions[;number;paths] each positions;
+        result: raze .aoc2016.d13.nextPositions[;number;paths] each positions;
         paths: paths, result;
         positions: key result;
     ];
@@ -330,10 +321,9 @@
  };
 
 
-
 //------------------------------------
 //Task 14
-.aoc.d14.getIndex: {[hashes]
+.aoc2016.d14.getIndex: {[hashes]
     hashes: flip{i: {x,$[y;y+last x;0]} over `long$x=next x; (first x where i>=2; distinct x where i>=4)} each hashes;
     s3: {i: where not x~\:" "; flip(x[i];i)}hashes 0;
     s5: {(first each key x)!value x}enlist[""]_ group hashes 1;
@@ -350,23 +340,38 @@
 
 //N.B. It would be better to start with less hashes and generate more if
 // original amount is excausted. Below 30K of hashes (enough for solving the problem) are always generated
-.aoc.d14.t1: {[salt]
+.aoc2016.d14.t1: {[salt]
     hashes: salt,/:string til 30000;
     hashes: raze each string md5 each hashes;
-    .aoc.d14.getIndex hashes
+    .aoc2016.d14.getIndex hashes
  };
 
 
-.aoc.d14.t2: {[salt]
+.aoc2016.d14.t2: {[salt]
     hashes: salt,/:string til 30000;
     hashes: {do[2017; x: raze string md5 x]; x} each hashes;
-    .aoc.d14.getIndex hashes
+    .aoc2016.d14.getIndex hashes
  };
 
 
 //------------------------------------
+//Task 15
+.aoc2016.d15.t1: {
+    x: {"J"$(1_x 1;x 3;-1_5_x 6;-1_x 11)}each " " vs/:"\n" vs x;
+    x: flip`id`pmod`t`p!flip x;
+    t: 0;
+    x: update p: (p+id) mod pmod from x;
+    while[0<sum x`p;t+: 1; x: update p: (p+1) mod pmod from x];
+    t
+ };
+
+
+.aoc2016.d15.t2: {.aoc2017.d15.t1 x, "\nDisc #7 has 11 positions; at time=0, it is at position 0."};
+
+
+//------------------------------------
 //Task 19
-.aoc.d19.t1: {
+.aoc2016.d19.t1: {
     first {
         i: til count x;
         odd: mod[count x;2] = 1;
@@ -378,7 +383,7 @@
 
 // Idea is to always keep available elements split in 2.
 // Where first half starting from active element goes to first queue, and rest to second.
-.aoc.d19.t2: {
+.aoc2016.d19.t2: {
     x: 1 + til x;
     l: ceiling 0.5*count x;
     x1: l#x;
@@ -409,7 +414,7 @@
 
 //------------------------------------
 //Task 20
-.aoc.d20.getBlackList: {
+.aoc2016.d20.getBlackList: {
    x: "J"$"-"vs/:"\n" vs x;
    1_{
        l: last x;
@@ -423,14 +428,14 @@
 
 
 
-.aoc.d20.t1: {
-    bl: .aoc.d20.getBlackList x;
+.aoc2016.d20.t1: {
+    bl: .aoc2016.d20.getBlackList x;
     bl[0;1]+1
  };
 
 
-.aoc.d20.t2: {
-    bl: .aoc.d20.getBlackList x;
+.aoc2016.d20.t2: {
+    bl: .aoc2016.d20.getBlackList x;
     4294967296 - (last deltas sum bl)+count bl
  };
 
