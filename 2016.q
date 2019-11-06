@@ -366,7 +366,7 @@
  };
 
 
-.aoc2016.d15.t2: {.aoc2017.d15.t1 x, "\nDisc #7 has 11 positions; at time=0, it is at position 0."};
+.aoc2016.d15.t2: {.aoc2016.d15.t1 x, "\nDisc #7 has 11 positions; at time=0, it is at position 0."};
 
 
 //------------------------------------
