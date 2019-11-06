@@ -92,7 +92,7 @@ if[not 3~.aoc2016.d7.t2 .aoc2016.d7.input2; '"[AssertionException] .aoc2016.d7.t
 "rect 3x2
 rotate column x=1 by 1
 rotate row y=0 by 4
-rotate column x=1 by 1"
+rotate column x=1 by 1";
 if[not 6~.aoc2016.d8.t1 .aoc2016.d8.input; '"[AssertionException] .aoc2016.d8.t1"];
 0N!".aoc2016.d8 passed";
 
@@ -139,3 +139,16 @@ if[not 1842613 ~ .aoc2016.d19.t1 3018458; '"[AssertionException] .aoc2016.d19.t1
 if[not 2 ~ .aoc2016.d19.t2 5; '"[AssertionException] .aoc2016.d19.t2 case 1"];
 if[not 1424135 ~ .aoc2016.d19.t2 3018458; '"[AssertionException] .aoc2016.d19.t2 case 2"];
 0N!".aoc2016.d19 passed";
+
+
+//------------------------------------
+//Task 20
+.aoc2016.d20.input:
+"5-8
+0-2
+4-7";
+if[not 3 ~ .aoc2016.d20.t1 .aoc2016.d20.input; '"[AssertionException] .aoc2016.d20.t1"];
+if[not 4294967288 ~ .aoc2016.d20.t2 .aoc2016.d20.input; '"[AssertionException] .aoc2016.d20.t2"];
+0N!".aoc2016.d20 passed";
+
+
