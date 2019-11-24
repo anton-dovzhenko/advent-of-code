@@ -469,6 +469,53 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
+//------------------------------------
+//Task 22
+.aoc2015.d22.t0: {[ploss;phit;pmana;bhit;bdamage]
+    .cache.setup: flip `name`cost`damage`armor`heal`mana`turns!(
+        `$("Magic Missile"; "Drain"; "Shield"; "Poison"; "Recharge");
+        53 73 113 173 229;
+        4 2 0 3 0;
+        0 0 7 0 0;
+        0 2 0 0 0;
+        0 0 0 0 101;
+        1 1 6 6 5);
+    .cache.min: 0W;
+
+    minMana: {[pTurn;phit;ploss;pmana;bhit;bdamage;spent;active]
+
+        phit: phit-ploss;
+        if[(spent>.cache.min) | phit<1; :0W];
+
+        bhit: bhit - sum active`damage;
+        if[bhit<1; .cache.min: .cache.min&spent; :spent];
+
+        pheal: sum active`heal;
+        parmor: sum active`armor;
+        pmana: pmana+sum active`mana;
+
+        if[not pTurn; phit: (phit+pheal)-(1|bdamage-parmor)];
+        if[phit<1; :0W];
+
+        active: update turns - 1 from active;
+        active: delete from active where turns<1;
+
+        if[not pTurn; :.z.s[not pTurn;phit;ploss;pmana;bhit;bdamage;spent;active]];
+
+        toTry: select from .cache.setup where not name in active`name, cost<=pmana;
+        if[0=count toTry; :0W];
+        min .z.s[not pTurn;phit;ploss;;bhit;bdamage]'[pmana-toTry`cost;spent+toTry`cost;active,/:toTry]
+
+    }[1b;phit;ploss;pmana;bhit;bdamage;0;0#.cache.setup];
+
+    delete from `.cache;
+
+    minMana
+ };
+
+.aoc2015.d22.t1: .aoc2015.d22.t0[0];
+.aoc2015.d22.t2: .aoc2015.d22.t0[1];
+
 
 //------------------------------------
 //Task 23

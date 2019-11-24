@@ -42,6 +42,12 @@ if[not 148=.aoc.d21.t2`; '"[AssertionException] .aoc.d21.t2 case 1"];
 
 
 //------------------------------------
+//Task 22
+if[not 1269~.aoc2015.d22.t1[50;500;58;9]; '"[AssertionException] .aoc2015.d22.t1"];
+if[not 1309~.aoc2015.d22.t2[50;500;58;9]; '"[AssertionException] .aoc2015.d22.t2"];
+0N!".aoc2015.d22 passed";
+
+//------------------------------------
 //Task 23
 if[not 0=.aoc.d23.t1 "inc a\njio a, +2\ntpl a\ninc a"; '"[AssertionException] .aoc.d23.t1 case 1"];
 
