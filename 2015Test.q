@@ -47,6 +47,7 @@ if[not 1269~.aoc2015.d22.t1[50;500;58;9]; '"[AssertionException] .aoc2015.d22.t1
 if[not 1309~.aoc2015.d22.t2[50;500;58;9]; '"[AssertionException] .aoc2015.d22.t2"];
 0N!".aoc2015.d22 passed";
 
+
 //------------------------------------
 //Task 23
 if[not 0=.aoc.d23.t1 "inc a\njio a, +2\ntpl a\ninc a"; '"[AssertionException] .aoc.d23.t1 case 1"];
@@ -58,3 +59,9 @@ if[not 11846773891=.aoc.d24.t1
     1 2 3 7 11 13 17 19 23 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113; '"[AssertionException] .aoc.d24.t1 case 1"];
 if[not 80393059=.aoc.d24.t2
     1 2 3 7 11 13 17 19 23 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113; '"[AssertionException] .aoc.d24.t2 case 1"];
+
+
+//------------------------------------
+//Task 25
+if[not 9132360~.aoc2015.d25.t1[2981;3075]; '"[AssertionException] .aoc2015.d25"];
+0N!".aoc2015.d22 passed";

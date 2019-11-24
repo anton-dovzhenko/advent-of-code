@@ -571,3 +571,13 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 .aoc.d24.t1: .aoc.d24.t0[;3];
 .aoc.d24.t2: .aoc.d24.t0[;4];
 
+
+//------------------------------------
+//Task 25
+.aoc2015.d25.t1: {[r;c]
+    d: c + r - 1;
+    N: (sum sums (d-1)#1) + c;
+    code: 20151125;
+    do[N-1; code: (code*252533) mod 33554393];
+    code
+};
