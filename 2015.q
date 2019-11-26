@@ -580,4 +580,4 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
     code: 20151125;
     do[N-1; code: (code*252533) mod 33554393];
     code
-};
+ };
