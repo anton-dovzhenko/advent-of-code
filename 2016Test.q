@@ -98,6 +98,15 @@ if[not 6~.aoc2016.d8.t1 .aoc2016.d8.input; '"[AssertionException] .aoc2016.d8.t1
 
 
 //------------------------------------
+//Task 9
+if[not 7 6 9 6 18 ~ .aoc2016.d9.t1
+    each ("A(1x5)BC";"ADVENT";"(3x3)XYZ";"(6x1)(1x3)A";"X(8x2)(3x3)ABCY"); '"[AssertionException] .aoc2016.d9.t1"];
+if[not 9 20 241920 445 ~ .aoc2016.d9.t2
+    each ("(3x3)XYZ"; "X(8x2)(3x3)ABCY";"(27x12)(20x12)(13x14)(7x10)(1x12)A";"(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN"); '"[AssertionException] .aoc2016.d9.t2"];
+0N!".aoc2016.d9 passed";
+
+
+//------------------------------------
 //Task 12
 .aoc2016.d12.input:
 "cpy 41 a
@@ -130,6 +139,29 @@ if[not 22045 ~ .aoc2016.d14.t2"yjdafjpo"; '"[AssertionException] .aoc2016.d14.t2
 if[not 5 ~ .aoc2016.d15.t1 .aoc2016.d15.input; '"[AssertionException] .aoc2016.d15.t1"];
 if[not 15 ~ .aoc2016.d15.t2 .aoc2016.d15.input; '"[AssertionException] .aoc2016.d15.t2"];
 0N!".aoc2016.d15 passed";
+
+
+//------------------------------------
+//Task 16
+if[not 10101001010100001b~.aoc2016.d16.t1[10001001100000001b;272]; '"[AssertionException] .aoc2016.d16.t1"];
+if[not 10100001110101001b~.aoc2016.d16.t2[10001001100000001b;35651584]; '"[AssertionException] .aoc2016.d16.t2"];
+0N!".aoc2016.d16 passed";
+
+
+//------------------------------------
+//Task 17
+if[not "RLRDRDUDDR"~.aoc2016.d17.t1"rrrbmfta"; '"[AssertionException] .aoc2016.d17.t1"];
+if[not 420~.aoc2016.d17.t2"rrrbmfta"; '"[AssertionException] .aoc2016.d17.t2"];
+0N!".aoc2016.d17 passed";
+
+
+//------------------------------------
+//Task 18
+if[not 2013~.aoc2016.d18.t1[".^^^.^.^^^.^.......^^.^^^^.^^^^..^^^^^.^.^^^..^^.^.^^..^.^..^^...^.^^.^^^...^^.^.^^^..^^^^.....^....";40]
+    ; '"[AssertionException] .aoc2016.d18.t1"];
+if[not 20006289~.aoc2016.d18.t2[".^^^.^.^^^.^.......^^.^^^^.^^^^..^^^^^.^.^^^..^^.^.^^..^.^..^^...^.^^.^^^...^^.^.^^^..^^^^.....^....";400000]
+    ; '"[AssertionException] .aoc2016.d18.t2"];
+0N!".aoc2016.d18 passed";
 
 
 //------------------------------------

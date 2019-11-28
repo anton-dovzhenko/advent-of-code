@@ -196,6 +196,41 @@
 
 
 //------------------------------------
+//Task 9
+//N.B.: code could be speed-up as actual strings are not required.
+.aoc2016.d9.t1: {[w]
+    d: "";
+    while[0<count w;
+
+        m: w?"()";
+        $[count[w]>first  m;
+            [marker: w@1+m[0]+til -1+m[1]-m[0];
+            marker: "J"$"x" vs marker;
+            d,: m[0]#w;
+            w: (m[1]+1)_w;
+            d,: (prd marker)#(marker[0]#w);
+            w: marker[0]_w;];
+            [d,: w; w: ""]
+        ]
+    ];
+    count d
+ };
+
+
+.aoc2016.d9.t2: {[w]
+    c: 0;
+    while[all "()" in w;
+        m: w?"()";
+        marker: w@1+m[0]+til -1+m[1]-m[0];
+        marker: "J"$"x" vs marker;
+        c+: m[0];
+        w: ((prd marker)#(marker[0]#(1+m[1])_w)), (marker[0]+m[1]+1)_w
+    ];
+    c+count w
+ };
+
+
+//------------------------------------
 //Task 10
 //bots are marked with same number: key 1 corresponds to bot 1
 //bins are marked with (-1 - number): key -1 corresponds to bin 0, key -2 to bin 1 etc.
@@ -367,6 +402,88 @@
 
 
 .aoc2016.d15.t2: {.aoc2016.d15.t1 x, "\nDisc #7 has 11 positions; at time=0, it is at position 0."};
+
+
+//------------------------------------
+//Task 16
+.aoc2016.d16.t1: {
+    while[y>count x; x:  {x,0b,reverse not x}x];
+    x: y#x;
+    while[0=count[x] mod 2; x: {{x[0]=x[1]}each 2 cut x}x];
+    x
+ };
+
+
+.aoc2016.d16.t2: .aoc2016.d16.t1;
+
+
+//------------------------------------
+//Task 17
+.aoc2016.d17.t1: {
+    state: enlist(0 0;x);
+
+    while[not any state[;0]~\:3 3;
+        state: raze {
+            pos: x 0;
+            code: x 1;
+            code: raze 2#string md5 code;
+            open: code in "bcdef";
+            //:open;
+            positions: ();
+            if[(open 0)&pos[0]>0; positions: positions,enlist(pos - 1 0; x[1],"U")];
+            if[(open 1)&pos[0]<3; positions: positions,enlist(pos + 1 0; x[1],"D")];
+            if[(open 2)&pos[1]>0; positions: positions,enlist(pos - 0 1; x[1],"L")];
+            if[(open 3)&pos[1]<3; positions: positions,enlist(pos + 0 1; x[1],"R")];
+            positions
+        } each state;
+    ];
+    count[x]_(last first state where state[;0]~\:3 3)
+ };
+
+
+.aoc2016.d17.t2: {
+     state: enlist(0 0;x);
+     completedStates: ();
+
+     while[0<count state;
+         state: raze {
+             pos: x 0;
+             code: x 1;
+             code: raze 2#string md5 code;
+             open: code in "bcdef";
+             //:open;
+             positions: ();
+             if[(open 0)&pos[0]>0; positions: positions,enlist(pos - 1 0; x[1],"U")];
+             if[(open 1)&pos[0]<3; positions: positions,enlist(pos + 1 0; x[1],"D")];
+             if[(open 2)&pos[1]>0; positions: positions,enlist(pos - 0 1; x[1],"L")];
+             if[(open 3)&pos[1]<3; positions: positions,enlist(pos + 0 1; x[1],"R")];
+             positions
+         } each state;
+         completedStates,: last each state where 3 3~/:state[;0];
+         state: state where not state[;0]~\:3 3;
+     ];
+     (max count each completedStates)-count x
+ };
+
+
+//------------------------------------
+//Task 18
+.aoc2016.d18.t1: {
+    x: ".",x,".";
+    rows: y;
+    cnt: 0;
+    while[y>0;
+        cnt: cnt+sum"."=x;
+        t: raze x ss/:("^..";"..^";".^^";"^^.");
+        x: count[x]#".";
+        x[(t+1) except 0, count[x]-1]: "^";
+        y-:1;
+    ];
+    cnt-rows*2
+ };
+
+
+.aoc2016.d18.t2: .aoc2016.d18.t1;
 
 
 //------------------------------------
