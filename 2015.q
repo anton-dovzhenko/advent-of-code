@@ -1,25 +1,47 @@
-//Task 1.1
-0 0 3 3 3 -1 -1 -3 -3~{sum("()"!1 -1)x}each("(())";"()()";"(((";"(()(()(";"))(((((";"())";"))(";")))";")())())")
-//Task 1.2
-1 5~{1+(sums("()"!1 -1)x)?-1}each(enlist")";"()())")
+//------------------------------------
+//Task 1
+.aoc2015.d1.t1: {sum("()"!1 -1)x};
+.aoc2015.d1.t2: {1+(sums("()"!1 -1)x)?-1};
 
 
-//Task 2.1
-101~sum{(3*prd x 0 1)+2*x[2]*x[0]+ (x:asc"J"$"x"vs x)1}each("2x3x4";"1x1x10")
-//Task 2.2
-34 14 ~ {(2*sum x 0 1)+prd x:asc"J"$"x"vs x}each("2x3x4";"1x1x10")
+//------------------------------------
+//Task 2
+.aoc2015.d2.t1: {
+    x: "\n" vs x;
+    x: flip asc each "J"$"x" vs/:x;
+    `long$2 * sum (1.5*x[0]*x[1]) + (x[1]*x[2]) + (x[2]*x[0])
+ };
 
 
-//Task 3.1
-2 4 2~{count distinct sums enlist[0 0],("^>v<"!(0 1;1 0;0 -1; -1 0))x}each(">";"^>v<";"^v^v^v^v^v")
-//Task 3.2
-{count distinct raze {sums enlist[0 0],("^>v<"!(0 1;1 0;0 -1; -1 0))x} each flip 2 cut x}"^v^v^v^v^v"
+.aoc2015.d2.t2: {
+    x: "\n" vs x;
+    x: flip asc each "J"$"x" vs/:x;
+    (sum prd x) + 2*sum x[0]+x[1]
+ };
 
 
-//Task 4.1 (inefficient approach)
-{first where "00000"~/:5#'raze each string md5 each x,/:string til 1000000}"iwrupvqb"
-//Task 4.2 (inefficient approach)
-first where "000000"~/:6#'raze each string md5 each "iwrupvqb",/:string 9000000+til 1000000
+//------------------------------------
+//Task 3
+.aoc2015.d3.t1: {
+    count distinct sums enlist[0 0],("^>v<"!(0 1;1 0;0 -1; -1 0))x
+ };
+
+
+.aoc2015.d3.t2: {
+    count distinct raze {sums enlist[0 0],("^>v<"!(0 1;1 0;0 -1; -1 0))x} each flip 2 cut x
+ };
+
+
+//------------------------------------
+//Task 4
+.aoc2015.d4.t1: {
+    first where "00000"~/:5#'raze each string md5 each x,/:string til 1000000
+ };
+
+
+.aoc2015.d4.t2: {
+    first where "000000"~/:6#'raze each string md5 each x,/:string 9000000+til 1000000
+ };
 
 
 //Task 6.1
@@ -31,43 +53,43 @@ sum {?[((floor I%1000) within y[1][0 2])&mod[I;1000] within y[1][1 3];y[0]@x;x]}
 
 //------------------------------------
 //Task 7
-.aoc.d7.bitwise: {x: 2 vs x; y: 2 vs y; cnt: max count each (x;y); 2 sv z[((cnt-count x)#0), x; ((cnt-count y)#0), y]};
-.aoc.d7.band: .aoc.d7.bitwise[;;&];
-.aoc.d7.bor: .aoc.d7.bitwise[;;|];
-.aoc.d7.lshift: {2 sv (2 vs x),y#0};
-.aoc.d7.rshift: {2 sv neg[y] _ 2 vs x};
-.aoc.d7.bnot: {2 sv not ((16-count x)#0), x:2 vs x};
+.aoc2015.d7.bitwise: {x: 2 vs x; y: 2 vs y; cnt: max count each (x;y); 2 sv z[((cnt-count x)#0), x; ((cnt-count y)#0), y]};
+.aoc2015.d7.band: .aoc2015.d7.bitwise[;;&];
+.aoc2015.d7.bor: .aoc2015.d7.bitwise[;;|];
+.aoc2015.d7.lshift: {2 sv (2 vs x),y#0};
+.aoc2015.d7.rshift: {2 sv neg[y] _ 2 vs x};
+.aoc2015.d7.bnot: {2 sv not ((16-count x)#0), x:2 vs x};
 
-.aoc.d7.t1: {[data;x]
-    .aoc.d7.data: "\n" vs data;
-    .aoc.d7.data: {(`$x 1)!x 0} flip " -> " vs/:.aoc.d7.data;
-    .aoc.d7.cache: enlist[`]!enlist`long$();
+.aoc2015.d7.t1: {[data;x]
+    .aoc2015.d7.data: "\n" vs data;
+    .aoc2015.d7.data: {(`$x 1)!x 0} flip " -> " vs/:.aoc2015.d7.data;
+    .aoc2015.d7.cache: enlist[`]!enlist`long$();
     res: {
-        expr: .aoc.d7.data x;
+        expr: .aoc2015.d7.data x;
 
-        if[x in key .aoc.d7.cache; :.aoc.d7.cache x];
-        if[not x in key .aoc.d7.data; :"J"$string x];
+        if[x in key .aoc2015.d7.cache; :.aoc2015.d7.cache x];
+        if[not x in key .aoc2015.d7.data; :"J"$string x];
         res: "J"$expr;
-        if[not null res; .aoc.d7.cache[x]: res; :res];
+        if[not null res; .aoc2015.d7.cache[x]: res; :res];
 
         subexpr: " "vs expr;
-        if[expr like "* AND *"; .aoc.d7.cache[x]: .aoc.d7.band . .z.s each `$subexpr 0 2];
-        if[expr like "* OR *"; .aoc.d7.cache[x]: .aoc.d7.bor . .z.s each `$subexpr 0 2];
-        if[expr like "* LSHIFT *"; .aoc.d7.cache[x]: .aoc.d7.lshift . (.z.s `$subexpr 0;"J"$subexpr 2)];
-        if[expr like "* RSHIFT *"; .aoc.d7.cache[x]: .aoc.d7.rshift . (.z.s `$subexpr 0;"J"$subexpr 2)];
-        if[expr like "NOT *"; .aoc.d7.cache[x]: .aoc.d7.bnot .z.s `$subexpr 1];
-        if[not x in key .aoc.d7.cache; .aoc.d7.cache[x]: .z.s `$expr];
-        .aoc.d7.cache x
+        if[expr like "* AND *"; .aoc2015.d7.cache[x]: .aoc2015.d7.band . .z.s each `$subexpr 0 2];
+        if[expr like "* OR *"; .aoc2015.d7.cache[x]: .aoc2015.d7.bor . .z.s each `$subexpr 0 2];
+        if[expr like "* LSHIFT *"; .aoc2015.d7.cache[x]: .aoc2015.d7.lshift . (.z.s `$subexpr 0;"J"$subexpr 2)];
+        if[expr like "* RSHIFT *"; .aoc2015.d7.cache[x]: .aoc2015.d7.rshift . (.z.s `$subexpr 0;"J"$subexpr 2)];
+        if[expr like "NOT *"; .aoc2015.d7.cache[x]: .aoc2015.d7.bnot .z.s `$subexpr 1];
+        if[not x in key .aoc2015.d7.cache; .aoc2015.d7.cache[x]: .z.s `$expr];
+        .aoc2015.d7.cache x
     } x;
-    delete data, cache from `.aoc.d7;
+    delete data, cache from `.aoc2015.d7;
     res
  };
 
-.aoc.d7.t2: .aoc.d7.t1;
+.aoc2015.d7.t2: .aoc2015.d7.t1;
 
 //------------------------------------
 //Task 8
-.aoc.d8.t1: {
+.aoc2015.d8.t1: {
     sum[count each x] -
     sum {
         cnt: 0;
@@ -85,7 +107,7 @@ sum {?[((floor I%1000) within y[1][0 2])&mod[I;1000] within y[1][1 3];y[0]@x;x]}
  };
 
 
-.aoc.d8.t2: {sum[{2+count[x]+sum x in ("\\";"\"")} each x] - sum count each x};
+.aoc2015.d8.t2: {sum[{2+count[x]+sum x in ("\\";"\"")} each x] - sum count each x};
 
 
 
@@ -114,7 +136,7 @@ count {[x;y]encode0 x}over enlist["J"$/:"1113122113"], til 50
 
 //------------------------------------
 //Task 11
-.aoc.d11.t1: {
+.aoc2015.d11.t1: {
     alphabet: {x!til count x}.Q.a;
     alphabet2: value[alphabet]!key alphabet;
     nextPassword: {x: reverse 1 _ {$[26=x;y+1;y]} scan (26, reverse x); x[where x=26]: 0; x};
@@ -135,7 +157,7 @@ count {[x;y]encode0 x}over enlist["J"$/:"1113122113"], til 50
  };
 
 
-.aoc.d11.t2: {.aoc.d11.t1 .aoc.d11.t1 x};
+.aoc2015.d11.t2: {.aoc2015.d11.t1 .aoc2015.d11.t1 x};
 
 
 //Task 12.1
@@ -179,7 +201,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 
 //------------------------------------
 //Task 14
-.aoc.d14.t1: {[x;time]
+.aoc2015.d14.t1: {[x;time]
     x: "\n" vs x;
     x: {x: " " vs x; ("J"$x 3;"J"$x 6;"J"$x 13) } each x;
     max{[time;reideer]
@@ -195,7 +217,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
-.aoc.d14.t2: {[x;time]
+.aoc2015.d14.t2: {[x;time]
     x: "\n" vs x;
     x: flip `speed`fly`rest!flip {x: " " vs x; ("J"$x 3;"J"$x 6;"J"$x 13) } each x;
     x: update mode: 1b, timeLeft: fly, distance: 0, score: 0 from x;
@@ -216,7 +238,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 //Faster functional form
-.aoc.d14.t2: {[x;time]
+.aoc2015.d14.t2: {[x;time]
     x: "\n" vs x;
     x: flip `speed`fly`rest!flip {x: " " vs x; ("J"$x 3;"J"$x 6;"J"$x 13) } each x;
     x: update mode: 1b, timeLeft: fly, distance: 0, score: 0 from x;
@@ -239,7 +261,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 //------------------------------------
 //Task 15
 // Brute-force
-.aoc.d15.t1: {
+.aoc2015.d15.t1: {
     x: flip "J"${last each" " vs/:x}each "," vs/: "\n" vs x;
     x: -1 _ x;
     .tmp.max: 0;
@@ -249,7 +271,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
-.aoc.d15.t2: {
+.aoc2015.d15.t2: {
     x: flip "J"${last each" " vs/:x}each "," vs/: "\n" vs x;
     calories: last x;
     x: -1 _ x;
@@ -262,7 +284,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 
 //------------------------------------
 //Task 16
-.aoc.d16.parse: {
+.aoc2015.d16.parse: {
     x: "\n" vs x;
     update sue: i+1 from (uj/) {
         ci: first x?":";
@@ -273,8 +295,8 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
-.aoc.d16.t1: {
-    x: .aoc.d16.parse x;
+.aoc2015.d16.t1: {
+    x: .aoc2015.d16.parse x;
     exec sue from x where
         ((children=3)|null children)
         &((cats=7)|null cats)
@@ -288,8 +310,8 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
         &((perfumes=1)|null perfumes)
  };
 
-.aoc.d16.t2: {
-    x: .aoc.d16.parse x;
+.aoc2015.d16.t2: {
+    x: .aoc2015.d16.parse x;
     exec sue from x where
         ((children=3)|null children)
         &((cats>7)|null cats)
@@ -306,7 +328,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 
 //------------------------------------
 //Task 17
-.aoc.d17.t1: {
+.aoc2015.d17.t1: {
     c: "J"$"\n" vs x;
     sum {[x;c]
         if[x = 0; :1];
@@ -318,7 +340,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
-.aoc.d17.t2: {
+.aoc2015.d17.t2: {
     c: "J"$"\n" vs x;
     c: {[x;c;n]
         if[x = 0; :n];
@@ -333,7 +355,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 
 //------------------------------------
 //Task 18
-.aoc.d18.t1: {
+.aoc2015.d18.t1: {
     x: (".#"!01b)"\n" vs x;
     neighbours: (-1 0 1 cross -1 0 1) except enlist 0 0;
     do[100;
@@ -346,7 +368,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
-.aoc.d18.t2: {
+.aoc2015.d18.t2: {
     x: (".#"!01b)"\n" vs x;
     neighbours: (-1 0 1 cross -1 0 1) except enlist 0 0;
     x[0;0]: 1b;
@@ -368,7 +390,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 //Task 19
 // @m - molecule
 // @r - replacements in "x => y\n..." format
-.aoc.d19.t1: {[m;r]
+.aoc2015.d19.t1: {[m;r]
     r: " => " vs/:"\n" vs r;
     count distinct raze {[m;r]
         i: m ss r 0;
@@ -379,7 +401,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 
 //------------------------------------
 //Task 20
-.aoc.d20.t1: {
+.aoc2015.d20.t1: {
     p: 0;
     h: 0;
     while[p < x
@@ -393,7 +415,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
     h
  };
 
-.aoc.d20.t2: {
+.aoc2015.d20.t2: {
     p: 0;
     h: 0;
     while[p < x
@@ -412,7 +434,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 //------------------------------------
 //Task 21
 
-.aoc.d21.t1: {
+.aoc2015.d21.t1: {
     w: flip (8 10 25 40 74; 4 5 6 7 8; 0 0 0 0 0);
     a: flip (0 13 31 53 75 102; 0 0 0 0 0 0; 0 1 2 3 4 5);
     r: flip (0 25 50 100 20 40 80; 0 1 2 3 0 0 0; 0 0 0 0 1 2 3);
@@ -440,7 +462,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
  };
 
 
-.aoc.d21.t2: {
+.aoc2015.d21.t2: {
     w: flip (8 10 25 40 74; 4 5 6 7 8; 0 0 0 0 0);
     a: flip (0 13 31 53 75 102; 0 0 0 0 0 0; 0 1 2 3 4 5);
     r: flip (0 25 50 100 20 40 80; 0 1 2 3 0 0 0; 0 0 0 0 1 2 3);
@@ -519,7 +541,7 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
 
 //------------------------------------
 //Task 23
-.aoc.d23.t0: {[r;x]
+.aoc2015.d23.t0: {[r;x]
     x: "\n"vs x;
     x: " " vs/:x;
     i: 0;
@@ -542,13 +564,13 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
     last r
  };
 
-.aoc.d23.t1: .aoc.d23.t0[0 0];
-.aoc.d23.t2: .aoc.d23.t0[1 0];
+.aoc2015.d23.t1: .aoc2015.d23.t0[0 0];
+.aoc2015.d23.t2: .aoc2015.d23.t0[1 0];
 
 
 //------------------------------------
 //Task 24
-.aoc.d24.t0: {[data;N]
+.aoc2015.d24.t0: {[data;N]
     s: sum data;
     t: `int$s%N;
 
@@ -568,8 +590,8 @@ max{sum x@/: (reverse each y),y:(y,'(1_y),y 0)}[input]each permutations
     min prd each res where (count each res)=min count each res
  };
 
-.aoc.d24.t1: .aoc.d24.t0[;3];
-.aoc.d24.t2: .aoc.d24.t0[;4];
+.aoc2015.d24.t1: .aoc2015.d24.t0[;3];
+.aoc2015.d24.t2: .aoc2015.d24.t0[;4];
 
 
 //------------------------------------
