@@ -184,3 +184,18 @@ if[not 4294967288 ~ .aoc2016.d20.t2 .aoc2016.d20.input; '"[AssertionException] .
 0N!".aoc2016.d20 passed";
 
 
+//------------------------------------
+//Task 21
+.aoc2016.d21.operations: ("swap position 4 with position 0"
+    ;"swap letter d with letter b"
+    ;"reverse positions 0 through 4"
+    ;"rotate left 1 step"
+    ;"move position 1 to position 4"
+    ;"move position 3 to position 0"
+    ;"rotate based on position of letter b"
+    ;"rotate based on position of letter d"
+);
+if[not "decab"~.aoc2016.d21.t1["abcde";.aoc2016.d21.operations] ; '"[AssertionException] .aoc2016.d21.t1"];
+if[not "abcde"~.aoc2016.d21.t2["decab";.aoc2016.d21.operations] ; '"[AssertionException] .aoc2016.d21.t2"];
+0N!".aoc2016.d21 passed";
+

@@ -556,3 +556,36 @@
     4294967296 - (last deltas sum bl)+count bl
  };
 
+
+//------------------------------------
+//Task 21
+.aoc2016.d21.t1: {[password;operations]
+    {[x;y]
+        y: " " vs y;
+        if[("swap"~y 0)&"position"~y 1; x["J"$y 2 5]: x"J"$y 5 2];
+        if[("swap"~y 0)&"letter"~y 1; x[x?raze y 2 5]: raze y 5 2];
+        rotateLeft: {[x;y] do[y; x: (1_x),1#x]; x};
+        rotateRight: {[x;y] do[y; x: (-1#x),-1_x]; x};
+        if[("rotate"~y 0)&"left"~y 1; x: rotateLeft[x;"J"$y 2] ];
+        if[("rotate"~y 0)&"right"~y 1; x:  rotateRight[x;"J"$y 2] ];
+        if[("rotate"~y 0)&"based"~y 1; pos: first x?y 6; x: rotateRight[x;pos+1+$[pos>=4;1;0]]];
+        if[("move"~y 0)&"position"~y 1; pos: "J"$y 2 5;
+            x: $[pos[0] < pos[1];
+                (pos[0]#x), ((pos[0]+1) _ (pos[1]+1)#x), x[pos 0], (pos[1]+1)_x;
+                (pos[1]#x), x[pos 0], (pos[1]_pos[0]#x), (1+pos[0])_x
+            ];
+
+        ];
+        if["reverse"~y 0; pos: "J"$y 2 4; x: (pos[0]#x), reverse[pos[0]_(1+pos 1)#x], (1+pos 1)_x];
+        x
+    } over enlist[password], operations
+ };
+
+
+.aoc2016.d21.t2: {[scrambled;operations]
+    len: count scrambled;
+    perms: (len-1){[x;y] raze {enlist[x] cross y except x}[;y] each x} [;len#.Q.a]/len#.Q.a;
+    passwords: .aoc2016.d21.t1[;operations] each perms;
+    first perms@where passwords~\:scrambled
+ };
+
