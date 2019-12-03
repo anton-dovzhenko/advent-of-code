@@ -20,3 +20,29 @@
     ];
     first x
 };
+
+
+//------------------------------------
+//Task 3
+.aoc2019.d3.t1: {[x;y]
+    getPath: {[x;y]
+        d: ("ULDR"!(0 1;-1 0;0 -1;1 0))y 0;
+        l: "J"$1_y;
+        x, last[x]+/:d*/:1+til l
+    };
+    p0: getPath/[(enlist enlist 0 0),"," vs x];
+    p1: getPath/[(enlist enlist 0 0),"," vs y];
+    min sum each abs (1_p0) inter 1_p1
+ };
+
+.aoc2019.d3.t2: {[x;y]
+    getPath: {[x;y]
+        d: ("ULDR"!(0 1;-1 0;0 -1;1 0))y 0;
+        l: "J"$1_y;
+        x, last[x]+/:d*/:1+til l
+    };
+    p0: getPath/[(enlist enlist 0 0),"," vs x];
+    p1: getPath/[(enlist enlist 0 0),"," vs y];
+    k: (1_p0) inter 1_p1;
+    min (min each (group p0)k)+(min each (group p1)k)
+ };
