@@ -109,3 +109,28 @@
     dc
  };
 
+
+//------------------------------------
+//Task 6
+.aoc2019.d6.t1: {
+    x: "\n" vs x;
+    x:`$")" vs/:x;
+    x: update c: 0 from flip`k`v!flip x;
+    x: {
+        d: x 0;
+        n: x 1;
+        d[`c]: d[`c]+0^1+n@/:d`k;
+        (d;(d[`v] where d[`k] in key n)!d[`c] where d[`k] in key n)
+    }/[(x;(1#`COM)!1#0)];
+    sum(x 0)`c
+ };
+
+
+.aoc2019.d6.t2: {
+    x: "\n" vs x;
+    x: (!). reverse flip`$")" vs/:x;
+    p1: -1_{x y}[x]scan `SAN;
+    p2: -1_{x y}[x]scan `YOU;
+    pi: p1 inter p2;
+    -2+min ((p1!til count p1)pi) + (p2!til count p2)pi
+ };

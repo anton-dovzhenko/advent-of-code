@@ -26,3 +26,36 @@ if[not 610~.aoc2019.d3.t2["R75,D30,R83,U83,L12,D49,R71,U7,L72";"U62,R66,U55,R34,
 if[not 6745903 ~.aoc2019.d5.t1[.aoc2019.d5.input;1]; '"[AssertionException] .aoc2019.d5.t1"];
 if[not 9168267 ~.aoc2019.d5.t2[.aoc2019.d5.input;5]; '"[AssertionException] .aoc2019.d5.t2"];
 0N!".aoc2019.d5 passed";
+
+
+//------------------------------------
+//Task 6
+if[not 42 ~.aoc2019.d6.t1
+"COM)B
+B)C
+C)D
+D)E
+E)F
+B)G
+G)H
+D)I
+E)J
+J)K
+K)L"
+; '"[AssertionException] .aoc2019.d6.t1"];
+if[not 4 ~.aoc2019.d6.t2
+"COM)B
+B)C
+C)D
+D)E
+E)F
+B)G
+G)H
+D)I
+E)J
+J)K
+K)L
+K)YOU
+I)SAN"
+; '"[AssertionException] .aoc2019.d6.t2"];
+0N!".aoc2019.d6 passed";
