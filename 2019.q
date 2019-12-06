@@ -49,6 +49,16 @@
 
 
 //------------------------------------
+//Task 4
+// @x - range start
+// @y - range end
+.aoc2019.d4.t1: {
+    n: flip string x+til 1+y-x;
+    `long$sum((&/)(-1_n)<=1_n) & (|/)(-1_n)=1_n
+ };
+
+
+//------------------------------------
 //Task 5
 .aoc2019.d5.t1: {
     x: "J"$"," vs x;
@@ -79,7 +89,7 @@
     x: "J"$"," vs x;
     i: 0;
     dc: 0N;
-    //N.B. Anonymous function is used, because limitation is code amount inside while loop.
+    //N.B. Anonymous function is used, because code amount limitation in while loop
     while[i<count x;
         $[x[i]=99
             ; i: 0W
