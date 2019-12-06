@@ -46,3 +46,66 @@
     k: (1_p0) inter 1_p1;
     min (min each (group p0)k)+(min each (group p1)k)
  };
+
+
+//------------------------------------
+//Task 5
+.aoc2019.d5.t1: {
+    x: "J"$"," vs x;
+    i: 0;
+    dc: 0N;
+    while[i<count x;
+        $[x[i]=99
+            ; i: 0W
+            ; [
+                cmd: {x: ((5-count x)#"0"),x:string x; (reverse "0"=3#x), "J"$-2#x} x@i;
+                C: cmd 3;
+                i1:$[cmd 0; x@i+1; i+1];
+                i2:$[cmd 1; x@i+2; i+2];
+                i3:$[cmd 2; x@i+3; i+3];
+                if[C=1; x[i3]: x[i1]+x[i2]; i+: 4];
+                if[C=2; x[i3]: x[i1]*x[i2]; i+: 4];
+                if[C=3; x[i1]: y; i+: 2];
+                if[C=4; dc: x @i1; i+: 2];
+            ]
+        ];
+
+    ];
+    dc
+ };
+
+
+.aoc2019.d5.t2: {
+    x: "J"$"," vs x;
+    i: 0;
+    dc: 0N;
+    //N.B. Anonymous function is used, because limitation is code amount inside while loop.
+    while[i<count x;
+        $[x[i]=99
+            ; i: 0W
+            ; [
+                res: {[x;y;i]
+                    C: {x: ((5-count x)#"0"),x:string x; (reverse "0"=3#x), "J"$-2#x} x@i;
+                    i1:$[C 0; x@i+1; i+1];
+                    i2:$[C 1; x@i+2; i+2];
+                    i3:$[C 2; x@i+3; i+3];
+                    C: C 3;
+                    if[C=1; :(i3;x[i1]+x[i2];i+4;0N)];
+                    if[C=2; :(i3;x[i1]*x[i2];i+4;0N)];
+                    if[C=3; :(i1; y; i+2; 0N)];
+                    if[C=4; :(0N;0N;i+2;x@i1)];
+                    if[C=5; :(0N;0N;$[0<>x@i1; x@i2; i+3];0N)];
+                    if[C=6; :(0N;0N;$[0=x@i1; x@i2; i+3];0N)];
+                    if[C=7; :(x@i+3;`int$x[i1]<x@i2;i+4;0N)];
+                    if[C=8; :(x@i+3;`int$x[i1]=x@i2;i+4;0N)];
+                }[x;y;i];
+                if[not null res 0; x[res 0]: res 1];
+                i: res 2;
+                dc: dc^res 3;
+            ]
+        ];
+
+    ];
+    dc
+ };
+
