@@ -1,4 +1,23 @@
 //------------------------------------
+//Common
+.aoc2019.computer: {[x;y;i]
+    C: {x: ((5-count x)#"0"),x:string x; (reverse "0"=3#x), "J"$-2#x} x@i;
+    i1:$[C 0; x@i+1; i+1];
+    i2:$[C 1; x@i+2; i+2];
+    i3:$[C 2; x@i+3; i+3];
+    C: C 3;
+    if[C=1; :(i3;x[i1]+x[i2];i+4;0N;y)];
+    if[C=2; :(i3;x[i1]*x[i2];i+4;0N;y)];
+    if[C=3; :(i1; first y; i+2; 0N;1 _ y)];
+    if[C=4; :(0N;0N;i+2;x@i1;y)];
+    if[C=5; :(0N;0N;$[0<>x@i1; x@i2; i+3];0N;y)];
+    if[C=6; :(0N;0N;$[0=x@i1; x@i2; i+3];0N;y)];
+    if[C=7; :(x@i+3;`int$x[i1]<x@i2;i+4;0N;y)];
+    if[C=8; :(x@i+3;`int$x[i1]=x@i2;i+4;0N;y)];
+    '"[Error] Illegal Command", string x@i
+ };
+
+//------------------------------------
 //Task 1
 .aoc2019.d1.t1: {{sum -2+ floor x%3}"J"$"\n" vs x};
 .aoc2019.d1.t2: {sum {x: -2+ floor x%3; $[x<=0;0;x+.z.s x]} each "J"$"\n" vs x};
@@ -143,4 +162,36 @@
     p2: -1_{x y}[x]scan `YOU;
     pi: p1 inter p2;
     -2+min ((p1!til count p1)pi) + (p2!til count p2)pi
+ };
+
+
+//------------------------------------
+//Task 7
+.aoc2019.d7.t1: {
+    x: "J"$"," vs x;
+    perm: {(x-1){raze y,/:'x except/:y}[til x]/til x};
+    max {
+        input: 0;
+        pi: 0;
+        do[5;
+            input: {
+                i: 0;
+                dc: 0N;
+                //N.B. Anonymous function is used, because code amount limitation in while loop
+                while[i<count x;
+                    $[x[i]=99; i: 0W;
+                        [
+                            res: .aoc2019.computer[x;y;i];
+                            if[not null res 0; x[res 0]: res 1];
+                            i: res 2; dc: dc^res 3; y: res 4;
+                        ]
+                    ];
+
+                ];
+                dc
+            }[x; y[pi], input];
+            pi+:1
+        ];
+        input
+    }[x] each perm 5
  };
