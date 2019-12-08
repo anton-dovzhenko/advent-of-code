@@ -195,3 +195,17 @@
         input
     }[x] each perm 5
  };
+
+
+//------------------------------------
+//Task 8
+.aoc2019.d8.t1: {[x;w;h]
+    x: (w*h) cut x;
+    l: {first where x=min x}sum each "0"=x;
+    `long$(sum"1"=x@l)*(sum"2"=x@l)
+ };
+
+
+.aoc2019.d8.t2: {[x;w;h]
+    "\n" sv w cut ("01"!" #") x@'first each where each not "2"=x: flip (w*h) cut x
+ };
