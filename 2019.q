@@ -209,3 +209,40 @@
 .aoc2019.d8.t2: {[x;w;h]
     "\n" sv w cut ("01"!" #") x@'first each where each not "2"=x: flip (w*h) cut x
  };
+
+
+//------------------------------------
+//Task 10
+.aoc2019.d10.t1: {
+    x: where each "#"=/:"\n" vs x;
+    x: reverse each raze {x,'y}'[til count x;x];
+    max -1+{x: x-/:y; count distinct 1e-6*`long$1e6* x%sqrt sum each x*x}[;x] each x
+};
+
+//@x - asteroid map
+//@y - laser position
+//@z - bet asteroid index
+.aoc2019.d10.t2: {
+    x: where each "#"=/:"\n" vs x;
+    x: reverse each raze {x,'y}'[til count x;x];
+    x: x except enlist y; //remove laser position
+    // p -point, v - vector, d - distance, q - quarter, t - tangent
+    space: flip`p`v! (x; x-\:y);
+    space: update d: {sqrt sum x*x}each v from space;
+    space: update q: ?[(v[;0]>=0)&v[;1]<=0;0
+            ;?[(v[;0]>=0)&v[;1]>=0;1
+                ;?[(v[;0]<=0)&v[;1]>=0;2;3]]] from space;
+    space: update t: v[;1]%v[;0] from space;
+    Q: 0;
+    Points: ();
+
+    while[0<count space
+        ; vaporized: (`t xasc select from space where q=Q, d=(min;d) fby t)`p
+        ; Points: Points, vaporized;
+        ; space: delete from space where p in `g#vaporized;
+        ; Q: (Q+1) mod 4
+    ];
+
+    {y+100*x} . Points@z-1
+
+};
