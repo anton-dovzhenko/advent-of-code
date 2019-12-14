@@ -217,7 +217,8 @@
     x: where each "#"=/:"\n" vs x;
     x: reverse each raze {x,'y}'[til count x;x];
     max -1+{x: x-/:y; count distinct 1e-6*`long$1e6* x%sqrt sum each x*x}[;x] each x
-};
+ };
+
 
 //@x - asteroid map
 //@y - laser position
@@ -245,4 +246,40 @@
 
     {y+100*x} . Points@z-1
 
-};
+ };
+
+
+//------------------------------------
+//Task 14
+.aoc2019.d14.parse: {
+    x: "\n" vs x;
+    x: flip`cntOut`Out`cntIn`In! raze flip each flip{({("J"$x 0;`$x 1)}" " vs x 0;{("J"$x 0;`$x 1)}flip" " vs/:", "vs x 1)}each {reverse " => " vs x}each x;
+    x,: flip`cntOut`Out`cntIn`In! enlist each (1;`ORE;enlist 1;enlist `ORE);
+    x
+ };
+
+
+.aoc2019.d14.getMinOre: {
+    res: {[x;y;z]
+        if[all`ORE=key x;:x;];
+        bal: y;
+        bal: {(where x>0)#x}bal - x;
+        x: {(where x>0)#x} x - y;
+        y: bal;
+
+        res: select cntOut*ceiling({x y}[x] each Out)%cntOut, cntIn*ceiling({x y}[x] each Out)%cntOut, In, Out from z where Out in key x;
+        res: update bal: cntOut-({x y}[x] each Out)from res;
+        y: y+(!) . res`Out`bal;
+        y: {(where x>0)#x} y;
+        res: (+/)(!)./:flip res`In`cntIn;
+        .z.s[res;y;z]
+
+    }[enlist[`FUEL]!1#y;enlist[`]!1#0N;x];
+    res`ORE
+ };
+
+
+.aoc2019.d14.t1: {
+    x: .aoc2019.d14.parse x;
+    .aoc2019.d14.getMinOre[x;y]
+ };

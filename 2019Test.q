@@ -112,3 +112,32 @@ if[not 828 ~ .aoc2019.d8.t1[.aoc2019.d8.input;25;6]; '"[AssertionException] .aoc
 if[not 280 ~ .aoc2019.d10.t1 .aoc2019.d10.input; '"[AssertionException] .aoc2019.d10.t1"];
 if[not 706 ~ .aoc2019.d10.t2[.aoc2019.d10.input;20 18; 200]; '"[AssertionException] .aoc2019.d10.t2"];
 0N!".aoc2019.d10 passed";
+
+
+//------------------------------------
+//Task 14
+if[not 31 ~
+.aoc2019.d14.t1[
+"10 ORE => 10 A
+1 ORE => 1 B
+7 A, 1 B => 1 C
+7 A, 1 C => 1 D
+7 A, 1 D => 1 E
+7 A, 1 E => 1 FUEL";1]; '"[AssertionException] .aoc2019.d14.t1 case 1"];
+
+if[not 13312 ~
+.aoc2019.d14.t1[
+"157 ORE => 5 NZVS
+165 ORE => 6 DCFZ
+44 XJWVT, 5 KHKGT, 1 QDVJ, 29 NZVS, 9 GPVTF, 48 HKGWZ => 1 FUEL
+12 HKGWZ, 1 GPVTF, 8 PSHF => 9 QDVJ
+179 ORE => 7 PSHF
+177 ORE => 5 HKGWZ
+7 DCFZ, 7 PSHF => 2 XJWVT
+165 ORE => 2 GPVTF
+3 DCFZ, 7 NZVS, 5 HKGWZ, 10 PSHF => 8 KHKGT";1]; '"[AssertionException] .aoc2019.d14.t1 case 2"];
+
+0N!".aoc2019.d14 passed";
+
+
+
