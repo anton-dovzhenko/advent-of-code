@@ -249,6 +249,18 @@
  };
 
 
+
+//------------------------------------
+//Task 12
+.aoc2019.d12.t1: {
+    x: {"J"$2_'", " vs x} each 1_'-1_'"\n" vs x;
+    v: 3 cut 12#0;
+    do[y; v: v+{sum signum x-\:y}[x] each x; x: x +v];
+    sum (sum each abs x)*(sum each abs v)
+ };
+
+
+
 //------------------------------------
 //Task 14
 .aoc2019.d14.parse: {

@@ -113,6 +113,14 @@ if[not 280 ~ .aoc2019.d10.t1 .aoc2019.d10.input; '"[AssertionException] .aoc2019
 if[not 706 ~ .aoc2019.d10.t2[.aoc2019.d10.input;20 18; 200]; '"[AssertionException] .aoc2019.d10.t2"];
 0N!".aoc2019.d10 passed";
 
+//------------------------------------
+//Task 12
+if[not 179 ~ .aoc2019.d12.t1[
+"<x=-1, y=0, z=2>
+<x=2, y=-10, z=-7>
+<x=4, y=-8, z=8>
+<x=3, y=5, z=-1>";10]; '"[AssertionException] .aoc2019.d12.t1"];
+0N!".aoc2019.d12 passed";
 
 //------------------------------------
 //Task 14
