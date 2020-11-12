@@ -238,6 +238,27 @@
 
 
 //------------------------------------
+//Task 10
+.aoc2017.d10.t1: {[size;steps]
+
+    list: first(count steps){
+        L: x 0; // list
+        sk: x 1; // skip
+        st: first x 2; //steps
+        L:(reverse st#L), st _ L;
+        st: (sk+st) mod count L;
+        L: (st _ L), st#L;
+        (L;sk+1;1 _ x 2)
+
+    }/(til size;0;steps);
+
+    i: ((sum steps + til count steps) mod count list);
+    prd 2#(neg i)#list
+
+} ;
+
+
+//------------------------------------
 //Task 11
 .aoc2017.d11.t1: {
     x: count each group`$"," vs x;
