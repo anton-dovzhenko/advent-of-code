@@ -26,3 +26,18 @@
         1=count pos inter 1+where p=L
     } each ": " vs/:"\n" vs x
  };
+
+
+//------------------------------------
+//Task 3
+.aoc2020.d3.t1: {
+    x: "\n" vs x;
+    `long$sum"#"=x@'mod[3*til count x;count first x]
+ };
+
+
+.aoc2020.d3.t2: {
+    x: "\n" vs x;
+    treeCnt: {[x;s;w] `long$sum"#"=x@'mod[s*til count x;w]}[;;count first x];
+    prd (treeCnt[x] each 1 3 5 7), treeCnt[x@where 0=til[count x] mod 2;1]
+ };
