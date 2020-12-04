@@ -37,9 +37,7 @@
 
 
 .aoc2020.d3.t2: {
-    x: "\n" vs x;
-    treeCnt: {[x;s;w] `long$sum"#"=x@'mod[s*til count x;w]}[;;count first x];
-    prd (treeCnt[x] each 1 3 5 7), treeCnt[x@where 0=til[count x] mod 2;1]
+    prd {[x;r;d] "j"$sum"#"=x@'(r*til count x: first each d cut x) mod count first x}["\n" vs x]'[1 3 5 7 1;1 1 1 1 2]
  };
 
 
