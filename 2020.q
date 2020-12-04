@@ -60,6 +60,6 @@
          ("J"$eyr) within 2020 2030,
          ((hgt like "*cm")&(("J"$-2_'hgt) within 150 193))|((hgt like "*in")&(("J"$-2_'hgt) within 59 76)),
          hcl like (raze"#", 6#enlist"[0-9a-f]"),
-         ecl in (" " vs "amb blu brn gry grn hzl oth"),
-         pid like (raze 9#enlist"[0-9]")
+         ecl in " " vs "amb blu brn gry grn hzl oth",
+         pid like raze 9#enlist"[0-9]"
  };
