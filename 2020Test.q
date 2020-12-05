@@ -80,3 +80,8 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719";
 if[not 2 ~ .aoc2020.d4.t1 .input.aoc2020.d4.task1; '"[AssertionException] .aoc2020.d4.task1"];
 if[not 0 ~ .aoc2020.d4.t2 .input.aoc2020.d4.invalid; '"[AssertionException] .aoc2020.d4.task2_invalid"];
 if[not 4 ~ .aoc2020.d4.t2 .input.aoc2020.d4.valid; '"[AssertionException] .aoc2020.d4.task2_valid"];
+
+
+//------------------------------------
+//Task 5
+if[not 820 ~ .aoc2020.d5.t1 "BFFFBBFRRR\nFFFBBBFRRR\nBBFFBBFRLL"; '"[AssertionException] .aoc2020.d5.task1"];

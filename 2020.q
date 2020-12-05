@@ -61,3 +61,25 @@
          ecl in " " vs "amb blu brn gry grn hzl oth",
          pid like raze 9#enlist"[0-9]"
  };
+
+
+//------------------------------------
+//Task 5
+.aoc2020.d5.t1: {
+    max {
+        bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
+        sum (first bs["B"]/[enlist[0 127], 7#x];first bs["R"]/[enlist[0 7], 7_x]) * 8 1
+    } each "\n" vs x
+ };
+
+
+.aoc2020.d5.t2: {
+    x: {
+        bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
+        sum (first bs["B"]/[enlist[0 127], 7#x];first bs["R"]/[enlist[0 7], 7_x]) * 8 1
+    } each "\n" vs x;
+    // Find missing element
+    ((1 + count x) * avg (max[x];min[x])) - sum x
+ };
+
+
