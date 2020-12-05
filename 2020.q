@@ -79,7 +79,7 @@
         sum (first bs["B"]/[enlist[0 127], 7#x];first bs["R"]/[enlist[0 7], 7_x]) * 8 1
     } each "\n" vs x;
     // Find missing element
-    ((1 + count x) * avg (max[x];min[x])) - sum x
+    "j"$((1 + count x) * 0.5 * max[x] + min[x]) - sum x
  };
 
 
