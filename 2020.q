@@ -68,15 +68,16 @@
 .aoc2020.d5.t1: {
     max {
         bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
-        sum (first bs["B"]/[enlist[0 127], 7#x];first bs["R"]/[enlist[0 7], 7_x]) * 8 1
+        sum 8 1 * first each (bs["B"]/[enlist[0 127], 7#x];bs["R"]/[enlist[0 7], 7_x])
     } each "\n" vs x
  };
+
 
 
 .aoc2020.d5.t2: {
     x: {
         bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
-        sum (first bs["B"]/[enlist[0 127], 7#x];first bs["R"]/[enlist[0 7], 7_x]) * 8 1
+        sum 8 1 * first each (bs["B"]/[enlist[0 127], 7#x];bs["R"]/[enlist[0 7], 7_x])
     } each "\n" vs x;
     // Find missing element
     "j"$((1 + count x) * 0.5 * max[x] + min[x]) - sum x
