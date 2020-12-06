@@ -76,7 +76,7 @@
 .aoc2020.d5.t2: {
     x: {
         bs: {$[y;(ceiling avg x;x 1);(x 0;floor avg x)]};
-        sum 8 1 * first each (bs/[enlist[0 127], 7#x];bs/[enlist[0 7], 7_x])
+        sum 8 1 * first each (bs/) each (enlist[0 127], 7#x; enlist[0 7], 7_x)
     } each ("\n" vs x) in "BR";
     // Find missing element
     "j"$((1 + count x) * 0.5 * max[x] + min[x]) - sum x
