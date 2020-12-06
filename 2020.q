@@ -67,17 +67,17 @@
 //Task 5
 .aoc2020.d5.t1: {
     max {
-        bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
-        sum 8 1 * first each (bs["B"]/[enlist[0 127], 7#x];bs["R"]/[enlist[0 7], 7_x])
-    } each "\n" vs x
+        bs: {$[y;(ceiling avg x;x 1);(x 0;floor avg x)]};
+        sum 8 1 * first each (bs/) each (enlist[0 127], 7#x; enlist[0 7], 7_x)
+    } each ("\n" vs x) in "BR"
  };
 
 
 .aoc2020.d5.t2: {
     x: {
-        bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
-        sum 8 1 * first each (bs["B"]/[enlist[0 127], 7#x];bs["R"]/[enlist[0 7], 7_x])
-    } each "\n" vs x;
+        bs: {$[y;(ceiling avg x;x 1);(x 0;floor avg x)]};
+        sum 8 1 * first each (bs/[enlist[0 127], 7#x];bs/[enlist[0 7], 7_x])
+    } each ("\n" vs x) in "BR";
     // Find missing element
     "j"$((1 + count x) * 0.5 * max[x] + min[x]) - sum x
  };
