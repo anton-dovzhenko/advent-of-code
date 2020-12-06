@@ -85,3 +85,26 @@ if[not 4 ~ .aoc2020.d4.t2 .input.aoc2020.d4.valid; '"[AssertionException] .aoc20
 //------------------------------------
 //Task 5
 if[not 820 ~ .aoc2020.d5.t1 "BFFFBBFRRR\nFFFBBBFRRR\nBBFFBBFRLL"; '"[AssertionException] .aoc2020.d5.task1"];
+
+
+//------------------------------------
+//Task 6
+.input.aoc2020.d6:
+"abc
+
+a
+b
+c
+
+ab
+ac
+
+a
+a
+a
+a
+
+b";
+if[not 11 ~ .aoc2020.d6.t1 .input.aoc2020.d6; '"[AssertionException] .aoc2020.d6.task1"];
+if[not 6 ~ .aoc2020.d6.t2 .input.aoc2020.d6; '"[AssertionException] .aoc2020.d6.task2"];
+

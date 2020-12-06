@@ -73,7 +73,6 @@
  };
 
 
-
 .aoc2020.d5.t2: {
     x: {
         bs: {$[z=x;(ceiling avg y;y 1);(y 0;floor avg y)]};
@@ -84,3 +83,7 @@
  };
 
 
+//------------------------------------
+//Task 6
+.aoc2020.d6.t1: {sum count each distinct each raze each "\n" vs/:"\n\n" vs x};
+.aoc2020.d6.t2: {sum count each (inter/) each "\n" vs/:"\n\n" vs x};
