@@ -98,10 +98,12 @@
  };
 
 
+// ugly-looking, but fast
 .aoc2020.d7.t2: {
-    x: {(`$-6_x 0; `$" " sv/:(" " vs/:"," vs x 1)[;2 3]; 1^"J"$(" " vs/:"," vs x 1)[;1])} each "contain" vs/:"\n" vs x;
+    x: "\n" vs x;
+    x: x where not x like "*no other bags.";
+    x: {(`$-6_x 0; `$" " sv/:(" " vs/:"," vs x 1)[;2 3]; 1^"J"$(" " vs/:"," vs x 1)[;1])} each "contain" vs/:x;
     x: ungroup flip `bp`bc`cc!flip x;
-    x: delete from x where bc like "other bags.";
     x: {
         x: update cc: cc*y[1]@/:bp from x;
         x: 0!select sum cc by bc from x where not null cc;
@@ -112,6 +114,7 @@
  };
 
 
+// nice-looking, but slow
 .aoc2020.d7.t2_v2: {
     x: "\n" vs x;
     x: x where not x like "*no other bags.";
