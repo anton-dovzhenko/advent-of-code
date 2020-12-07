@@ -110,3 +110,12 @@
     }[x] over (0;(!) . enlist each (`$"shiny gold";1));
     x 0
  };
+
+
+.aoc2020.d7.t2_v2: {
+    x: {(`$-6_x 0; raze (1^"J"$(" " vs/:"," vs x 1)[;1])#'`$" " sv/:(" " vs/:"," vs x 1)[;2 3])} each "contain" vs/:"\n" vs x;
+    x: (!) . flip x;
+    x: x except\:`$"other bags.";
+    x: {raze x@y}[x] scan `$"shiny gold";
+    -1 + sum count each x
+ };

@@ -122,3 +122,4 @@ faded blue bags contain no other bags.
 dotted black bags contain no other bags.";
 if[not 4 ~ .aoc2020.d7.t1 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.task1"];
 if[not 32 ~ .aoc2020.d7.t2 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.task2"];
+if[not 32 ~ .aoc2020.d7.t2_v2 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.v2task2"];
