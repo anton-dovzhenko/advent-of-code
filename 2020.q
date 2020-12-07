@@ -87,3 +87,26 @@
 //Task 6
 .aoc2020.d6.t1: {sum count each distinct each raze each "\n" vs/:"\n\n" vs x};
 .aoc2020.d6.t2: {sum count each (inter/) each "\n" vs/:"\n\n" vs x};
+
+
+//------------------------------------
+//Task 7
+.aoc2020.d7.t1: {
+    x: {(-6_x 0; " " sv/:(" "vs/:"," vs x 1)[;2 3])} each "contain" vs/:"\n" vs x;
+    x: ungroup flip `bp`bc!`$flip x;
+    -1+count {distinct y, exec bp from x where bc in y}[x] over `$"shiny gold"
+ };
+
+
+.aoc2020.d7.t2: {
+    x: {(`$-6_x 0; `$" " sv/:(" " vs/:"," vs x 1)[;2 3]; 1^"J"$(" " vs/:"," vs x 1)[;1])} each "contain" vs/:"\n" vs x;
+    x: ungroup flip `bp`bc`cc!flip x;
+    x: {
+        children: select from x where bp in key y 1, not bc like "*other bags*";
+        if[0=count children;:y];
+        children: update cc: cc*y[1]@/:bp from children;
+        children: 0!select sum cc by bc from children;
+        (y[0] + sum children`cc; (!) . children`bc`cc)
+    }[x] over (0;(!) . enlist each (`$"shiny gold";1));
+    x 0
+ };
