@@ -113,9 +113,10 @@
 
 
 .aoc2020.d7.t2_v2: {
-    x: {(`$-6_x 0; raze (1^"J"$(" " vs/:"," vs x 1)[;1])#'`$" " sv/:(" " vs/:"," vs x 1)[;2 3])} each "contain" vs/:"\n" vs x;
+    x: "\n" vs x;
+    x: x where not x like "*no other bags.";
+    x: {(`$-6_x 0; raze (1^"J"$(" " vs/:"," vs x 1)[;1])#'`$" " sv/:(" " vs/:"," vs x 1)[;2 3])} each "contain" vs/:x;
     x: (!) . flip x;
-    x: x except\:`$"other bags.";
-    x: {raze x@y}[x] scan `$"shiny gold";
+    x: ((raze x@)\)`$"shiny gold";
     -1 + sum count each x
  };
