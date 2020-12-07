@@ -101,12 +101,12 @@
 .aoc2020.d7.t2: {
     x: {(`$-6_x 0; `$" " sv/:(" " vs/:"," vs x 1)[;2 3]; 1^"J"$(" " vs/:"," vs x 1)[;1])} each "contain" vs/:"\n" vs x;
     x: ungroup flip `bp`bc`cc!flip x;
+    x: delete from x where bc like "other bags.";
     x: {
-        children: select from x where bp in key y 1, not bc like "*other bags*";
-        if[0=count children;:y];
-        children: update cc: cc*y[1]@/:bp from children;
-        children: 0!select sum cc by bc from children;
-        (y[0] + sum children`cc; (!) . children`bc`cc)
+        x: update cc: cc*y[1]@/:bp from x;
+        x: 0!select sum cc by bc from x where not null cc;
+        if[0=count x;:y];
+        (y[0] + sum x`cc; (!) . x`bc`cc)
     }[x] over (0;(!) . enlist each (`$"shiny gold";1));
     x 0
  };
