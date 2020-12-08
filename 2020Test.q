@@ -123,3 +123,18 @@ dotted black bags contain no other bags.";
 if[not 4 ~ .aoc2020.d7.t1 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.task1"];
 if[not 32 ~ .aoc2020.d7.t2 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.task2"];
 if[not 32 ~ .aoc2020.d7.t2_v2 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.v2task2"];
+
+
+//------------------------------------
+//Task 8
+.input.aoc2020.d8: "nop +0
+acc +1
+jmp +4
+acc +3
+jmp -3
+acc -99
+acc +1
+jmp -4
+acc +6";
+if[not 5 ~ .aoc2020.d8.t1 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.task1"];
+if[not 8 ~ .aoc2020.d8.t2 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.task2"];

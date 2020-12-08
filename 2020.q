@@ -121,5 +121,31 @@
     x: {(`$-6_x 0; raze (1^"J"$(" " vs/:"," vs x 1)[;1])#'`$" " sv/:(" " vs/:"," vs x 1)[;2 3])} each "contain" vs/:x;
     x: (!) . flip x;
     x: ((raze x@)\)`$"shiny gold";
-    -1 + sum count each x
+    -1+sum count each x
+ };
+
+
+//------------------------------------
+//Task 8
+.aoc2020.d8.run: {[x;f]
+     f{
+         cmd: x@last y 0;
+         i: (last y 0) + $[`jmp=cmd 0; cmd 1;1];
+         (y[0], i; y[1] + $[`acc=cmd 0;cmd 1;0])
+     }[x]/(1#0;0)
+ };
+
+.aoc2020.d8.t1: {
+    x: {(`$x 0;"J"$x 1)} each " "vs/:"\n" vs x;
+    x: .aoc2020.d8.run[x;{count[x 0]=count group x 0}];
+    x 1
+ };
+
+
+.aoc2020.d8.t2: {
+    x: {(`$x 0;"J"$x 1)} each " "vs/:"\n" vs x;
+    run: .aoc2020.d8.run[;{(count[y 0]=count group y 0)&x>last y 0}[count x]];
+    res: run each {x[y;0]: `jmp; x}[x] each where x[;0]=`nop;
+    res,: run each {x[y;0]: `nop; x}[x] each where x[;0]=`jmp;
+    last res@first where count[x]=last each first each res
  };
