@@ -107,7 +107,6 @@
     x: {
         x: update cc: cc*y[1]@/:bp from x;
         x: 0!select sum cc by bc from x where not null cc;
-        if[0=count x;:y];
         (y[0] + sum x`cc; (!) . x`bc`cc)
     }[x] over (0;(!) . enlist each (`$"shiny gold";1));
     x 0
