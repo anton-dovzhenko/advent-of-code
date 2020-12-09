@@ -148,3 +148,22 @@
     res,: run each {x[y;0]: `nop; x}[x] each where x[;0]=`jmp;
     last res@first where count[x]=last each first each res
  };
+
+
+//------------------------------------
+//Task 9
+.aoc2020.d9.t1: {[x;N]
+    x:"J"$"\n" vs x;
+    x: {[x;N]0<count (N#x) inter x[N]-N#x}[;N](1_)/x;
+    x@N
+ };
+
+
+.aoc2020.d9.t2: {[x;N]
+    i: .aoc2020.d9.t1[x;N];
+    x:"J"$"\n" vs x;
+    s: sums x;
+    high: first (where (s-i) in\:s) except where x=i;
+    low: 1+first where s=s[high]-i;
+    {max[x]+min[x]}x@low+til 1+high-low
+ };

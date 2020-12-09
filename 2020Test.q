@@ -138,3 +138,29 @@ jmp -4
 acc +6";
 if[not 5 ~ .aoc2020.d8.t1 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.task1"];
 if[not 8 ~ .aoc2020.d8.t2 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.task2"];
+
+
+//------------------------------------
+//Task 9
+.input.aoc2020.d9: "35
+20
+15
+25
+47
+40
+62
+55
+65
+95
+102
+117
+150
+182
+127
+219
+299
+277
+309
+576";
+if[not 127 ~ .aoc2020.d9.t1[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task1"];
+if[not 62 ~ .aoc2020.d9.t2[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task2"];
