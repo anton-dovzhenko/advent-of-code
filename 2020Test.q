@@ -164,3 +164,13 @@ if[not 8 ~ .aoc2020.d8.t2 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.
 576";
 if[not 127 ~ .aoc2020.d9.t1[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task1"];
 if[not 62 ~ .aoc2020.d9.t2[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task2"];
+
+//------------------------------------
+//Task 10
+.input.aoc2020.d10_1: "16\n10\n15\n5\n1\n11\n7\n19\n6\n12\n4";
+.input.aoc2020.d10_2: "28\n33\n18\n42\n31\n14\n46\n20\n48\n47\n24\n23\n49\n45\n19\n38\n39\n11\n1\n32\n25\n35\n8\n17\n7\n9\n4\n2\n34\n10\n3";
+if[not 35 ~ .aoc2020.d10.t1 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020.d10.task1_1"];
+if[not 220 ~ .aoc2020.d10.t1 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task1_2"];
+if[not 8 ~ .aoc2020.d10.t2 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020.d10.task2_1"];
+if[not 19208 ~ .aoc2020.d10.t2 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task2_2"];
+

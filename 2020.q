@@ -167,3 +167,22 @@
     low: 1+first where s=s[high]-i;
     {max[x]+min[x]}x@low+til 1+high-low
  };
+
+
+//------------------------------------
+//Task 10
+.aoc2020.d10.t1: {
+    x: "J"$"\n" vs x;
+    x: count each group deltas asc x;
+    x: x + 1 3!0 1;
+    prd value x
+ };
+
+.aoc2020.d10.t2: {
+    x: asc "J"$"\n" vs x;
+    first {
+        y: {x: $[y=last x;1#y;x where x within y+1 3]; (x;count[x]#z)}[x]'[key y;value y];
+        (+/) (!)./:y
+    }[x] over (1#0)!1#1
+ };
+
