@@ -178,11 +178,25 @@
     prd value x
  };
 
+
 .aoc2020.d10.t2: {
     x: asc "J"$"\n" vs x;
     first {
         y: {x: $[y=last x;1#y;x where x within y+1 3]; (x;count[x]#z)}[x]'[key y;value y];
         (+/) (!)./:y
+    }[x] over (1#0)!1#1
+ };
+
+
+//Faster implementation
+.aoc2020.d10.t2_v2:  {
+    x: asc "J"$"\n" vs x;
+    first {
+        mk: first key y; // first gives min key
+        ni: where x within mk+1 3; // next keys indices
+        y: y + (x ni)!(count ni)#y mk;
+        if[mk < last x;y: (1#mk) _ y];
+        y
     }[x] over (1#0)!1#1
  };
 

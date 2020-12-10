@@ -173,4 +173,7 @@ if[not 35 ~ .aoc2020.d10.t1 .input.aoc2020.d10_1; '"[AssertionException] .aoc202
 if[not 220 ~ .aoc2020.d10.t1 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task1_2"];
 if[not 8 ~ .aoc2020.d10.t2 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020.d10.task2_1"];
 if[not 19208 ~ .aoc2020.d10.t2 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task2_2"];
+if[not 8 ~ .aoc2020.d10.t2_v2 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020.d10.task2_1_v2"];
+if[not 19208 ~ .aoc2020.d10.t2_v2 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task2_2_v2"];
+
 
