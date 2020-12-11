@@ -165,6 +165,7 @@ if[not 8 ~ .aoc2020.d8.t2 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.
 if[not 127 ~ .aoc2020.d9.t1[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task1"];
 if[not 62 ~ .aoc2020.d9.t2[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task2"];
 
+
 //------------------------------------
 //Task 10
 .input.aoc2020.d10_1: "16\n10\n15\n5\n1\n11\n7\n19\n6\n12\n4";
@@ -176,4 +177,19 @@ if[not 19208 ~ .aoc2020.d10.t2 .input.aoc2020.d10_2; '"[AssertionException] .aoc
 if[not 8 ~ .aoc2020.d10.t2_v2 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020.d10.task2_1_v2"];
 if[not 19208 ~ .aoc2020.d10.t2_v2 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task2_2_v2"];
 
+
+//------------------------------------
+//Task 11
+.input.aoc2020.d11: "L.LL.LL.LL
+LLLLLLL.LL
+L.L.L..L..
+LLLL.LL.LL
+L.LL.LL.LL
+L.LLLLL.LL
+..L.L.....
+LLLLLLLLLL
+L.LLLLLL.L
+L.LLLLL.LL";
+if[not 37 ~ .aoc2020.d11.t1 .input.aoc2020.d11; '"[AssertionException] .aoc2020.d11.task1"];
+if[not 26 ~ .aoc2020.d11.t2 .input.aoc2020.d11; '"[AssertionException] .aoc2020.d11.task2"];
 

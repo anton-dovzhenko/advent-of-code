@@ -200,3 +200,46 @@
     }[x] over (1#0)!1#1
  };
 
+
+//------------------------------------
+//Task 11
+.aoc2020.d11.t1: {
+    x: "\n" vs x;
+    x: {
+        a: x="#";
+        a1: 0b,/:a,\:0b;
+        a1: (enlist count[first a1]#0b), a1, (enlist count[first a1]#0b);
+        a: (-2_'-2_a1)+(-2_'2_a1)+
+            (2_'-2_a1)+(2_'2_a1)+
+            (-1_'1_'-2_a1)+(-1_'1_'2_a1)+
+            (-1_1_-2_'a1)+(-1_1_2_'a1);
+        (count first x) cut {((".#L"!({"."};{$[x>=4;"L";"#"]};{$[x=0;"#";"L"]}))x)y}./:flip (raze x; raze a)
+    } over x;
+    "j"$sum sum x="#"
+ };
+
+
+//TODO: re-write, use more Q-like style
+.aoc2020.d11.t2: {
+    x: "\n" vs x;
+    x: {
+        {[x;j;i]
+            S: 0;
+            S: S + any "#"= {last x except "."} j#x[i];
+            S: S + any "#"= {first x except "."} (j+1)_x[i];
+            S: S + any "#"= {last x except "."} i#x[;j];
+            S: S + any "#"= {first x except "."} (i + 1)_x[;j];
+            S: S + any "#"= {first x except "."} x ./: {all x>0}{x - 1}\(i-1;j-1);
+            S: S + any "#"= {first x except "."} x ./: {(x[0]<y)&(x[1]<z)}[;count x;count first x] {x + 1}\(i+1;j+1);
+            S: S + any "#"= {first x except "."} x ./: {[x;y;z](x[0]<y)&(x[1]>0)}[;count x;count first x] {x + 1 -1}\(i+1;j-1);
+            S: S + any "#"= {first x except "."} x ./: {[x;y;z](x[0]>0)&(x[1]<z)}[;count x;count first x] {x + -1 1}\(i-1;j+1);
+            if[x[i;j] ~ "L";:$[S=0;"#";"L"]];
+            if[x[i;j] ~ "#";:$[S>=5;"L";"#"]];
+            "."
+        }[x]'[til count first x]'[til count x]
+
+    } over x;
+    "j"$sum sum x="#"
+ };
+
+
