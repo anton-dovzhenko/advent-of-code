@@ -243,3 +243,35 @@
  };
 
 
+//------------------------------------
+//Task 12
+.aoc2020.d12.t1: {
+    x: "\n" vs x;
+    x: {(`$1#x;"J"$1_x)}each x;
+    x: {
+        p: x 0 1;
+        d: x 2;
+        cmd: y 0;
+        st: y 1;
+        if[cmd in `E`W`N`S; :(p + st * (`E`W`N`S!(1 0;-1 0;0 1;0 -1))cmd), d];
+        if[cmd in `L`R; :p, `long$(d + $[cmd=`L;1;-1]*st%90) mod 4];
+        if[cmd=`F; :(p + st * ((0 1 2 3)!(1 0;0 1;-1 0;0 -1))@d), d];
+        } over enlist[0 0 0], x;
+    sum abs 2#x
+ };
+
+
+.aoc2020.d12.t2: {
+    x: "\n" vs x;
+    x: {(`$1#x;"J"$1_x)}each x;
+    x: {
+        cmd: y 0;
+        st: y 1;
+        if[cmd in `E`W`N`S; :(x[0];x[1] + st * (`E`W`N`S!(1 0;-1 0;0 1;0 -1))cmd)];
+        if[cmd=`F; :(x[0] + st * x[1];x[1])];
+        if[cmd=`L; :(x[0]; ("j"$st%90){(neg x 1; x 0)}/x 1)];
+        if[cmd=`R; :(x[0]; ("j"$st%90){(x 1; neg x 0)}/x 1)];
+    } over enlist[(0 0;10 1)], x;
+    sum abs x 0
+ };
+

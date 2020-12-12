@@ -193,3 +193,11 @@ L.LLLLL.LL";
 if[not 37 ~ .aoc2020.d11.t1 .input.aoc2020.d11; '"[AssertionException] .aoc2020.d11.task1"];
 if[not 26 ~ .aoc2020.d11.t2 .input.aoc2020.d11; '"[AssertionException] .aoc2020.d11.task2"];
 
+
+//------------------------------------
+//Task 12
+.input.aoc2020.d12: "F10\nN3\nF7\nR90\nF11";
+if[not 25 ~ .aoc2020.d12.t1 .input.aoc2020.d12; '"[AssertionException] .aoc2020.d12.task1"];
+if[not 286 ~ .aoc2020.d12.t2 .input.aoc2020.d12; '"[AssertionException] .aoc2020.d12.task2"];
+
+
