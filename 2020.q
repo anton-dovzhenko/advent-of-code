@@ -275,3 +275,27 @@
     sum abs x 0
  };
 
+//------------------------------------
+//Task 13
+.aoc2020.d13.t1: {
+    x: "\n" vs x;
+    ID: "J"$ x 0;
+    x: ("J"$ "," vs x 1) except 0N;
+    t: x - ID mod x;
+    min[t] * x first where t=min t
+ };
+
+
+// For reference see http://homepages.math.uic.edu/~leon/mcs425-s08/handouts/chinese_remainder.pdf
+.aoc2020.d13.t2: {
+    x: last "\n" vs x;
+    x: "J"$ "," vs x;
+    x: enlist[0N] _ x!til count x;
+    invmod: {[n;m] {$[0=(-1+x*z) mod y;z;z+1]}[n;m] over 1};
+    N: prd key x;
+    Z: N div key x;
+    Y: invmod ./:Z,'key x;
+    W: Y*Z;
+    X: (sum (W*value x) mod N) mod N;
+    N-X
+ };

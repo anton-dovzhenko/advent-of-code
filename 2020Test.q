@@ -201,3 +201,10 @@ if[not 25 ~ .aoc2020.d12.t1 .input.aoc2020.d12; '"[AssertionException] .aoc2020.
 if[not 286 ~ .aoc2020.d12.t2 .input.aoc2020.d12; '"[AssertionException] .aoc2020.d12.task2"];
 
 
+//------------------------------------
+//Task 13
+.input.aoc2020.d13:
+"939
+7,13,x,x,59,x,31,19";
+if[not 295 ~ .aoc2020.d13.t1 .input.aoc2020.d13; '"[AssertionException] .aoc2020.d13.task1"];
+if[not 1068781 ~ .aoc2020.d13.t2 .input.aoc2020.d13; '"[AssertionException] .aoc2020.d13.task2"];
