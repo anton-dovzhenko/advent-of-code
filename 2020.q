@@ -291,7 +291,7 @@
     x: last "\n" vs x;
     x: "J"$ "," vs x;
     x: enlist[0N] _ x!til count x;
-    invmod: {[n;m] {$[0=(-1+x*z) mod y;z;z+1]}[n;m] over 1};
+    invmod: {[n;m] {$[0=(-1+x*z) mod y;z;z+1]}[n mod m;m] over 1};
     N: prd key x;
     Z: N div key x;
     Y: invmod ./:Z,'key x;
