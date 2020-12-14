@@ -299,3 +299,44 @@
     X: (sum (W*value x) mod N) mod N;
     N-X
  };
+
+
+//------------------------------------
+//Task 14
+.aoc2020.d14.t1: {
+    x: "\n" vs x;
+    x: " = " vs/: x;
+    sum first {
+        d: x 0;
+        m: x 1;
+        if[y[0] like "mask"; m: "J"$/:y 1];
+        if[y[0] like "mem*";
+            v: 2 sv (-36#(36#0), 2 vs "J"$y 1) ^ m;
+            mem: "J"$-1 _last "[" vs y 0;
+            d[mem]: v;
+        ];
+        (d;m)
+    } over enlist[({x!x}1#0;36#0N)], x
+ };
+
+
+.aoc2020.d14.t2: {
+    x: "\n" vs x;
+    x: " = " vs/: x;
+    sum first {
+        d: x 0;
+        m: x 1;
+        if[y[0] like "mask"; m: y 1];
+        if[y[0] like "mem*";
+            v: "J"$y 1;
+            mem: -36#(36#0), 2 vs "J"$-1 _last "[" vs y 0;
+            mem[where m="1"]: 1;
+            mem[where m="X"]: 2;
+            mem: (cross/) {$[x=2;0 1;x]} each mem;
+            mem: 2 sv/:mem;
+            d[mem]: v;
+        ];
+        (d;m)
+   } over enlist[({x!x}1#0;36#"X")], x
+ };
+

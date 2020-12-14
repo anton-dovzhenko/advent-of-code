@@ -208,3 +208,20 @@ if[not 286 ~ .aoc2020.d12.t2 .input.aoc2020.d12; '"[AssertionException] .aoc2020
 7,13,x,x,59,x,31,19";
 if[not 295 ~ .aoc2020.d13.t1 .input.aoc2020.d13; '"[AssertionException] .aoc2020.d13.task1"];
 if[not 1068781 ~ .aoc2020.d13.t2 .input.aoc2020.d13; '"[AssertionException] .aoc2020.d13.task2"];
+
+
+//------------------------------------
+//Task 14
+.input.aoc2020.d14.task1:
+"mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+mem[8] = 11
+mem[7] = 101
+mem[8] = 0";
+.input.aoc2020.d14.task2:
+"mask = 000000000000000000000000000000X1001X
+mem[42] = 100
+mask = 00000000000000000000000000000000X0XX
+mem[26] = 1";
+if[not 165 ~ .aoc2020.d14.t1 .input.aoc2020.d14.task1; '"[AssertionException] .aoc2020.d14.task1"];
+if[not 208 ~ .aoc2020.d14.t2 .input.aoc2020.d14.task2; '"[AssertionException] .aoc2020.d14.task2"];
+
