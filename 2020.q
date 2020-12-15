@@ -340,3 +340,28 @@
    } over enlist[({x!x}1#0;36#"X")], x
  };
 
+
+//------------------------------------
+//Task 15
+.aoc2020.d15.t1: {[x;n]
+    a1: n#0;
+    a2: n#0;
+    x: "J"$"," vs x;
+    L: last x;
+    a1[x]: 1+til count x;
+    a2[x]: 1+til count x;
+    i: 1+count x;
+    do[n-count x;
+        $[a2[L] = 0;
+            [a2[L]: i; a1[L]: i; L: 0];
+            [L: a2[L]-a1[L]; a1[L]: $[a2[L]=0; i; a2[L]]; a2[L]: i]
+        ];
+        i+:1
+    ];
+    L
+ };
+
+
+.aoc2020.d15.t2: .aoc2020.d15.t1;
+
+

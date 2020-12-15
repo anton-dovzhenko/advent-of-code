@@ -225,3 +225,9 @@ mem[26] = 1";
 if[not 165 ~ .aoc2020.d14.t1 .input.aoc2020.d14.task1; '"[AssertionException] .aoc2020.d14.task1"];
 if[not 208 ~ .aoc2020.d14.t2 .input.aoc2020.d14.task2; '"[AssertionException] .aoc2020.d14.task2"];
 
+
+//------------------------------------
+//Task 15
+if[not 436 ~ .aoc2020.d15.t1["0,3,6";2020]; '"[AssertionException] .aoc2020.d14.task1"];
+if[not 175594 ~ .aoc2020.d15.t2["0,3,6";30000000]; '"[AssertionException] .aoc2020.d14.task2"];
+
