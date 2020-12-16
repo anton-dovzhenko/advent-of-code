@@ -371,7 +371,7 @@
     x: "\n\n" vs x;
     r: "\n" vs x 0;
     r: ": "vs/:r;
-    r :{"J"$"-"vs/:x}each" or " vs/:last each r;
+    r: {"J"$"-"vs/:x}each" or " vs/:last each r;
     your: "J"$","vs/:1_"\n" vs x 1;
     near: "J"$","vs/:1_"\n" vs x 2;
     sum raze {[r;n] n@where not any n within/:raze r}[r] each near
@@ -382,7 +382,7 @@
     x: "\n\n" vs x;
     N: `$first each ": "vs/: "\n" vs x 0;
     r: ": "vs/:"\n" vs x 0;
-    r :{"J"$"-"vs/:x}each" or " vs/:last each r;
+    r: {"J"$"-"vs/:x}each" or " vs/:last each r;
     your: "J"$","vs/:1_"\n" vs x 1;
     near: "J"$","vs/:1_"\n" vs x 2;
     near: near@where {[r;n] all any n within/:raze r}[r] each near;
