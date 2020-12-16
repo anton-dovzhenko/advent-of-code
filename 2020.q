@@ -365,3 +365,30 @@
 .aoc2020.d15.t2: .aoc2020.d15.t1;
 
 
+//------------------------------------
+//Task 16
+.aoc2020.d16.t1: {
+    x: "\n\n" vs x;
+    r: "\n" vs x 0;
+    r: ": "vs/:r;
+    r :{"J"$"-"vs/:x}each" or " vs/:last each r;
+    your: "J"$","vs/:1_"\n" vs x 1;
+    near: "J"$","vs/:1_"\n" vs x 2;
+    sum raze {[r;n] n@where not any n within/:raze r}[r] each near
+ };
+
+
+.aoc2020.d16.t2: {
+    x: "\n\n" vs x;
+    N: `$first each ": "vs/: "\n" vs x 0;
+    r: ": "vs/:"\n" vs x 0;
+    r :{"J"$"-"vs/:x}each" or " vs/:last each r;
+    your: "J"$","vs/:1_"\n" vs x 1;
+    near: "J"$","vs/:1_"\n" vs x 2;
+    near: near@where {[r;n] all any n within/:raze r}[r] each near;
+    near,: your;
+    r: {[r;n] where {[n;r] all any n within/:r }[n] each r}[r] each flip near;
+    r: first each {?[1=count each x;x;x except\:raze x where 1=count each x]} over r;
+    prd (first your) where {x like "departure*"}N@r
+ };
+
