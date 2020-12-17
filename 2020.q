@@ -392,3 +392,35 @@
     prd (first your) where {x like "departure*"}N@r
  };
 
+
+//------------------------------------
+//Task 17
+.aoc2020.d17.t1: {
+    //find active points
+    x: raze {{x[0],\:x 1} each flip(x;til count x)} where each "#"="\n" vs x;
+    x: `g#x,\: 0;
+    //define neighbourhood
+    n: ({x cross x cross x} -1 0 1) except enlist 0 0 0;
+    do[6; x: `g#{x where 0<count each x} {[n;x;y]
+            s: sum (y+/:n) in x;
+            $[s in $[y in x;2 3;3];y;()]
+        }[n;x] each distinct raze x +/:\:n  // iterate through possibly active points
+    ];
+    count x
+ };
+
+
+.aoc2020.d17.t2: {
+    //find active points
+    x: raze {{x[0],\:x 1} each flip(x;til count x)} where each "#"="\n" vs x;
+    x: `g#x,\: 0 0;
+    //define neighbourhood
+    n: ({x cross x cross x cross x} -1 0 1) except enlist 0 0 0 0;
+    do[6; x: `g#{x where 0<count each x} {[n;x;y]
+            s: sum (y+/:n) in x;
+            $[s in $[y in x;2 3;3];y;()]
+        }[n;x] each distinct raze x +/:\:n // iterate through possibly active points
+    ];
+    count x
+ };
+

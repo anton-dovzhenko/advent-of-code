@@ -250,3 +250,14 @@ nearby tickets:
 
 if[not 71 ~ .aoc2020.d16.t1 .input.aoc2020.d16.task1; '"[AssertionException] .aoc2020.d16.task1"];
 // no test case for part 2, only real data
+
+//------------------------------------
+//Task 17
+.input.aoc2020.d17:
+".#.
+..#
+###";
+if[not 112 ~ .aoc2020.d17.t1 .input.aoc2020.d17; '"[AssertionException] .aoc2020.d17.task1"];
+if[not 848 ~ .aoc2020.d17.t2 .input.aoc2020.d17; '"[AssertionException] .aoc2020.d17.task2"];
+
+
