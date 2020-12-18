@@ -424,3 +424,19 @@
     count x
  };
 
+
+//------------------------------------
+//Task 18
+.aoc2020.d18.t1: {sum {eval parse x^("()"!")(")x: reverse x} each "\n" vs x};
+
+
+.aoc2020.d18.t2: {
+    sum "J"${
+        {
+            simpleParse: {prd eval each parse each "*" vs x};
+            e: x?")";
+            b: last where "("=(e#x);
+            $[e=count x; string simpleParse x; (b#x), string[simpleParse (b+1)_e#x], (e+1)_x]
+        } over x
+    } each "\n" vs x
+ };

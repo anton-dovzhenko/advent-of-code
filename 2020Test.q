@@ -261,3 +261,17 @@ if[not 112 ~ .aoc2020.d17.t1 .input.aoc2020.d17; '"[AssertionException] .aoc2020
 if[not 848 ~ .aoc2020.d17.t2 .input.aoc2020.d17; '"[AssertionException] .aoc2020.d17.task2"];
 
 
+//------------------------------------
+//Task 18
+.input.aoc2020.d18: "1 + 2 * 3 + 4 * 5 + 6
+1 + (2 * 3) + (4 * (5 + 6))
+2 * 3 + (4 * 5)
+5 + (8 * 3 + 9 + 3 * 4 * 3)
+5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))
+((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2";
+if[not (71+51+26+437+12240+13632) ~ .aoc2020.d18.t1 .input.aoc2020.d18; '"[AssertionException] .aoc2020.d18.task1"];
+if[not (231+51+46+1445+669060+23340) ~ .aoc2020.d18.t2 .input.aoc2020.d18; '"[AssertionException] .aoc2020.d18.task2"];
+
+
+
+
