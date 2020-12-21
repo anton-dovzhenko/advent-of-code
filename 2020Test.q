@@ -273,5 +273,12 @@ if[not (71+51+26+437+12240+13632) ~ .aoc2020.d18.t1 .input.aoc2020.d18; '"[Asser
 if[not (231+51+46+1445+669060+23340) ~ .aoc2020.d18.t2 .input.aoc2020.d18; '"[AssertionException] .aoc2020.d18.task2"];
 
 
-
-
+//------------------------------------
+//Task 21
+.input.aoc2020.d21:
+"mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
+trh fvjkl sbzzf mxmxvkd (contains dairy)
+sqjhc fvjkl (contains soy)
+sqjhc mxmxvkd sbzzf (contains fish)";
+if[not 5 ~ .aoc2020.d21.t1 .input.aoc2020.d21; '"[AssertionException] .aoc2020.d21.task1"];
+if[not "mxmxvkd,sqjhc,fvjkl" ~ .aoc2020.d21.t2 .input.aoc2020.d21; '"[AssertionException] .aoc2020.d21.task2"];

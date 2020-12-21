@@ -440,3 +440,26 @@
         } over x
     } each "\n" vs x
  };
+
+
+//------------------------------------
+//Task 21
+.aoc2020.d21.t1: {
+    x: "\n" vs x;
+    x: {x: " (contains " vs -1_x; `$(" " vs first x; ", " vs last x)} each x;
+    x: flip `ingredient`allergen ! flip x;
+    a: distinct raze x`allergen;
+    unsafe: distinct raze {[x;y] (inter/) exec ingredient from x where y in/:allergen}[x] each a;
+    count raze x[`ingredient] except\:unsafe
+ };
+
+
+.aoc2020.d21.t2: {
+    x: "\n" vs x;
+    x: {x: " (contains " vs -1_x; `$(" " vs first x; ", " vs last x)} each x;
+    x: flip `j`a ! flip x;
+    a: distinct raze x`a;
+    unsafe: flip`a`j!(a;{[x;y] (inter/) exec j from x where y in/:a}[x] each a);
+    unsafe: {any 1<count each x`j}{update j: j except\:(raze exec j from x where 1=count each j) from x where 1<count each j}/unsafe;
+    "," sv string raze (`a xasc unsafe)`j
+ };
