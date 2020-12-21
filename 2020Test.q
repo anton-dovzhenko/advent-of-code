@@ -80,11 +80,13 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719";
 if[not 2 ~ .aoc2020.d4.t1 .input.aoc2020.d4.task1; '"[AssertionException] .aoc2020.d4.task1"];
 if[not 0 ~ .aoc2020.d4.t2 .input.aoc2020.d4.invalid; '"[AssertionException] .aoc2020.d4.task2_invalid"];
 if[not 4 ~ .aoc2020.d4.t2 .input.aoc2020.d4.valid; '"[AssertionException] .aoc2020.d4.task2_valid"];
+0N!".aoc2020.d4 passed";
 
 
 //------------------------------------
 //Task 5
 if[not 820 ~ .aoc2020.d5.t1 "BFFFBBFRRR\nFFFBBBFRRR\nBBFFBBFRLL"; '"[AssertionException] .aoc2020.d5.task1"];
+0N!".aoc2020.d5 passed";
 
 
 //------------------------------------
@@ -107,6 +109,7 @@ a
 b";
 if[not 11 ~ .aoc2020.d6.t1 .input.aoc2020.d6; '"[AssertionException] .aoc2020.d6.task1"];
 if[not 6 ~ .aoc2020.d6.t2 .input.aoc2020.d6; '"[AssertionException] .aoc2020.d6.task2"];
+0N!".aoc2020.d6 passed";
 
 
 //------------------------------------
@@ -123,6 +126,7 @@ dotted black bags contain no other bags.";
 if[not 4 ~ .aoc2020.d7.t1 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.task1"];
 if[not 32 ~ .aoc2020.d7.t2 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.task2"];
 if[not 32 ~ .aoc2020.d7.t2_v2 .input.aoc2020.d7; '"[AssertionException] .aoc2020.d7.v2task2"];
+0N!".aoc2020.d7 passed";
 
 
 //------------------------------------
@@ -138,6 +142,7 @@ jmp -4
 acc +6";
 if[not 5 ~ .aoc2020.d8.t1 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.task1"];
 if[not 8 ~ .aoc2020.d8.t2 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.task2"];
+0N!".aoc2020.d8 passed";
 
 
 //------------------------------------
@@ -164,6 +169,7 @@ if[not 8 ~ .aoc2020.d8.t2 .input.aoc2020.d8; '"[AssertionException] .aoc2020.d8.
 576";
 if[not 127 ~ .aoc2020.d9.t1[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task1"];
 if[not 62 ~ .aoc2020.d9.t2[.input.aoc2020.d9;5]; '"[AssertionException] .aoc2020.d9.task2"];
+0N!".aoc2020.d9 passed";
 
 
 //------------------------------------
@@ -176,6 +182,7 @@ if[not 8 ~ .aoc2020.d10.t2 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020
 if[not 19208 ~ .aoc2020.d10.t2 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task2_2"];
 if[not 8 ~ .aoc2020.d10.t2_v2 .input.aoc2020.d10_1; '"[AssertionException] .aoc2020.d10.task2_1_v2"];
 if[not 19208 ~ .aoc2020.d10.t2_v2 .input.aoc2020.d10_2; '"[AssertionException] .aoc2020.d10.task2_2_v2"];
+0N!".aoc2020.d10 passed";
 
 
 //------------------------------------
@@ -192,6 +199,7 @@ L.LLLLLL.L
 L.LLLLL.LL";
 if[not 37 ~ .aoc2020.d11.t1 .input.aoc2020.d11; '"[AssertionException] .aoc2020.d11.task1"];
 if[not 26 ~ .aoc2020.d11.t2 .input.aoc2020.d11; '"[AssertionException] .aoc2020.d11.task2"];
+0N!".aoc2020.d11 passed";
 
 
 //------------------------------------
@@ -199,6 +207,7 @@ if[not 26 ~ .aoc2020.d11.t2 .input.aoc2020.d11; '"[AssertionException] .aoc2020.
 .input.aoc2020.d12: "F10\nN3\nF7\nR90\nF11";
 if[not 25 ~ .aoc2020.d12.t1 .input.aoc2020.d12; '"[AssertionException] .aoc2020.d12.task1"];
 if[not 286 ~ .aoc2020.d12.t2 .input.aoc2020.d12; '"[AssertionException] .aoc2020.d12.task2"];
+0N!".aoc2020.d12 passed";
 
 
 //------------------------------------
@@ -208,6 +217,7 @@ if[not 286 ~ .aoc2020.d12.t2 .input.aoc2020.d12; '"[AssertionException] .aoc2020
 7,13,x,x,59,x,31,19";
 if[not 295 ~ .aoc2020.d13.t1 .input.aoc2020.d13; '"[AssertionException] .aoc2020.d13.task1"];
 if[not 1068781 ~ .aoc2020.d13.t2 .input.aoc2020.d13; '"[AssertionException] .aoc2020.d13.task2"];
+0N!".aoc2020.d13 passed";
 
 
 //------------------------------------
@@ -224,12 +234,14 @@ mask = 00000000000000000000000000000000X0XX
 mem[26] = 1";
 if[not 165 ~ .aoc2020.d14.t1 .input.aoc2020.d14.task1; '"[AssertionException] .aoc2020.d14.task1"];
 if[not 208 ~ .aoc2020.d14.t2 .input.aoc2020.d14.task2; '"[AssertionException] .aoc2020.d14.task2"];
+0N!".aoc2020.d14 passed";
 
 
 //------------------------------------
 //Task 15
 if[not 436 ~ .aoc2020.d15.t1["0,3,6";2020]; '"[AssertionException] .aoc2020.d14.task1"];
 if[not 175594 ~ .aoc2020.d15.t2["0,3,6";30000000]; '"[AssertionException] .aoc2020.d14.task2"];
+0N!".aoc2020.d15 passed";
 
 
 //------------------------------------
@@ -250,6 +262,8 @@ nearby tickets:
 
 if[not 71 ~ .aoc2020.d16.t1 .input.aoc2020.d16.task1; '"[AssertionException] .aoc2020.d16.task1"];
 // no test case for part 2, only real data
+0N!".aoc2020.d16 passed";
+
 
 //------------------------------------
 //Task 17
@@ -259,6 +273,7 @@ if[not 71 ~ .aoc2020.d16.t1 .input.aoc2020.d16.task1; '"[AssertionException] .ao
 ###";
 if[not 112 ~ .aoc2020.d17.t1 .input.aoc2020.d17; '"[AssertionException] .aoc2020.d17.task1"];
 if[not 848 ~ .aoc2020.d17.t2 .input.aoc2020.d17; '"[AssertionException] .aoc2020.d17.task2"];
+0N!".aoc2020.d17 passed";
 
 
 //------------------------------------
@@ -271,6 +286,7 @@ if[not 848 ~ .aoc2020.d17.t2 .input.aoc2020.d17; '"[AssertionException] .aoc2020
 ((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2";
 if[not (71+51+26+437+12240+13632) ~ .aoc2020.d18.t1 .input.aoc2020.d18; '"[AssertionException] .aoc2020.d18.task1"];
 if[not (231+51+46+1445+669060+23340) ~ .aoc2020.d18.t2 .input.aoc2020.d18; '"[AssertionException] .aoc2020.d18.task2"];
+0N!".aoc2020.d18 passed";
 
 
 //------------------------------------
@@ -282,3 +298,7 @@ sqjhc fvjkl (contains soy)
 sqjhc mxmxvkd sbzzf (contains fish)";
 if[not 5 ~ .aoc2020.d21.t1 .input.aoc2020.d21; '"[AssertionException] .aoc2020.d21.task1"];
 if[not "mxmxvkd,sqjhc,fvjkl" ~ .aoc2020.d21.t2 .input.aoc2020.d21; '"[AssertionException] .aoc2020.d21.task2"];
+0N!".aoc2020.d21 passed";
+
+
+0N!"All passed";
