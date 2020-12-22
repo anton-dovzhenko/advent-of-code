@@ -301,4 +301,23 @@ if[not "mxmxvkd,sqjhc,fvjkl" ~ .aoc2020.d21.t2 .input.aoc2020.d21; '"[AssertionE
 0N!".aoc2020.d21 passed";
 
 
+//------------------------------------
+//Task 22
+.input.aoc2020.d22:
+"Player 1:
+9
+2
+6
+3
+1
+
+Player 2:
+5
+8
+4
+7
+10";
+if[not 306 ~ .aoc2020.d22.t1 .input.aoc2020.d22; '"[AssertionException] .aoc2020.d22.task1"];
+0N!".aoc2020.d22 passed";
+
 0N!"All passed";

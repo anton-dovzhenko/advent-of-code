@@ -463,3 +463,20 @@
     unsafe: {any 1<count each x`j}{update j: j except\:(raze exec j from x where 1=count each j) from x where 1<count each j}/unsafe;
     "," sv string raze (`a xasc unsafe)`j
  };
+
+
+//------------------------------------
+//Task 22
+.aoc2020.d22.t1: {
+    x: "J"$1_'"\n"vs/:"\n\n" vs x;
+    x: {all 0<count each x}{
+        $[first[x 0]>first x 1;
+            ((1 rotate x 0), first x 1; 1 _ x 1);
+            (1 _ x 0;(1 rotate x 1), first x 0)]
+     }/x;
+    x: raze x;
+    sum x * reverse 1 + til count x
+ };
+
+
+
