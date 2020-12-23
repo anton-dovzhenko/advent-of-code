@@ -479,7 +479,7 @@
  };
 
 
-//Takes 13 minutes on real dataset
+//Takes around 13 minutes on real dataset
 .aoc2020.d22.t2: {
     x: "J"$1_'"\n"vs/:"\n\n" vs x;
     x: {
@@ -500,3 +500,53 @@
  };
 
 
+//------------------------------------
+//Task 23
+.aoc2020.d23.t1: {
+    x: "J"$/:string x;
+    x: {
+        cursor: first x;
+        x: (`g#x)!1 rotate x;
+        L: count x;
+        do[100;
+            pick: 1 _ 4 x\cursor;
+            nc: last pick; //next cursor
+            pick: -1_pick;
+            dest: max (cursor-1+til 3) except pick;
+            if[dest<=0; dest: max (L-til 3) except pick];
+            x[cursor]: nc;
+            nd: x[dest];
+            x[dest]: pick[0];
+            x[pick 2]: nd;
+            cursor: nc;
+        ];
+        x
+    } x;
+    "J"$"" sv string 1_(-1+count x)x\1
+ };
+
+
+//Takes around 1 minute to complete
+.aoc2020.d23.t2: {
+    x: "J"$/:string x;
+    x,: 10+til 1+1000000-10;
+    x: {
+        cursor: first x;
+        x: (`g#x)!1 rotate x;
+        L: count x;
+        do[10000000;
+            pick: 1 _ 4 x\cursor;
+            nc: last pick; //next cursor
+            pick: -1_pick;
+            dest: max (cursor-1+til 3) except pick;
+            if[dest<=0; dest: max (L-til 3) except pick];
+            x[cursor]: nc;
+            nd: x[dest];
+            x[dest]: pick[0];
+            x[pick 2]: nd;
+            cursor: nc;
+        ];
+        x
+    } x;
+    prd 2 x\1
+ };
