@@ -321,5 +321,11 @@ if[not 306 ~ .aoc2020.d22.t1 .input.aoc2020.d22; '"[AssertionException] .aoc2020
 if[not 291 ~ .aoc2020.d22.t2 .input.aoc2020.d22; '"[AssertionException] .aoc2020.d22.task2"];
 0N!".aoc2020.d22 passed";
 
+//------------------------------------
+//Task 23
+if[not 67384529 ~ .aoc2020.d23.t1 389125467; '"[AssertionException] .aoc2020.d23.task1"];
+if[not 149245887792 ~ .aoc2020.d23.t2 389125467; '"[AssertionException] .aoc2020.d23.task2"];
+0N!".aoc2020.d23 passed";
+
 
 0N!"All passed";
