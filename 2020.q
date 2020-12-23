@@ -479,4 +479,24 @@
  };
 
 
+//Takes 13 minutes on real dataset
+.aoc2020.d22.t2: {
+    x: "J"$1_'"\n"vs/:"\n\n" vs x;
+    x: {
+        x: enlist x;
+        stop: 0b;
+        while[(all 0<count each last x)& not stop;
+            p1: (last x) 0;
+            p2: (last x) 1;
+            rec: (p1[0]<count p1)&(p2[0]<count p2);
+            win1: $[rec; 0=count last .z.s (p1[0]# 1_p1; p2[0]# 1_p2); p1[0]>p2[0]];
+            x,: enlist $[win1; ((1_p1),(1#p1),(1#p2);1_p2); (1_p1;(1_p2),(1#p2),(1#p1))];
+            if[1<max count each group x; stop: 1b; x,: enlist (raze last x;`long$())];
+        ];
+        last x
+    } x;
+    x: raze x;
+    sum x * reverse 1 + til count x
+ };
+
 

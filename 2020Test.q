@@ -318,6 +318,8 @@ Player 2:
 7
 10";
 if[not 306 ~ .aoc2020.d22.t1 .input.aoc2020.d22; '"[AssertionException] .aoc2020.d22.task1"];
+if[not 291 ~ .aoc2020.d22.t2 .input.aoc2020.d22; '"[AssertionException] .aoc2020.d22.task2"];
 0N!".aoc2020.d22 passed";
+
 
 0N!"All passed";
