@@ -321,11 +321,40 @@ if[not 306 ~ .aoc2020.d22.t1 .input.aoc2020.d22; '"[AssertionException] .aoc2020
 if[not 291 ~ .aoc2020.d22.t2 .input.aoc2020.d22; '"[AssertionException] .aoc2020.d22.task2"];
 0N!".aoc2020.d22 passed";
 
+
 //------------------------------------
 //Task 23
 if[not 67384529 ~ .aoc2020.d23.t1 389125467; '"[AssertionException] .aoc2020.d23.task1"];
 if[not 149245887792 ~ .aoc2020.d23.t2 389125467; '"[AssertionException] .aoc2020.d23.task2"];
 0N!".aoc2020.d23 passed";
+
+
+//------------------------------------
+//Task 24
+.input.aoc2020.d24:
+"sesenwnenenewseeswwswswwnenewsewsw
+neeenesenwnwwswnenewnwwsewnenwseswesw
+seswneswswsenwwnwse
+nwnwneseeswswnenewneswwnewseswneseene
+swweswneswnenwsewnwneneseenw
+eesenwseswswnenwswnwnwsewwnwsene
+sewnenenenesenwsewnenwwwse
+wenwwweseeeweswwwnwwe
+wsweesenenewnwwnwsenewsenwwsesesenwne
+neeswseenwwswnwswswnw
+nenwswwsewswnenenewsenwsenwnesesenew
+enewnwewneswsewnwswenweswnenwsenwsw
+sweneswneswneneenwnewenewwneswswnese
+swwesenesewenwneswnwwneseswwne
+enesenwswwswneneswsenwnewswseenwsese
+wnwnesenesenenwwnenwsewesewsesesew
+nenewswnwewswnenesenwnesewesw
+eneswnwswnwsenenwnwnwwseeswneewsenese
+neswnwewnwnwseenwseesewsenwsweewe
+wseweeenwnesenwwwswnew";
+if[not 10 ~ .aoc2020.d24.t1 .input.aoc2020.d24; '"[AssertionException] .aoc2020.d24.task1"];
+if[not 2208 ~ .aoc2020.d24.t2 .input.aoc2020.d24; '"[AssertionException] .aoc2020.d24.task2"];
+0N!".aoc2020.d24 passed";
 
 
 0N!"All passed";

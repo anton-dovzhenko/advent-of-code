@@ -550,3 +550,49 @@
     } x;
     prd 2 x\1
  };
+
+
+//------------------------------------
+//Task 24
+.aoc2020.d24.t1: {
+    x: "\n" vs x;
+    x: {
+        dir: `$();
+        while[0<count x;
+            size: $[x[0] in "ew";1;2];
+            dir,: `$size#x;
+            x: size _ x];
+        raze dir
+    } each x;
+    moves: `e`se`sw`w`nw`ne!(1 -1 0;1 0 -1; 0 1 -1; -1 1 0; -1 0 1; 0 -1 1);
+    x: sum each moves x;
+    x: group x;
+    sum (count each x) mod 2
+ };
+
+
+.aoc2020.d24.t2: {
+    x: "\n" vs x;
+    x: {
+        dir: `$();
+        while[0<count x;
+            size: $[x[0] in "ew";1;2];
+            dir,: `$size#x;
+            x: size _ x];
+        raze dir
+    } each x;
+    moves: `e`se`sw`w`nw`ne!(1 -1 0;1 0 -1; 0 1 -1; -1 1 0; -1 0 1; 0 -1 1);
+    x: sum each moves x;
+    x: group x;
+    x: key[x] where mod[count each value x;2]=1;
+    x: `g#x;
+    do[100;
+        options: distinct raze {y+/:x}[value moves] each x;
+        x: `g#distinct raze {[x;n;o]
+            N: o+/:n;
+            N: count N inter x;
+            $[o in x;$[not N in 1 2;();enlist o]; $[N=2;enlist o;()]]
+        } [x;value moves] each options;
+    ];
+    count x
+ };
