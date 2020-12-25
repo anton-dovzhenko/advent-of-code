@@ -357,4 +357,10 @@ if[not 2208 ~ .aoc2020.d24.t2 .input.aoc2020.d24; '"[AssertionException] .aoc202
 0N!".aoc2020.d24 passed";
 
 
+//------------------------------------
+//Task 25
+if[not 14897079 ~ .aoc2020.d25.t1 "5764801\n17807724"; '"[AssertionException] .aoc2020.d25.task1"];
+0N!".aoc2020.d25 passed";
+
+
 0N!"All passed";
