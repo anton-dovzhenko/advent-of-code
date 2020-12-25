@@ -443,6 +443,33 @@
 
 
 //------------------------------------
+//Task 19
+.aoc2020.d19.t1: {
+    x: "\n\n" vs x;
+    m: "\n" vs x 1; //messages
+    r: x 0; //rules
+    r: flip ": " vs/:"\n" vs r;
+    r: (!) . ("J"$/:r 0; r 1);
+    L: key[r] where value[r] like "\"?\"";
+    L: L#r;
+    L: {x[1]}each L; //characters
+    r: key[L] _ r;
+    r: {"J"$/:" "vs/:x}each " | " vs/:r;
+    m: (value[L]!key[L])@m;
+    "j"$sum {[x;r;m]
+        if[(0=count r)&0=count m; :1b];
+        if[any 0=count each (r;m); :0b];
+        if[not r[0] in key[x]; :$[r[0]=m[0];.z.s[x;1_r;1_m];0b]];
+        r: x[r 0],\: 1_r;
+        any .z.s[x;;m] each r
+     }[r;1#0] each m
+ };
+
+
+.aoc2020.d19.t2: .aoc2020.d19.t1;
+
+
+//------------------------------------
 //Task 21
 .aoc2020.d21.t1: {
     x: "\n" vs x;
@@ -600,7 +627,7 @@
 
 //------------------------------------
 //Task 25
-.aoc2020.d25.t1:{
+.aoc2020.d25.t1: {
     x: "J"$"\n" vs x;
     loopCnt: -1+count {x-y}[;x 0]{(x*7) mod 20201227}\1;
     loopCnt{(x*y) mod 20201227}[;x 1]/1

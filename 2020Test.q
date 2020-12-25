@@ -290,6 +290,25 @@ if[not (231+51+46+1445+669060+23340) ~ .aoc2020.d18.t2 .input.aoc2020.d18; '"[As
 
 
 //------------------------------------
+//Task 19
+.input.aoc2020.d19: "0: 4 1 5
+1: 2 3 | 3 2
+2: 4 4 | 5 5
+3: 4 5 | 5 4
+4: \"a\"
+5: \"b\"
+
+ababbb
+bababa
+abbbab
+aaabbb
+aaaabbb";
+if[not 2 ~ .aoc2020.d19.t1 .input.aoc2020.d19; '"[AssertionException] .aoc2020.d19.task1"];
+0N!".aoc2020.d19 passed";
+
+
+
+//------------------------------------
 //Task 21
 .input.aoc2020.d21:
 "mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
