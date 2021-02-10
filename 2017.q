@@ -255,41 +255,22 @@
     i: ((sum steps + til count steps) mod count list);
     prd 2#(neg i)#list
 
-} ;
+ };
 
 
 //------------------------------------
 //Task 11
 .aoc2017.d11.t1: {
-    x: count each group`$"," vs x;
-    adjX: `n`ne`se!3#0;
-    adjX[`n]: (0^x`n)-0^x`s;
-    adjX[`ne]: (0^x`ne)-0^x`sw;
-    adjX[`se]: (0^x`se)-0^x`nw;
-
-    if[(signum adjX`n)=(signum adjX `se)
-        ; l: (signum adjX`n)*min abs adjX`n`se
-        ; adjX[`ne]+: l
-        ; adjX[`n]-: l
-        ; adjX[`se]-: l
-    ];
-
-    if[(signum adjX`n)<>(signum adjX `ne)
-        ; l: min abs adjX`n`ne
-        ; adjX[`se]+: (signum adjX`n)*l
-        ; adjX[`n]-: (signum adjX`n)*l
-        ; adjX[`ne]-: (signum adjX`ne)*l
-    ];
-
-    if[(signum adjX`ne)<>(signum adjX `se)
-        ; l: min abs adjX`ne`se
-        ; adjX[`n]+: (neg signum adjX`se)*l
-        ; adjX[`ne]-: (signum adjX`ne)*l
-        ; adjX[`se]-: (signum adjX`se)*l
-    ];
+    x: `$"," vs x;
+    d: `n`ne`se`s`sw`nw!(0 -1 1;1 -1 0;1 0 -1;0 1 -1;-1 1 0;-1 0 1);
+    max abs sum d@x
+ };
 
 
-    sum abs adjX
+.aoc2017.d11.t2: {
+    x: `$"," vs x;
+    d: `n`ne`se`s`sw`nw!(0 -1 1;1 -1 0;1 0 -1;0 1 -1;-1 1 0;-1 0 1);
+    max max each abs flip sums each flip d@x
  };
 
 

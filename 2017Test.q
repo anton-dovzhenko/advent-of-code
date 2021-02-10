@@ -98,9 +98,21 @@ if[not 0 17 3 2 0 0 10 ~ .aoc2017.d9.t2 each ("<>";"<random characters>";"<<<<>"
 
 
 //------------------------------------
-//Task 11
+//Task 10
 if[not 12 ~ .aoc2017.d10.t1[5;3 4 1 5]; '"[AssertionException] .aoc2017.d10.t1 case 1"];
 if[not 11375 ~ .aoc2017.d10.t1[256;88,88,211,106,141,1,78,254,2,111,77,255,90,0,54,205]; '"[AssertionException] .aoc2017.d10.t1 case 2"];
+
+
+//------------------------------------
+//Task 11
+if[not 3 ~ .aoc2017.d11.t1 "ne,ne,ne"; '"[AssertionException] .aoc2017.d11.t1 case 1"];
+if[not 0 ~ .aoc2017.d11.t1 "ne,ne,sw,sw"; '"[AssertionException] .aoc2017.d11.t1 case 2"];
+if[not 2 ~ .aoc2017.d11.t1 "ne,ne,s,s"; '"[AssertionException] .aoc2017.d11.t1 case 3"];
+if[not 3 ~ .aoc2017.d11.t1 "se,sw,se,sw,sw"; '"[AssertionException] .aoc2017.d11.t1 case 4"];
+if[not 3 ~ .aoc2017.d11.t2 "ne,ne,ne"; '"[AssertionException] .aoc2017.d11.t2 case 1"];
+if[not 2 ~ .aoc2017.d11.t2 "ne,ne,sw,sw"; '"[AssertionException] .aoc2017.d11.t2 case 2"];
+if[not 2 ~ .aoc2017.d11.t2 "ne,ne,s,s"; '"[AssertionException] .aoc2017.d11.t2 case 3"];
+if[not 3 ~ .aoc2017.d11.t2 "se,sw,se,sw,sw"; '"[AssertionException] .aoc2017.d11.t2 case 4"];
 
 
 //------------------------------------
