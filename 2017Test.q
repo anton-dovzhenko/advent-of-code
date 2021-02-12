@@ -167,3 +167,9 @@ if[not "baedc"~.aoc2017.d16.t1[5#.Q.a;"s1,x3/4,pe/b"]; '"[AssertionException] .a
 if[not "abcde"~.aoc2017.d16.t2[5#.Q.a;"s1,x3/4,pe/b"]; '"[AssertionException] .aoc2017.d16.t2"];
 0N!".aoc2017.d16 passed";
 
+
+//------------------------------------
+//Task 17
+if[not 638~.aoc2017.d17.t1 3; '"[AssertionException] .aoc2017.d17.t1"];
+if[not 33601318~.aoc2017.d17.t2 301; '"[AssertionException] .aoc2017.d17.t2"];
+
