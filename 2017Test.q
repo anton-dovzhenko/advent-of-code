@@ -173,3 +173,10 @@ if[not "abcde"~.aoc2017.d16.t2[5#.Q.a;"s1,x3/4,pe/b"]; '"[AssertionException] .a
 if[not 638~.aoc2017.d17.t1 3; '"[AssertionException] .aoc2017.d17.t1"];
 if[not 33601318~.aoc2017.d17.t2 301; '"[AssertionException] .aoc2017.d17.t2"];
 
+
+//------------------------------------
+//Task 18
+if[not 4~.aoc2017.d18.t1"set a 1\nadd a 2\nmul a a\nmod a 5\nsnd a\nset a 0\nrcv a\njgz a -1\nset a 1\njgz a -2";
+    '"[AssertionException] .aoc2017.d18.t1"];
+if[not 3~.aoc2017.d18.t2"snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d"; '"[AssertionException] .aoc2017.d18.t2"];
+

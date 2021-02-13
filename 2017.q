@@ -392,3 +392,64 @@
 
 .aoc2017.d17.t2: {[n] last where 1=first flip 50000000{[x;n] (1+(x[0]+n) mod x 1;1+x 1)}[;n]\(0;1)};
 
+
+//------------------------------------
+//Task 18
+.aoc2017.d18.t1: {
+    x: " "vs/:"\n"vs x;
+    r: {x!(count x)#0}distinct x[;1];
+    o: ("snd";"set";"add";"mul";"mod";"rcv";"jgz")!(
+        {[r;i;s;p] (r;i+1;r@first p)};
+        {[r;i;s;p] r[first p]: r[last p]^"I"$last p; (r;i+1;s)};
+        {[r;i;s;p] r[first p]+: r[last p]^"I"$last p; (r;i+1;s)};
+        {[r;i;s;p] r[first p]*: r[last p]^"I"$last p; (r;i+1;s)};
+        {[r;i;s;p] r[first p]: r[first p] mod r[last p]^"I"$last p; (r;i+1;s)};
+        {[r;i;s;p] s};
+        {[r;i;s;p] (r;i+$[0<r first p;r[last p]^"I"$last p;1];s)}
+    );
+    {1<count x}{[o;x;y]
+        r: y 0;
+        i: y 1;
+        s: y 2;
+        cmd: o@x[i;0];
+        p: 1 _ x[i];
+        cmd . (r;i;s;p)
+        }[o;x]/(r;0;0)
+
+ };
+
+
+.aoc2017.d18.t2: {
+    x: " "vs/:"\n"vs x;
+    r0: "123456789-"_{x!(count x)#0}raze distinct x[;1];
+    r1: r0;
+    r0["p"]: 0;
+    r1["p"]: 1;
+    o: ("snd";"set";"add";"mul";"mod";"rcv";"jgz")!(
+        {[r;i;s;q;p] (r;i+1;r[first last p]^"I"$last p;q)};
+        {[r;i;s;q;p] r[first p]: r[first last p]^"I"$last p; (r;i+1;0N;q)};
+        {[r;i;s;q;p] r[first p]+: r[first last p]^"I"$last p; (r;i+1;0N;q)};
+        {[r;i;s;q;p] r[first p]*: r[first last p]^"I"$last p; (r;i+1;0N;q)};
+        {[r;i;s;q;p] r[first p]: r[first first p] mod r[first last p]^"I"$last p; (r;i+1;0N;q)};
+        {[r;i;s;q;p] $[0=count q;(r;i;0N;q); [r[first first p]: first q; (r;i+1;0N;1 _ q)] ]};
+        {[r;i;s;q;p] (r;i+$[0<r[first first p]^"I"$first p;r[first last p]^"I"$last p;1];0N;q)}
+    );
+
+    pr0: ();
+    pr1: ();
+    res0: (r0;0;0N;`long$());
+    res1: (r1;0;0N;`long$());
+    cnt: 0;
+
+    while[not (pr0~res0)&(pr1~res1);
+        pr0: res0;
+        pr1: res1;
+        res0: (o@x[res0 1;0]) . res0, enlist 1 _ x[res0 1];
+        res1: (o@x[res1 1;0]) . res1, enlist 1 _ x[res1 1];
+        if[not null res1 2; cnt+:1];
+        if[not null res0 2; res1[3]: res1[3], res0 2];
+        if[not null res1 2; res0[3]: res0[3], res1 2];
+    ];
+    cnt
+};
+
