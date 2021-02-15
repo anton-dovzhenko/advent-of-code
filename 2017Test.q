@@ -180,3 +180,15 @@ if[not 4~.aoc2017.d18.t1"set a 1\nadd a 2\nmul a a\nmod a 5\nsnd a\nset a 0\nrcv
     '"[AssertionException] .aoc2017.d18.t1"];
 if[not 3~.aoc2017.d18.t2"snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d"; '"[AssertionException] .aoc2017.d18.t2"];
 
+
+//------------------------------------
+//Task 19
+.input.aoc2017.d19:
+"     |
+     |  +--+
+     A  |  C
+ F---|--|-E---+
+     |  |  |  D
+     +B-+  +--+ ";
+if[not "ABCDEF"~.aoc2017.d19.t1 .input.aoc2017.d19; '"[AssertionException] .aoc2017.d19.t1"];
+if[not 38~.aoc2017.d19.t2 .input.aoc2017.d19; '"[AssertionException] .aoc2017.d19.t2"];

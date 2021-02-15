@@ -453,3 +453,31 @@
     cnt
 };
 
+
+//------------------------------------
+//Task 19
+.aoc2017.d19.common: {
+    x: "\n" vs x;
+    p: (0;first where "|"=first x); //position
+    d: 1 0; //direction
+    x: {[x;y]
+        p: y 0;
+        d: y 1;
+        word: y 2;
+        s: y 3;
+        np: p + d;
+        c: x@/np;
+        if[c in .Q.A; word,: c];
+        if[null c;:y];
+        if["+"=c;
+            pts: np+/:(0 1;0 -1;1 0;-1 0) except enlist neg d;
+            pts: pts@first where not ({x@/y}[x] each pts)=" ";
+            :(np;pts-np;word;s+1)];
+        (np;d;word;s+1)
+    }[x] over (p;d;"";1);
+    x
+ };
+
+
+.aoc2017.d19.t1: {(.aoc2017.d19.common x)@2};
+.aoc2017.d19.t2: {(.aoc2017.d19.common x)@3};
