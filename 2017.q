@@ -481,3 +481,30 @@
 
 .aoc2017.d19.t1: {(.aoc2017.d19.common x)@2};
 .aoc2017.d19.t2: {(.aoc2017.d19.common x)@3};
+
+
+//------------------------------------
+//Task 20
+//FIXME: implement robust algorithm
+//20th day solutions may fail depending on input.
+.aoc2017.d20.t1: {
+    x: "\n"vs x;
+    x: "J"${","vs/:first each ">"vs/:last each "<"vs/:", " vs x}each x;
+    first where {x=min x}sum each abs {[x;N] x[0] + (N*x[1])+(N*(1+N)%2)*x[2]}[;100000] each x
+ };
+
+
+.aoc2017.d20.t2: {
+    x: "\n"vs x;
+    x: "J"${","vs/:first each ">"vs/:last each "<"vs/:", " vs x}each x;
+    x: x,'til count x;
+    do[100000;
+        x: {
+            x[;1]+:x[;2];
+            x[;0]+:x[;1];
+            x: x where x[;0] in {{key[x] where  value x}1=count each group x}x[;0];
+            x
+        }x
+    ];
+    count x
+ };

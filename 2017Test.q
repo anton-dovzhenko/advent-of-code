@@ -192,3 +192,19 @@ if[not 3~.aoc2017.d18.t2"snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d"; '"[As
      +B-+  +--+ ";
 if[not "ABCDEF"~.aoc2017.d19.t1 .input.aoc2017.d19; '"[AssertionException] .aoc2017.d19.t1"];
 if[not 38~.aoc2017.d19.t2 .input.aoc2017.d19; '"[AssertionException] .aoc2017.d19.t2"];
+
+
+//------------------------------------
+//Task 20
+.input.aoc2017.d20_1:
+"p=<3,0,0>, v=<2,0,0>, a=<-1,0,0>
+p=<4,0,0>, v=<0,0,0>, a=<-2,0,0>";
+.input.aoc2017.d20_2:
+"p=<-6,0,0>, v=<3,0,0>, a=<0,0,0>
+p=<-4,0,0>, v=< 2,0,0>, a=<0,0,0>
+p=<-2,0,0>, v=< 1,0,0>, a=<0,0,0>
+p=< 3,0,0>, v=<-1,0,0>, a=<0,0,0>";
+if[not 0~.aoc2017.d20.t1 .input.aoc2017.d20_1; '"[AssertionException] .aoc2017.d20.t1"];
+if[not 1~.aoc2017.d20.t2 .input.aoc2017.d20_2; '"[AssertionException] .aoc2017.d20.t2"];
+
+
