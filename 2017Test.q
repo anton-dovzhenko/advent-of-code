@@ -99,8 +99,9 @@ if[not 0 17 3 2 0 0 10 ~ .aoc2017.d9.t2 each ("<>";"<random characters>";"<<<<>"
 
 //------------------------------------
 //Task 10
-if[not 12 ~ .aoc2017.d10.t1[5;3 4 1 5]; '"[AssertionException] .aoc2017.d10.t1 case 1"];
-if[not 11375 ~ .aoc2017.d10.t1[256;88,88,211,106,141,1,78,254,2,111,77,255,90,0,54,205]; '"[AssertionException] .aoc2017.d10.t1 case 2"];
+if[not 12 ~ .aoc2017.d10.t1[5;"3,4,1,5"]; '"[AssertionException] .aoc2017.d10.t1 case 1"];
+if[not 11375 ~ .aoc2017.d10.t1[256;"88,88,211,106,141,1,78,254,2,111,77,255,90,0,54,205"]; '"[AssertionException] .aoc2017.d10.t1 case 2"];
+if[not "33efeb34ea91902bb2f59c9920caa6cd" ~ .aoc2017.d10.t2[256;"AoC 2017"]; '"[AssertionException] .aoc2017.d10.t2 case 1"];
 
 
 //------------------------------------

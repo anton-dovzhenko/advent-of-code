@@ -239,23 +239,35 @@
 
 //------------------------------------
 //Task 10
-.aoc2017.d10.t1: {[size;steps]
-
-    list: first(count steps){
-        L: x 0; // list
-        sk: x 1; // skip
-        st: first x 2; //steps
-        L:(reverse st#L), st _ L;
-        st: (sk+st) mod count L;
-        L: (st _ L), st#L;
-        (L;sk+1;1 _ x 2)
-
-    }/(til size;0;steps);
-
-    i: ((sum steps + til count steps) mod count list);
-    prd 2#(neg i)#list
-
+.aoc2017.d10.getList: {[size;steps]
+    x: til size;
+    skip: 0;
+    i: 0;
+    while[0<count steps;
+        s: first steps;
+        indices: (i + til s) mod size;
+        x[indices]: x reverse indices;
+        i: i + s + skip;
+        skip+: 1;
+        steps: 1 _ steps;
+    ];
+    x
  };
+
+
+.aoc2017.d10.t1: {[size;steps]
+    prd 2#.aoc2017.d10.getList[size;"J"$","vs steps]
+ };
+
+
+.aoc2017.d10.t2: {[size;steps]
+    x: .aoc2017.d10.getList[size;raze 64#enlist(`long$steps), 17 31 73 47 23];
+    x: 16 cut x;
+    x: {2 sv {x mod 2} sum {((8-count x)#0),x} each 2 vs/:x} each x;
+    x: raze(raze(string til 10), 6#.Q.a) -2#'0,/:16 vs/:x;
+    x
+ };
+
 
 
 //------------------------------------
@@ -507,4 +519,28 @@
         }x
     ];
     count x
+ };
+
+
+//------------------------------------
+//Task 23
+.aoc2017.d23.t1: {
+    x: " "vs/:"\n" vs x;
+    r: (8#.Q.a)!8#0;
+    i: 0;
+    f: ("set";"sub";"mul";"jnz")!(
+        {[r;p] r[first p 0]: ("J"$p 1)^r first p 1; (r;1)};
+        {[r;p] r[first p 0]-: ("J"$p 1)^r first p 1; (r;1)};
+        {[r;p] r[first p 0]*: ("J"$p 1)^r first p 1; (r;1)};
+        {[r;p] x: ("J"$p 0)^r first p 0; (r; $[not x=0;("J"$p 1)^r first p 1;1]) }
+    );
+    cnt: 0;
+    while[i < count x;
+        cmd: x i;
+        cnt+: "mul"~cmd 0;
+        res: (f cmd 0)[r;raze each 1_cmd];
+        r: res 0;
+        i+: res 1;
+    ];
+    cnt
  };
