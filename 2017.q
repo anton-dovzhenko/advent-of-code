@@ -269,7 +269,6 @@
  };
 
 
-
 //------------------------------------
 //Task 11
 .aoc2017.d11.t1: {
@@ -320,6 +319,29 @@
     ];
     delay
  };
+
+
+//------------------------------------
+//Task 14
+.aoc2017.d14.common: {{raze -4#'(3#0),/:2 vs/:("0123456789abcdef"!til 16).aoc2017.d10.t2[256;x,"-",y]}[x] each string til 128};
+
+
+.aoc2017.d14.t1: {
+    sum sum .aoc2017.d14.common x
+ };
+
+
+.aoc2017.d14.t2: {
+    x: .aoc2017.d14.common x;
+    x: raze (til count x)(,/:)'where each x;
+    last {0<count x 0}{
+        if[0=count x 1; :(-1 _ x 0;enlist last x 0;1+x 2)];
+        n:  distinct raze (x 1)+/:\:(0 1;1 0;0 -1;-1 0); //neighbourhood
+        n: (x 0) inter n;
+    ((x 0) except n;n;x 2)
+    }/(x;();0)
+ };
+
 
 
 //------------------------------------
