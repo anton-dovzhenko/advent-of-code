@@ -236,3 +236,15 @@ if[not 12~.aoc2017.d21.common[.input.aoc2017.d21.x;.input.aoc2017.d21.r;2]; '"[A
 0N!".aoc2017.d21 passed";
 
 
+//------------------------------------
+//Task 22
+if[not 5~.aoc2017.d22.t1["..#\n#..\n...";7]; '"[AssertionException] .aoc2017.d22.t1 case 1"];
+if[not 41~.aoc2017.d22.t1["..#\n#..\n...";70]; '"[AssertionException] .aoc2017.d22.t1 case 2"];
+if[not 5587~.aoc2017.d22.t1["..#\n#..\n...";10000]; '"[AssertionException] .aoc2017.d22.t1 case 3"];
+if[not 26~.aoc2017.d22.t2["..#\n#..\n...";100]; '"[AssertionException] .aoc2017.d22.t2 case 1"];
+if[not 2511944~.aoc2017.d22.t2["..#\n#..\n...";10000000]; '"[AssertionException] .aoc2017.d22.t2 case 2"];
+0N!".aoc2017.d22 passed";
+
+
+
+

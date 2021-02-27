@@ -568,6 +568,54 @@
 
 
 //------------------------------------
+//Task 22
+.aoc2017.d22.t1: {[x;bursts]
+    x: "#"="\n"vs x;
+    s: {2#x}floor (count x)%2;
+    x: raze {y,\:x}'[reverse til count x;where each x];
+    dir: 0 1;
+    L: (0 1;0 -1;1 0; -1 0)!(-1 0;1 0;0 1;0 -1);
+    R: (0 1;0 -1;1 0; -1 0)!(1 0;-1 0;0 -1;0 1);
+    last bursts {[L;R;X]
+        s: X 0;
+        d: X 1;
+        x: X 2;
+        n: X 3;
+        infected: s in x;
+        d: $[infected;R;L]@d;
+        $[infected;x: x except enlist s;x,:enlist s];
+        s+: d;
+        (s;d;x;n+not infected)
+
+     }[L;R]/(s;dir;x;0)
+ };
+
+
+.aoc2017.d22.t2: {[x;bursts]
+    x: "#"="\n"vs x;
+    s: {2#x}floor (count x)%2;
+    x: raze {y,\:x}'[reverse til count x;where each x];
+    .tmp.x: (`u#x)!(count x)#`I;
+    dir: 0 1;
+    L: (0 1;0 -1;1 0; -1 0)!(-1 0;1 0;0 1;0 -1);
+    R: (0 1;0 -1;1 0; -1 0)!(1 0;-1 0;0 -1;0 1);
+    result: last bursts {[L;R;X]
+        s: X 0;
+        d: X 1;
+        n: X 2;
+        status: .tmp.x@s;
+        if[status=`I; d: R@d; .tmp.x[s]: `F];
+        if[status in ``C; d: L@d; .tmp.x[s]: `W];
+        if[status=`F; d: neg d; .tmp.x[s]: `C];
+        if[status=`W; .tmp.x[s]: `I; n+:1];
+        (s+d;d;n)
+     }[L;R]/(s;dir;0);
+    delete x from `.tmp;
+    result
+ };
+
+
+//------------------------------------
 //Task 23
 .aoc2017.d23.t1: {
     x: " "vs/:"\n" vs x;
