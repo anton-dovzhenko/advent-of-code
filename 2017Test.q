@@ -182,6 +182,7 @@ if[not "abcde"~.aoc2017.d16.t2[5#.Q.a;"s1,x3/4,pe/b"]; '"[AssertionException] .a
 //Task 17
 if[not 638~.aoc2017.d17.t1 3; '"[AssertionException] .aoc2017.d17.t1"];
 if[not 33601318~.aoc2017.d17.t2 301; '"[AssertionException] .aoc2017.d17.t2"];
+0N!".aoc2017.d17 passed";
 
 
 //------------------------------------
@@ -189,6 +190,7 @@ if[not 33601318~.aoc2017.d17.t2 301; '"[AssertionException] .aoc2017.d17.t2"];
 if[not 4~.aoc2017.d18.t1"set a 1\nadd a 2\nmul a a\nmod a 5\nsnd a\nset a 0\nrcv a\njgz a -1\nset a 1\njgz a -2";
     '"[AssertionException] .aoc2017.d18.t1"];
 if[not 3~.aoc2017.d18.t2"snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d"; '"[AssertionException] .aoc2017.d18.t2"];
+0N!".aoc2017.d18 passed";
 
 
 //------------------------------------
@@ -202,6 +204,7 @@ if[not 3~.aoc2017.d18.t2"snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d"; '"[As
      +B-+  +--+ ";
 if[not "ABCDEF"~.aoc2017.d19.t1 .input.aoc2017.d19; '"[AssertionException] .aoc2017.d19.t1"];
 if[not 38~.aoc2017.d19.t2 .input.aoc2017.d19; '"[AssertionException] .aoc2017.d19.t2"];
+0N!".aoc2017.d19 passed";
 
 
 //------------------------------------
@@ -216,5 +219,20 @@ p=<-2,0,0>, v=< 1,0,0>, a=<0,0,0>
 p=< 3,0,0>, v=<-1,0,0>, a=<0,0,0>";
 if[not 0~.aoc2017.d20.t1 .input.aoc2017.d20_1; '"[AssertionException] .aoc2017.d20.t1"];
 if[not 1~.aoc2017.d20.t2 .input.aoc2017.d20_2; '"[AssertionException] .aoc2017.d20.t2"];
+0N!".aoc2017.d20 passed";
+
+
+//------------------------------------
+//Task 21
+.input.aoc2017.d21.r:
+"../.# => ##./#../...
+.#./..#/### => #..#/..../..../#..#";
+.input.aoc2017.d21.x:
+".#.
+..#
+###";
+if[not 4~.aoc2017.d21.common[.input.aoc2017.d21.x;.input.aoc2017.d21.r;1]; '"[AssertionException] .aoc2017.d21.common case 1"];
+if[not 12~.aoc2017.d21.common[.input.aoc2017.d21.x;.input.aoc2017.d21.r;2]; '"[AssertionException] .aoc2017.d21.common case 1"];
+0N!".aoc2017.d21 passed";
 
 

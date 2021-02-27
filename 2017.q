@@ -545,6 +545,29 @@
 
 
 //------------------------------------
+//Task 21
+.aoc2017.d21.common: {[x;r;i]
+    r: " => " vs/:"\n" vs r;
+    r: flip {"/"vs/:x} each r;
+    r[0]: {(x; reverse x; reverse each x; reverse reverse each x;
+        flip x; flip reverse x; flip reverse each x; reverse each flip reverse each x)} each r 0;
+    r: (!) . flip raze {(enlist each x 0),\: enlist x 1 } each flip r;
+    x: "\n"vs x;
+    `long$sum sum "#"=i{[x;r]
+        c: $[0=(count x) mod 2;2;3];
+        N: `long$(count x)%c;
+        slices: raze flip each c cut c cut/:x;
+        slices: r@slices;
+        raze each raze (flip') N cut slices
+     }[;r]/x
+ };
+
+
+.aoc2017.d21.t1: .aoc2017.d21.common[;;5];
+.aoc2017.d21.t2: .aoc2017.d21.common[;;18];
+
+
+//------------------------------------
 //Task 23
 .aoc2017.d23.t1: {
     x: " "vs/:"\n" vs x;
