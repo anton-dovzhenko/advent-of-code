@@ -571,7 +571,7 @@
 //Task 22
 .aoc2017.d22.t1: {[x;bursts]
     x: "#"="\n"vs x;
-    s: {2#x}floor (count x)%2;
+    s: 2#floor (count x)%2;
     x: raze {y,\:x}'[reverse til count x;where each x];
     dir: 0 1;
     L: (0 1;0 -1;1 0; -1 0)!(-1 0;1 0;0 1;0 -1);
@@ -586,14 +586,13 @@
         $[infected;x: x except enlist s;x,:enlist s];
         s+: d;
         (s;d;x;n+not infected)
-
      }[L;R]/(s;dir;x;0)
  };
 
 
 .aoc2017.d22.t2: {[x;bursts]
     x: "#"="\n"vs x;
-    s: {2#x}floor (count x)%2;
+    s: 2#floor (count x)%2;
     x: raze {y,\:x}'[reverse til count x;where each x];
     .tmp.x: (`u#x)!(count x)#`I;
     dir: 0 1;
@@ -636,4 +635,38 @@
         i+: res 1;
     ];
     cnt
+ };
+
+
+//------------------------------------
+//Task 24
+//FIXME: improve solutions. Current implementation is brute-force.
+.aoc2017.d24.t1: {
+    x: asc asc each "J"$"/"vs/:"\n" vs x;
+    first {0<count x 1} {[x;y]
+        nxt: raze {[x;y]
+            match0: (where x[;0]=y[1]) except y 2;
+            match1: (where x[;1]=y[1]) except y 2;
+            ((y[0]+sum each x match0) ,'(x[;1]@match0) ,'(enlist each y[2],/:match0)),
+                (y[0]+sum each x match1) ,'(x[;0]@match1) ,'(enlist each y[2],/:match1)
+        }[x] each y 1;
+
+        (y[0]|$[0<count nxt;max nxt[;0];0]; nxt)
+
+     }[x]/(0;enlist(0;0;`long$())) // (sum;last port;excluded)
+ };
+
+
+.aoc2017.d24.t2: {
+    x: asc asc each "J"$"/"vs/:"\n" vs x;
+    {0<=type x}{[x;y]
+        nxt: raze {[x;y]
+            match0: (where x[;0]=y[1]) except y 2;
+            match1: (where x[;1]=y[1]) except y 2;
+            ((y[0]+sum each x match0) ,'(x[;1]@match0) ,'(enlist each y[2],/:match0)),
+                (y[0]+sum each x match1) ,'(x[;0]@match1) ,'(enlist each y[2],/:match1)
+        }[x] each y;
+        $[0=count nxt;max y[;0]; nxt]
+
+     }[x]/enlist(0;0;`long$()) // (sum;last port;excluded)
  };

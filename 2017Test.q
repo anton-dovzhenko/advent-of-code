@@ -246,5 +246,16 @@ if[not 2511944~.aoc2017.d22.t2["..#\n#..\n...";10000000]; '"[AssertionException]
 0N!".aoc2017.d22 passed";
 
 
-
+//------------------------------------
+//Task 24
+.input.aoc2017.d24.input: "0/2
+2/2
+2/3
+3/4
+3/5
+0/1
+10/1
+9/10";
+if[not 31~.aoc2017.d24.t1 .input.aoc2017.d24.input; '"[AssertionException] .aoc2017.d24.t1 case 1"];
+if[not 19~.aoc2017.d24.t2 .input.aoc2017.d24.input; '"[AssertionException] .aoc2017.d24.t2 case 1"];
 
