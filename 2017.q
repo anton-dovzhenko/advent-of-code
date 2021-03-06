@@ -670,3 +670,36 @@
 
      }[x]/enlist(0;0;`long$()) // (sum;last port;excluded)
  };
+
+
+//------------------------------------
+//Task 25
+.aoc2017.d25.t1: {
+    x: "\n\n"vs x;
+
+    metax: "\n" vs x 0;
+    state: `$-1_last " " vs first metax;
+    steps: "J"$last -1_" " vs last metax;
+    rulex: 1 _ x;
+    rulex: raze {
+        x: "\n" vs x;
+        s: `$-1_last " "vs x 0;
+
+        ((s;0);(s;1))!(
+            (`long$(x 2) like "* 1.";(10b!1 -1)(x 3) like "* right.";`$-1_last " "vs x 4);
+            (`long$(x 6) like "* 1.";(10b!1 -1)(x 7) like "* right.";`$-1_last " "vs x 8)
+
+        )
+     } each rulex;
+
+    reg: (`g#1#0)!1#0;
+    i: 0;
+    do[steps;
+        pos: (state;0^reg@i);
+        rule: rulex@pos;
+        reg[i]: rule 0;
+        i+: rule 1;
+        state: rule 2;
+    ];
+    sum reg
+ };
