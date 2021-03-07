@@ -259,3 +259,30 @@ if[not 2511944~.aoc2017.d22.t2["..#\n#..\n...";10000000]; '"[AssertionException]
 if[not 31~.aoc2017.d24.t1 .input.aoc2017.d24.input; '"[AssertionException] .aoc2017.d24.t1 case 1"];
 if[not 19~.aoc2017.d24.t2 .input.aoc2017.d24.input; '"[AssertionException] .aoc2017.d24.t2 case 1"];
 
+
+//------------------------------------
+//Task 25
+.input.aoc2017.d25.input: "Begin in state A.
+Perform a diagnostic checksum after 6 steps.
+
+In state A:
+   If the current value is 0:
+    - Write the value 1.
+    - Move one slot to the right.
+    - Continue with state B.
+  If the current value is 1:
+    - Write the value 0.
+    - Move one slot to the left.
+    - Continue with state B.
+
+In state B:
+  If the current value is 0:
+    - Write the value 1.
+    - Move one slot to the left.
+    - Continue with state A.
+  If the current value is 1:
+    - Write the value 1.
+    - Move one slot to the right.
+    - Continue with state A.";
+
+if[not 3~.aoc2017.d25.t1 .input.aoc2017.d25.input; '"[AssertionException] .aoc2017.d25.t1 case 1"];

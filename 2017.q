@@ -19,7 +19,6 @@
     side: 0.25*c2-c1;
     r: (x-c1+1) mod side;
     `long$0^c+1+abs r-(-1+0.5*side)
-
  };
 
 
