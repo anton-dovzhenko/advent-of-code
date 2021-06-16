@@ -44,11 +44,24 @@
  };
 
 
-//Task 6.1
-I: til 1000000;
-sum {?[((floor I%1000) within y[1][0 2])&mod[I;1000] within y[1][1 3];y[0]@x;x]} over (1000000#0b;({1b};(489,959, 759,964));({0b};(427,423, 929,502));({not x};(756,965, 812,992)))
-//Task 6.2
-sum {?[((floor I%1000) within y[1][0 2])&mod[I;1000] within y[1][1 3];y[0]@x;x]} over (1000000#0;({x+1};489,959,759,964);({0|x-1};820,516,871,914);({x+2};120,314,745,489))
+//------------------------------------
+//Task 6
+.aoc2015.d6.t1: {
+    x: "\n" vs x;
+    x: flip {raze (first where x like/:("turn off*";"turn on*";"toggle*")), "J"$","vs/:(reverse " "vs x)2 0} each x;
+    `long$sum {
+        {$[y=2; not x;`boolean$y]} over 0b, y[0]@where ((x div 1000) within y 1 3)&(x mod 1000) within y 2 4
+    }[;x] each til 1000000
+ };
+
+
+.aoc2015.d6.t2: {
+    x: "\n" vs x;
+    x: flip {raze ((-1 1 2)@first where x like/:("turn off*";"turn on*";"toggle*")), "J"$","vs/:(reverse " "vs x)2 0} each x;
+    `long$sum {
+        {0|x+y} over 0, y[0]@where ((x div 1000) within y 1 3)&(x mod 1000) within y 2 4
+    }[;x] each til 1000000
+ };
 
 
 //------------------------------------

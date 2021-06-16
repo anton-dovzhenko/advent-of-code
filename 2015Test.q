@@ -29,6 +29,22 @@ if[not 3 3 11~.aoc2015.d3.t2 each ("^v";"^>v<";"^v^v^v^v^v");'"[AssertionExcepti
 
 
 //------------------------------------
+//Task 6
+.aoc2015.d6.input1:
+"turn on 0,0 through 999,999
+toggle 0,0 through 999,0
+turn off 499,499 through 500,500";
+
+.aoc2015.d6.input2:
+"turn on 0,0 through 0,0
+toggle 0,0 through 999,999";
+
+if[not 998996 ~ .aoc2015.d6.t1 .aoc2015.d6.input1; '"[AssertionException] .aoc2015.d6.t1"];
+if[not 2000001 ~ .aoc2015.d6.t2 .aoc2015.d6.input2; '"[AssertionException] .aoc2015.d6.t2"];
+0N!".aoc2015.d6 passed";
+
+
+//------------------------------------
 //Task 8
 if[not 1350=.aoc2015.d8.t1 read0 hsym`$input.dir,"2015_8.input"; '"[AssertionException] .aoc2015.d8.t1 case 1"];
 if[not 2085=.aoc2015.d8.t2 read0 hsym`$input.dir,"2015_8.input"; '"[AssertionException] .aoc2015.d8.t2 case 1"];
