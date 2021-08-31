@@ -589,3 +589,12 @@
     first perms@where passwords~\:scrambled
  };
 
+
+//------------------------------------
+//Task 22
+.aoc2016.d21.t22: {
+    x: 2_x;
+    x: {x where not x~\:""} each " " vs/:x;
+    x: flip `s`u`a!flip {"J"$-1_'x 1 2 3} each x;
+    (sum/) x[`a]>/:x[`u] except 0
+ };
