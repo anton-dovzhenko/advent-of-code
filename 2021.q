@@ -14,14 +14,8 @@
 
 
 .aoc2021.d2.t2: {
-    x: flip " " vs/:"\n" vs x;
-    x[0]: `$x[0];
-    x[1]: "J"$x[1];
-    x: flip x;
-    x: {[x;y]
-        if[`down=y[0]; :x + (y[1];0;0)];
-        if[`up=y[0]; :x - (y[1];0;0)];
-        x + (0;y 1; x[0]*y 1)
-    } over (enlist 0 0 0), x;
-    prd x 1 2
+    x: flip {(`$x 0;"J"$x 1)} flip " " vs/:"\n" vs x;
+    x: {x + (`down`up`forward!((y 1;0;0);(neg y 1;0;0);(0;y 1;x[0]*y 1)))y 0} over (enlist 0 0 0), x;
+    prd 1 _ x
  };
+
