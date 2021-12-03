@@ -19,3 +19,23 @@
     prd 1 _ x
  };
 
+
+//------------------------------------
+//Task 3
+.aoc2021.d3.t1: {
+    x: (("J"$/:)')flip "\n" vs x;
+    x: (0.5*count first x)<=sum each x;
+    prd 2 sv/:(x;not x)
+ };
+
+
+.aoc2021.d3.t2: {
+    x: (("J"$/:)') "\n" vs x;
+    o:  {1<count x 1}{i: x 0; x: x 1; v: `long$(0.5*count x)<=sum[x]@i; (i+1;x where v=x[;i])}/(0;x);
+    s:  {1<count x 1}{i: x 0; x: x 1; v: `long$(0.5*count x)>sum[x]@i; (i+1;x where v=x[;i])}/(0;x);
+    prd 2 sv/:(raze')(last')(o;s)
+ };
+
+
+
+
