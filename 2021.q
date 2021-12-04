@@ -31,11 +31,36 @@
 
 .aoc2021.d3.t2: {
     x: (("J"$/:)') "\n" vs x;
-    o:  {1<count x 1}{i: x 0; x: x 1; v: `long$(0.5*count x)<=sum[x]@i; (i+1;x where v=x[;i])}/(0;x);
-    s:  {1<count x 1}{i: x 0; x: x 1; v: `long$(0.5*count x)>sum[x]@i; (i+1;x where v=x[;i])}/(0;x);
+    o: {1<count x 1}{i: x 0; x: x 1; v: count[x]<=2*sum[x]@i; (i+1;x where v=x[;i])}/(0;x);
+    s: {1<count x 1}{i: x 0; x: x 1; v: count[x]>2*sum[x]@i; (i+1;x where v=x[;i])}/(0;x);
     prd 2 sv/:(raze')(last')(o;s)
  };
 
 
+//------------------------------------
+//Task 4
+.aoc2021.d4.t1: {
+    x: "\n\n" vs x;
+    n: "J"$"," vs first x;
+    x: 1_x;
+    x: {(("J"$/:)'){x where not ""~/:x} each" "vs/:"\n" vs x} each x;
+    m: (count x)#enlist (5 cut 25#0b);
+    result: {5>max {max raze (sum x;sum flip x)} each x 1} {(1_y 0; (y 1)|x=first y 0)}[x]/(n;m);
+    n: (neg count result 0) _ n;
+    x: x@first where 5={max raze (sum x;sum flip x)} each result 1;
+    last[n] * sum (raze x) except n
+ };
 
 
+.aoc2021.d4.t2: {
+    x: "\n\n" vs x;
+    n: "J"$"," vs first x;
+    x: 1_x;
+    x: {(("J"$/:)'){x where not ""~/:x} each" "vs/:"\n" vs x} each x;
+    m: (count x)#enlist (5 cut 25#0b);
+    f: {(1_y[0]; y[1]|x=first y[0]; y[2]+5={(max sum x)|max sum flip x} each y[1]|x=first y[0])}[x];
+    result: {any 0=x 2}f/(n;m;count[m]#0);
+    n: (neg count result 0) _ n;
+    x: x@ first where 1=result 2;
+    last[n] * sum (raze x) except n
+};
