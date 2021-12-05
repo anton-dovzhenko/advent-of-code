@@ -44,7 +44,7 @@
     n: "J"$"," vs first x;
     x: 1_x;
     x: {(("J"$/:)'){x where not ""~/:x} each" "vs/:"\n" vs x} each x;
-    m: (count x)#enlist (5 cut 25#0b);
+    m: (count x)#enlist 5 cut 25#0b;
     result: {5>max {max raze (sum x;sum flip x)} each x 1} {(1_y 0; (y 1)|x=first y 0)}[x]/(n;m);
     n: (neg count result 0) _ n;
     x: x@first where 5={max raze (sum x;sum flip x)} each result 1;
@@ -57,10 +57,31 @@
     n: "J"$"," vs first x;
     x: 1_x;
     x: {(("J"$/:)'){x where not ""~/:x} each" "vs/:"\n" vs x} each x;
-    m: (count x)#enlist (5 cut 25#0b);
+    m: (count x)#enlist 5 cut 25#0b;
     f: {(1_y[0]; y[1]|x=first y[0]; y[2]+5={(max sum x)|max sum flip x} each y[1]|x=first y[0])}[x];
     result: {any 0=x 2}f/(n;m;count[m]#0);
     n: (neg count result 0) _ n;
     x: x@ first where 1=result 2;
     last[n] * sum (raze x) except n
-};
+ };
+
+
+
+//------------------------------------
+//Task 5
+.aoc2021.d5.common: {[x;onlyHV]
+    x: "\n" vs x;
+    x: "J"${","vs/:x} each " -> " vs/:x;
+    if[onlyHV; x: x where {any(=). x} each x];
+    x: raze {(,'). x}
+        each 2 cut {$[1=count x;first x;x]}
+        each {x[0] + (signum x 1) * til 1+abs x[1]}
+        each {(x 0;x[1]-x[0])}
+        each raze flip each x;
+    sum 1<count each group x
+ };
+
+
+.aoc2021.d5.t1: .aoc2021.d5.common[;1b];
+.aoc2021.d5.t2: .aoc2021.d5.common[;0b];
+

@@ -46,7 +46,7 @@ if[not 230 ~ .aoc2021.d3.t2 .input.aoc2021.d3; '"[AssertionException] .aoc2021.d
 
 
 //------------------------------------
-//Task 3
+//Task 4
 .input.aoc2021.d4:
 "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
@@ -69,5 +69,22 @@ if[not 230 ~ .aoc2021.d3.t2 .input.aoc2021.d3; '"[AssertionException] .aoc2021.d
  2  0 12  3  7";
 if[not 4512 ~ .aoc2021.d4.t1 .input.aoc2021.d4; '"[AssertionException] .aoc2021.d4.t1"];
 if[not 1924 ~ .aoc2021.d4.t2 .input.aoc2021.d4; '"[AssertionException] .aoc2021.d4.t2"];
+
+
+//------------------------------------
+//Task 5
+.input.aoc2021.d5:
+"0,9 -> 5,9
+8,0 -> 0,8
+9,4 -> 3,4
+2,2 -> 2,1
+7,0 -> 7,4
+6,4 -> 2,0
+0,9 -> 2,9
+3,4 -> 1,4
+0,0 -> 8,8
+5,5 -> 8,2";
+if[not 5i ~ .aoc2021.d5.t1 .input.aoc2021.d5; '"[AssertionException] .aoc2021.d5.t1"];
+if[not 12i ~ .aoc2021.d5.t2 .input.aoc2021.d5; '"[AssertionException] .aoc2021.d5.t2"];
 
 
