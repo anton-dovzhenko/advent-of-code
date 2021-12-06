@@ -85,3 +85,23 @@
 .aoc2021.d5.t1: .aoc2021.d5.common[;1b];
 .aoc2021.d5.t2: .aoc2021.d5.common[;0b];
 
+
+//------------------------------------
+//Task 6
+.aoc2021.d6.common: {
+    x: "J"$"," vs x;
+    x: count each group x;
+    do[y;
+        new: 0^x 0;
+        x: {sum each x[1] group x 0}({?[x<0;6;x]} -1+key x;value x);
+        x[8]: new
+    ];
+    sum x
+ };
+
+
+.aoc2021.d6.t1: .aoc2021.d6.common[;80];
+.aoc2021.d6.t2: .aoc2021.d6.common[;256];
+
+
+

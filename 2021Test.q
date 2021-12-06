@@ -88,3 +88,10 @@ if[not 5i ~ .aoc2021.d5.t1 .input.aoc2021.d5; '"[AssertionException] .aoc2021.d5
 if[not 12i ~ .aoc2021.d5.t2 .input.aoc2021.d5; '"[AssertionException] .aoc2021.d5.t2"];
 
 
+//------------------------------------
+//Task 5
+.input.aoc2021.d6: "3,4,3,1,2";
+if[not 5934 ~ .aoc2021.d6.t1 .input.aoc2021.d6; '"[AssertionException] .aoc2021.d6.t1"];
+if[not 26984457539 ~ .aoc2021.d6.t2 .input.aoc2021.d6; '"[AssertionException] .aoc2021.d6.t2"];
+
+
