@@ -104,4 +104,19 @@
 .aoc2021.d6.t2: .aoc2021.d6.common[;256];
 
 
+//------------------------------------
+//Task 7
+.aoc2021.d7.t1: {
+    x: "J"$"," vs x;
+    `long$min {sum (x-y)|y-x}[x] each min[x] + til 1+max[x]-min[x]
+ };
+
+
+.aoc2021.d7.t2: {
+    x: "J"$"," vs x;
+    `long$min {sum {x*0.5*x+1} (x-y)|y-x}[x] each min[x] + til 1+max[x]-min[x]
+ };
+
+
+
 
