@@ -118,5 +118,30 @@
  };
 
 
+//------------------------------------
+//Task 9
+.aoc2021.d9.t1: {
+    x: (("J"$/:)')"\n" vs x;
+    fmin: {x=(reverse 3 mmin reverse x)&3 mmin x};
+    mask: fmin[x]&flip fmin flip x;
+    (sum/) mask+x*mask
+ };
 
 
+.aoc2021.d9.t2: {
+    x: {"J"$/:x}each"\n" vs x;
+    x: raze {x,'y}'[til count x;where each not x=9];
+    bs: ();
+
+    while[0 < count x;
+        b: enlist first[x];
+        i: 1#0N;
+        while[0<count i;
+            x: `u#x except b;
+            i: (raze b +/:\:(0 1;1 0;0 -1;-1 0)) inter x;
+            b: distinct b, i
+        ];
+        bs,: count b;
+    ];
+    prd 3#desc bs
+ };

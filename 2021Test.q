@@ -102,3 +102,14 @@ if[not 37 ~ .aoc2021.d7.t1 .input.aoc2021.d7; '"[AssertionException] .aoc2021.d7
 if[not 168 ~ .aoc2021.d7.t2 .input.aoc2021.d7; '"[AssertionException] .aoc2021.d7.t2"];
 
 
+//------------------------------------
+//Task 9
+.input.aoc2021.d9:
+"2199943210
+3987894921
+9856789892
+8767896789
+9899965678";
+if[not 15 ~ .aoc2021.d9.t1 .input.aoc2021.d9; '"[AssertionException] .aoc2021.d9.t1"];
+if[not 1134 ~ .aoc2021.d9.t2 .input.aoc2021.d9; '"[AssertionException] .aoc2021.d9.t2"];
+
