@@ -119,6 +119,41 @@
 
 
 //------------------------------------
+//Task 8
+.aoc2021.d8.t1: {
+    x: "\n" vs x;
+    `long$sum (count each raze " " vs/: last each " | " vs/:x) in 2 3 4 7
+ };
+
+
+.aoc2021.d8.t2: {
+    sum {
+        x: " "vs/:" | " vs x;
+        n: x 0;
+        res: x 1;
+
+        d:1 4 7 8!n (count each n)?2 4 3 7;
+        n: n except value d;
+        n6: n where 6 = count each n;
+        n5: n where 5 = count each n;
+
+        d[6]: n6 first where 1=count each n6 inter\:d 1;
+        d[9]: n6 first where 4=count each n6 inter\:d 4;
+        d[0]: first n6 except value d;
+
+        d[3]: n5 first where 2=count each n5 inter\:d 1;
+        n5: n5 except value d;
+        d[5]: n5 first where 3=count each n5 inter\: d 4;
+        d[2]: first  n5 except value d;
+
+        d: (asc each value d)!key d;
+        "J"$raze string d asc each res
+    } each "\n" vs x
+
+ };
+
+
+//------------------------------------
 //Task 9
 .aoc2021.d9.t1: {
     x: (("J"$/:)')"\n" vs x;
@@ -145,3 +180,4 @@
     ];
     prd 3#desc bs
  };
+
