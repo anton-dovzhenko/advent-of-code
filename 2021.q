@@ -133,7 +133,6 @@
         res: x 1;
 
         d:1 4 7 8!n (count each n)?2 4 3 7;
-        n: n except value d;
         n6: n where 6 = count each n;
         n5: n where 5 = count each n;
 
@@ -180,4 +179,37 @@
     ];
     prd 3#desc bs
  };
+
+
+//------------------------------------
+//Task 10
+.aoc2021.d10.t1: {
+    x: "\n" vs x;
+    x: {
+        {
+            d: ")}>]"!"({<[";
+            c: first x 1;
+            if[0=count x 1;:x];
+            if[c in "([<{"; :(x[0],c; 1_x[1])];
+            $[(last x 0)~d c; (-1_x[0]; 1_x[1]); ("";c)]
+        } over ("";x)
+    } each x;
+    sum (")]}>"!3 57 1197 25137) raze x[;1]
+ };
+
+
+.aoc2021.d10.t2: {
+    x: "\n" vs x;
+    x: {
+        {
+            d: ")}>]"!"({<[";
+            c: first x 1;
+            if[0=count x 1;:x;];
+            if[c in "([<{"; :(x[0],c;1_x[1])];
+            $[(last x 0)~d c; (-1_x[0]; 1_x[1]); ("";c)]
+        } over ("";x)
+    } each x;
+    `long$med {{y+5*x}over 0, x} each (reverse') ("([{<"!1 2 3 4) {x where not x~\:""} x[;0]
+ };
+
 
