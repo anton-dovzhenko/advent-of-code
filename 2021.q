@@ -213,3 +213,40 @@
  };
 
 
+//------------------------------------
+//Task 11
+.aoc2021.d11.t1: {
+    x: {"J"$/:x} each "\n" vs x;
+    x: (til[10] cross til 10)!raze x;
+    first 100{
+        cnt: x 0;
+        x: 1+x 1;
+        x: {
+            f: (key x) where (value x)>9;
+            x: f _ x;
+            inc: raze f+/:\:(-1 -1;0 -1;1 -1;-1 0;1 0;-1 1; 0 1; 1 1);
+            (key x)#x + count each group inc
+        } over x;
+        (cnt+100-count x;x+(til[10] cross til 10)!100#0)
+    }/(0;x)
+ };
+
+
+.aoc2021.d11.t2: {
+    x: {"J"$/:x} each "\n" vs x;
+    x: (til[10] cross til 10)!raze x;
+    first {not all all 0=x 1}{
+        i: x 0;
+        x: 1+x 1;
+        x: {
+            f: (key x) where (value x)>9;
+            x: f _ x;
+            inc: raze f+/:\:(-1 -1;0 -1;1 -1;-1 0;1 0;-1 1; 0 1; 1 1);
+            (key x)#x + count each group inc
+        } over x;
+        (i+1;x+(til[10] cross til 10)!100#0)
+    }/(0;x)
+
+ };
+
+
