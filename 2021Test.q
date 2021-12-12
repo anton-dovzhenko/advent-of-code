@@ -163,3 +163,19 @@ if[not 288957 ~ .aoc2021.d10.t2 .input.aoc2021.d10; '"[AssertionException] .aoc2
 5283751526";
 if[not 1656 ~ .aoc2021.d11.t1 .input.aoc2021.d11; '"[AssertionException] .aoc2021.d11.t1"];
 if[not 195 ~ .aoc2021.d11.t2 .input.aoc2021.d11; '"[AssertionException] .aoc2021.d11.t2"];
+
+
+//------------------------------------
+//Task 13
+.input.aoc2021.d12:
+"start-A
+start-b
+A-c
+A-b
+b-d
+A-end
+b-end";
+if[not 10 ~ .aoc2021.d12.t1 .input.aoc2021.d12; '"[AssertionException] .aoc2021.d12.t1"];
+if[not 36 ~ .aoc2021.d12.t2 .input.aoc2021.d12; '"[AssertionException] .aoc2021.d12.t2"];
+
+

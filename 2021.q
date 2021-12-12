@@ -246,7 +246,51 @@
         } over x;
         (i+1;x+(til[10] cross til 10)!100#0)
     }/(0;x)
-
  };
+
+
+//------------------------------------
+//Task 12
+.aoc2021.d12.t1: {
+    x: `$"-"vs/:"\n" vs x;
+    x: x, reverse each x;
+    x: x where not (x[;0]=`end)|x[;1]=`start;
+    count {[x;y]
+        raze {
+            if[`end=last y; :enlist y;];
+            noend: y where {x~lower[x]}each string y;
+            x: x where (x[;0]=last y)&not x[;1] in noend;
+            y,/:x[;1]
+        }[x] each y
+    }[x] over (x where x[;0]=`start)
+ };
+
+
+.aoc2021.d12.t2: {
+    x: `$"-"vs/:"\n" vs x;
+    x: x, reverse each x;
+    x: x where not (x[;0]=`end)|x[;1]=`start;
+    count {[x;y]
+        raze {
+            if[`end=last y; :enlist y;];
+            noend: {
+                x: x where {x~lower[x]}each string x;
+                $[2=max count each group x;distinct x;`$()]
+            }y;
+            x: x where (x[;0]=last y)&not x[;1] in noend;
+            y,/:x[;1]
+        }[x] each y
+    }[x] over (x where x[;0]=`start)
+ };
+
+
+
+
+
+
+
+
+
+
 
 
