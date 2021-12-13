@@ -284,6 +284,41 @@
  };
 
 
+//------------------------------------
+//Task 13
+.aoc2021.d13.t1: {
+    x: "\n\n" vs x;
+    d: x 0;
+    f: x 1;
+    d: "J"$","vs/:"\n" vs d;
+    f: last each " "vs/:"\n" vs f;
+    f: flip {(`$x 0;"J"$x 1)} flip "="vs/:f;
+    count {
+        $[y[0]=`x;
+            {distinct (x where x[;0]<y), (1 -1*/:(2*y;0)-/:x where x[;0]>y)}[x;y 1];
+            {distinct (x where x[;1]<y), (-1 1*/:(0;2*y)-/:x where x[;1]>y)}[x;y 1]]
+    } over enlist[d], enlist first f
+ };
+
+
+.aoc2021.d13.t2: {
+    x: "\n\n" vs x;
+    d: x 0;
+    f: x 1;
+    d: "J"$","vs/:"\n" vs d;
+    f: last each " "vs/:"\n" vs f;
+    f: flip {(`$x 0;"J"$x 1)} flip "="vs/:f;
+    d: {
+        $[y[0]=`x;
+            {distinct (x where x[;0]<y), (1 -1 */:(2*y;0)-/:x where x[;0]>y)}[x;y 1];
+            {distinct (x where x[;1]<y), ( -1 1*/:(0;2*y)-/:x where x[;1]>y)}[x;y 1]]
+    } over enlist[d], f;
+    size: 1+max d;
+    h: size 0;
+    w: size 1;
+    "\n" sv flip (01b!" #")w cut (til[h] cross til w) in d
+ };
+
 
 
 

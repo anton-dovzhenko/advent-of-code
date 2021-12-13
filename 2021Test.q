@@ -166,7 +166,7 @@ if[not 195 ~ .aoc2021.d11.t2 .input.aoc2021.d11; '"[AssertionException] .aoc2021
 
 
 //------------------------------------
-//Task 13
+//Task 12
 .input.aoc2021.d12:
 "start-A
 start-b
@@ -178,4 +178,29 @@ b-end";
 if[not 10 ~ .aoc2021.d12.t1 .input.aoc2021.d12; '"[AssertionException] .aoc2021.d12.t1"];
 if[not 36 ~ .aoc2021.d12.t2 .input.aoc2021.d12; '"[AssertionException] .aoc2021.d12.t2"];
 
+
+//------------------------------------
+//Task 13
+.input.aoc2021.d13: "6,10
+0,14
+9,10
+0,3
+10,4
+4,11
+6,0
+6,12
+4,1
+0,13
+10,12
+3,4
+3,0
+8,4
+1,10
+2,14
+8,10
+9,0
+
+fold along y=7
+fold along x=5";
+if[not 17 ~ .aoc2021.d13.t1 .input.aoc2021.d13; '"[AssertionException] .aoc2021.d13.t1"];
 
