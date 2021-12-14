@@ -316,8 +316,25 @@
     size: 1+max d;
     h: size 0;
     w: size 1;
-    "\n" sv flip (01b!" #")w cut (til[h] cross til w) in d
+    "\n" sv flip (01b!" #") w cut (til[h] cross til w) in d
  };
+
+
+//------------------------------------
+//Task 14
+.aoc2021.d14.common: {[x;s]
+    x: "\n\n" vs x;
+    m: ((!) . flip " -> " vs/:"\n" vs x 1); //map
+    p: count each group (-1_x 0),'(1_x 0); //pairs
+    p: s{[m;p] {sum each y group x} . flip raze {ins: first x@y;((y[0],ins;z);(ins,y 1;z))}[m]'[key p;value p] }[m]/p;
+    {max[x]-min[x]} ceiling 0.5*{sum each y group x} . (raze key p;raze 2#'value p)
+ };
+
+
+.aoc2021.d14.t1: .aoc2021.d14.common[;10];
+.aoc2021.d14.t2: .aoc2021.d14.common[;40];
+
+
 
 
 

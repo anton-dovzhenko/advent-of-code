@@ -204,3 +204,29 @@ fold along y=7
 fold along x=5";
 if[not 17 ~ .aoc2021.d13.t1 .input.aoc2021.d13; '"[AssertionException] .aoc2021.d13.t1"];
 
+
+//------------------------------------
+//Task 14
+.input.aoc2021.d14:
+"NNCB
+
+CH -> B
+HH -> N
+CB -> H
+NH -> C
+HB -> C
+HC -> B
+HN -> C
+NN -> C
+BH -> H
+NC -> B
+NB -> B
+BN -> B
+BB -> N
+BC -> B
+CC -> N
+CN -> C";
+if[not 1588 ~ .aoc2021.d14.t1 .input.aoc2021.d14; '"[AssertionException] .aoc2021.d14.t1"];
+if[not 2188189693529 ~ .aoc2021.d14.t2 .input.aoc2021.d14; '"[AssertionException] .aoc2021.d14.t2"];
+
+
