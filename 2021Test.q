@@ -230,3 +230,20 @@ if[not 1588 ~ .aoc2021.d14.t1 .input.aoc2021.d14; '"[AssertionException] .aoc202
 if[not 2188189693529 ~ .aoc2021.d14.t2 .input.aoc2021.d14; '"[AssertionException] .aoc2021.d14.t2"];
 
 
+//------------------------------------
+//Task 15
+.input.aoc2021.d15:
+"1163751742
+1381373672
+2136511328
+3694931569
+7463417111
+1319128137
+1359912421
+3125421639
+1293138521
+2311944581";
+if[not 40 ~ .aoc2021.d15.t1 .input.aoc2021.d15; '"[AssertionException] .aoc2021.d15.t1"];
+if[not 315 ~ .aoc2021.d15.t2 .input.aoc2021.d15; '"[AssertionException] .aoc2021.d15.t2"];
+
+

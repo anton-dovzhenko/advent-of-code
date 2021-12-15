@@ -335,14 +335,43 @@
 .aoc2021.d14.t2: .aoc2021.d14.common[;40];
 
 
+//------------------------------------
+//Task 15
+//FIXME: improve, current implementation is slow
+.aoc2021.d15.common: {
+    N: count x;
+    d: `u#(til N) cross til N;
+    md: d!raze flip sums flip sums x;
+    d: d!raze x;
+    stack: (0 1;1 0);
+    while[0<count stack;
+        ns: stack+/:\:(0 1;0 -1;1 0;-1 0);
+        ns: {(key[x] where not null value x)#x}(&/)(ns)!'md[stack]+d ns;
+        ns: (where ns <= (key ns)#md)#ns;
+        md,: ns;
+        stack: key ns
+    ];
+   last last md
+ };
 
 
+.aoc2021.d15.t1: {
+    x: "\n" vs x;
+    x: {"J"$/:x}each x;
+    x[0;0]: 0;
+    .aoc2021.d15.common x
+ };
 
 
-
-
-
-
-
+.aoc2021.d15.t2: {
+    x: "\n" vs x;
+    x: {"J"$/:x}each x;
+    f: {1|mod[x+1;10]};
+    x: 8 f\x;
+    x: x (til 5)+\:til 5;
+    x: (,/){((,')/)x} each x;
+    x[0;0]: 0;
+    .aoc2021.d15.common x
+ };
 
 
