@@ -248,6 +248,21 @@ if[not 315 ~ .aoc2021.d15.t2 .input.aoc2021.d15; '"[AssertionException] .aoc2021
 
 
 //------------------------------------
+//Task 16
+if[not 16 ~ .aoc2021.d16.t1 "8A004A801A8002F478"; '"[AssertionException] .aoc2021.d16.t1 case 1"];
+if[not 12 ~ .aoc2021.d16.t1 "620080001611562C8802118E34"; '"[AssertionException] .aoc2021.d16.t1 case 2"];
+if[not 23 ~ .aoc2021.d16.t1 "C0015000016115A2E0802F182340"; '"[AssertionException] .aoc2021.d16.t1 case 3"];
+if[not 31 ~ .aoc2021.d16.t1 "A0016C880162017C3686B18A3D4780"; '"[AssertionException] .aoc2021.d16.t1 case 4"];
+if[not 3 ~ .aoc2021.d16.t2 "C200B40A82"; '"[AssertionException] .aoc2021.d16.t2 case 1"];
+if[not 54 ~ .aoc2021.d16.t2 "04005AC33890"; '"[AssertionException] .aoc2021.d16.t2 case 2"];
+if[not 7 ~ .aoc2021.d16.t2 "880086C3E88112"; '"[AssertionException] .aoc2021.d16.t2 case 3"];
+if[not 9 ~ .aoc2021.d16.t2 "CE00C43D881120"; '"[AssertionException] .aoc2021.d16.t2 case 4"];
+if[not 1 ~ .aoc2021.d16.t2 "D8005AC2A8F0"; '"[AssertionException] .aoc2021.d16.t2 case 5"];
+if[not 0 ~ .aoc2021.d16.t2 "F600BC2D8F"; '"[AssertionException] .aoc2021.d16.t2 case 6"];
+if[not 0 ~ .aoc2021.d16.t2 "9C005AC2F8F0"; '"[AssertionException] .aoc2021.d16.t2 case 7"];
+if[not 1 ~ .aoc2021.d16.t2 "9C0141080250320F1802104A08"; '"[AssertionException] .aoc2021.d16.t2 case 8"];
+
+//------------------------------------
 //Task 17
 if[not 45 ~ .aoc2021.d17.t1 20 30 -10 -5; '"[AssertionException] .aoc2021.d17.t1"];
 if[not 112i ~ .aoc2021.d17.t2 20 30 -10 -5; '"[AssertionException] .aoc2021.d17.t2"];

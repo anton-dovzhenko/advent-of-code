@@ -376,6 +376,91 @@
 
 
 //------------------------------------
+//Task 16
+.aoc2021.d16.getMap: {
+{"B"$/:x} each (!) . flip " = " vs/:"\n" vs
+"0 = 0000
+1 = 0001
+2 = 0010
+3 = 0011
+4 = 0100
+5 = 0101
+6 = 0110
+7 = 0111
+8 = 1000
+9 = 1001
+A = 1010
+B = 1011
+C = 1100
+D = 1101
+E = 1110
+F = 1111"
+ };
+
+
+.aoc2021.d16.t1: {
+    x: raze (.aoc2021.d16.getMap`)@/:x;
+    sum first {0<sum x[2]}{
+        cache: x 0;
+        state: x 1;
+        x: x 2;
+        if[state=`V; cache,: 2 sv 3#x; :(cache;`T;3_x)];
+        if[state=`T; id: 2 sv 3#x; :(cache;$[id=4;`N;`I];3_x)];
+        if[state=`N; :(cache;$[x 0;`N;`V];5_x)];
+        if[state=`I; :(cache;$[x 0;`L1;`L0];1_x)];
+        if[state=`L0; :(cache;`V;15_x)];
+        if[state=`L1; :(cache;`V;11_x)];
+        '"[IllegalStateException] unreachable point";
+    }/(();`V;x)
+ };
+
+
+.aoc2021.d16.t2: {
+    // parse into (stack;bitlen;oplen)
+    x: {
+        x: raze (.aoc2021.d16.getMap`)@/:x;
+        x: {0<sum x[2]}{
+            c: x 0;
+            state: x 1;
+            x: x 2;
+            if[state=`V; c[2],: count x;:(c;`T;3_x)];
+            if[state=`T; id: 2 sv 3#x; :((c[0], $[id=4;();`$string id]; c 1;c 2;c 3);$[id=4;`N;`I];3_x)];
+            if[state=`N;
+                :($[x 0;(c 0;c[1], x 1+til 4;c 2;c 3);(c[0], 2 sv raze c[1], x 1+til 4;();c 2;c[3], 0)];$[x 0;`N;`V];5_x)];
+            if[state=`I; :(c;$[x 0;`L1;`L0];1_x)];
+            if[state=`L0; c[3],: 2 sv 15#x; :(c;`V;15_x)];
+            if[state=`L1; c[3],: neg 2 sv 11#x; :(c;`V;11_x)];
+            '"[IllegalStateException] unreachable point";
+        }/((();();`long$();`long$());`V;x);
+
+        adj: count last x;
+        x: first x;
+        x[2]: reverse deltas reverse x 2;
+        x[2]: (-1_x[2]), last[x 2]-adj;
+
+        x 0 2 3
+    } x;
+
+    {[x;OP]
+        stack: x 0;
+        bitlen: x 1;
+        oplen: x 2;
+        while[1<count stack;
+            i: last where -11=type each stack;
+            b: oplen i;
+            sbCnt: $[b<0;abs b;1+first where b=sums (i+1)_bitlen];
+            sb: stack@i+1+til sbCnt;
+            num: (OP stack i) sb;
+            stack: (i#stack), num, (1+i+count sb)_stack;
+            bitlen: (i#bitlen), sum[bitlen i+til 1+count sb], (1+i+count sb)_bitlen;
+            oplen: (i#oplen), 0, (1+i+count sb)_oplen;
+        ];
+        `long$first stack
+    }[x;`0`1`2`3`5`6`7!(sum;prd;min;max;((>).);((<).);((=).))]
+
+ };
+
+//------------------------------------
 //Task 17
 .aoc2021.d17.t1: {
     max raze {
