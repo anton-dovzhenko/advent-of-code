@@ -375,3 +375,24 @@
  };
 
 
+//------------------------------------
+//Task 17
+.aoc2021.d17.t1: {
+    max raze {
+        stop: {(y[2]<=x[1])&y[3]>=x[2]}[x];
+        {$[any (y[;2] within 2#x) and (y[;3] within -2#x);max y[;3];0N]}[x]
+        stop{(x[0]-signum x 0;-1+x 1;sum x 0 2;sum x 1 3)}\(y,z,0,0)
+    }[x]'[til 1+x 1]'[(0&x 2) + til 1+(x[1]|x[2])-(0&x 2)]
+ };
+
+
+.aoc2021.d17.t2: {
+    (sum/) {
+        stop: {(y[2]<=x[1])&y[3]>=x[2]}[x];
+        {any (y[;2] within 2#x) and (y[;3] within -2#x)}[x]
+        stop{(x[0]-signum x 0;-1+x 1;sum x 0 2;sum x 1 3)}\(y,z,0,0)
+    }[x]'[til 1+x 1]'[(0&x 2) + til (x[1]|x[2])-(0&x 2)]
+ };
+
+
+

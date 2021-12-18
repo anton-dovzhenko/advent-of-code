@@ -247,3 +247,9 @@ if[not 40 ~ .aoc2021.d15.t1 .input.aoc2021.d15; '"[AssertionException] .aoc2021.
 if[not 315 ~ .aoc2021.d15.t2 .input.aoc2021.d15; '"[AssertionException] .aoc2021.d15.t2"];
 
 
+//------------------------------------
+//Task 17
+if[not 45 ~ .aoc2021.d17.t1 20 30 -10 -5; '"[AssertionException] .aoc2021.d17.t1"];
+if[not 112i ~ .aoc2021.d17.t2 20 30 -10 -5; '"[AssertionException] .aoc2021.d17.t2"];
+
+
