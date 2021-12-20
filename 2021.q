@@ -480,4 +480,71 @@ F = 1111"
  };
 
 
+//------------------------------------
+//Task 18
+.aoc2021.d18.explode: {
+    levels: x 0;
+    nums: x 1;
+    i: first where 4=levels;
+    if[null i; :x];
+    N: count nums;
+    if[i>0; nums[i-1]+:nums@i];
+    if[i<N-2; nums[i+2]+:nums@i+1];
+    nums: (i#nums),0,(i+2)_nums;
+    levels: (i#levels),3,(i+2)_levels;
+    (levels;nums)
+ };
+
+
+.aoc2021.d18.split: {
+    levels: x 0;
+    nums: x 1;
+    i: first where nums>9;
+    if[null i;:x];
+    n1: floor 0.5*nums i;
+    n2: nums[i]-n1;
+    nums: (i#nums),n1,n2,(i+1)_nums;
+    levels: (i#levels),(2#1+levels@i),(i+1)_levels;
+    (levels;nums)
+ };
+
+
+.aoc2021.d18.process: {{.aoc2021.d18.split .aoc2021.d18.explode over x} over x};
+
+
+.aoc2021.d18.parseLine: {
+    -2#{0<count x 0}{
+        line: x 0;
+        level: x 1;
+        levels: x 2;
+        nums: x 3;
+        c: first line;
+        if[c="[";level+:1];
+        if[c="]";level-:1];
+        if[not c in "][,";levels,:level;nums,:"J"$c];
+        (1_line;level;levels;nums)
+    }/(x;-1;`long$();`long$())
+ };
+
+
+.aoc2021.d18.magnitude: {
+    first last {1<count first x}{
+    l: x 0;
+    n: x 1;
+    i: first where 0=1_deltas l;
+    n: (i#n),(sum (n@i+0 1)*3 2),(i+2)_n;
+    l: (i#l),(-1+l@i),(i+2)_l;
+    (l;n)}/x
+ };
+
+
+.aoc2021.d18.t1: {.aoc2021.d18.magnitude {.aoc2021.d18.process 1 0+x,'y} over .aoc2021.d18.parseLine each "\n" vs x};
+.aoc2021.d18.t2: {
+    x: .aoc2021.d18.parseLine each "\n" vs x;
+    x: 2 cut'x cross x;
+    x: x where not x[;0]~'x[;1];
+    max .aoc2021.d18.magnitude each {.aoc2021.d18.process 1 0+x[0],'x[1]} each x
+ };
+
+
 
