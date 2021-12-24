@@ -565,3 +565,46 @@ F = 1111"
 .aoc2021.d20.t2: .aoc2021.d20.common[;50];
 
 
+//------------------------------------
+//Task 22
+.aoc2021.d22.common: {[x;region]
+    x: "\n" vs x;
+    x: {x: " " vs x; (x[0] like "on"; "J"$".." vs/: last each "="vs/:"," vs x 1)} each x;
+    x: x where all each all each x[;1] within region;
+
+    gubeDifference: {
+        if[(any y[;0]>x[;1])|any y[;1]<x[;0]; :enlist x];
+        x1: x 0;
+        y1: x 1;
+        z1: x 2;
+        if[(not y[0][0]=x[0][0])&y[0][0] within x 0; x1,: y[0][0]-1 0];
+        if[(not y[0][1]=x[0][1])&y[0][1] within x 0; x1,: y[0][1]+0 1];
+        x1: asc x1 where x1 within x 0;
+        if[(not y[1][0]=x[1][0])&y[1][0] within x 1; y1,: y[1][0]-1 0];
+        if[(not y[1][1]=x[1][1])&y[1][1] within x 1; y1,: y[1][1]+0 1];
+        y1: asc y1 where y1 within x 1;
+        if[(not y[2][0]=x[2][0])&y[2][0] within x 2; z1,: y[2][0]-1 0];
+        if[(not y[2][1]=x[2][1])&y[2][1] within x 2; z1,: y[2][1]+0 1];
+        z1: asc z1 where z1 within x 2;
+        x: 2 cut/: (cross/) 2 cut/:(x1;y1;z1);
+        x: x where not {all all x within' y}[;y] each x;
+        x
+    };
+
+    qubes: ();
+    while[0<count x;
+        qube: first x;
+        on: qube 0;
+        qube: qube 1;
+        qubes: raze gubeDifference[;qube] each qubes;
+        if[on; qubes,:enlist qube];
+        x: 1_x
+    ];
+
+    sum {prd 1+last each deltas each x} each qubes
+
+ };
+
+
+.aoc2021.d22.t1: .aoc2021.d22.common[;-50 50];
+.aoc2021.d22.t2: .aoc2021.d22.common[;-0W 0W];
