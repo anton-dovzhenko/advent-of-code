@@ -618,7 +618,8 @@ F = 1111"
     x: {x: " " vs x; (x[0] like "on"; "J"$".." vs/: last each "="vs/:"," vs x 1)} each x;
     x: x where all each all each x[;1] within region;
 
-    gubeDifference: {
+    // subtract cube y from cube x and returns outcome as union of cubes
+    cubeDifference: {
         if[(any y[;0]>x[;1])|any y[;1]<x[;0]; :enlist x];
         x1: x 0;
         y1: x 1;
@@ -642,7 +643,7 @@ F = 1111"
         qube: first x;
         on: qube 0;
         qube: qube 1;
-        qubes: raze gubeDifference[;qube] each qubes;
+        qubes: raze cubeDifference[;qube] each qubes;
         if[on; qubes,:enlist qube];
         x: 1_x
     ];
@@ -654,3 +655,5 @@ F = 1111"
 
 .aoc2021.d22.t1: .aoc2021.d22.common[;-50 50];
 .aoc2021.d22.t2: .aoc2021.d22.common[;-0W 0W];
+
+
