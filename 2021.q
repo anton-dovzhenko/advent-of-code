@@ -566,6 +566,52 @@ F = 1111"
 
 
 //------------------------------------
+//Task 21
+.aoc2021.d21.t1: {[p1;p2]
+    end: 1000;
+    dice: 100;
+    rolls: 0;
+    p1-: 1; p2-: 1;
+    s1: 0; s2: 0;
+    while[(s1<end)&s2<end;
+        moves: sum 1+(rolls+til 3) mod dice;
+        rolls+: 3;
+        p1: (p1+moves) mod 10;
+        s1+: 1+p1;
+        if[s1<end;
+            moves: sum 1+(rolls+til 3) mod dice;
+            rolls+: 3;
+            p2: (p2+moves) mod 10;
+            s2+: 1+p2];
+     ];
+    rolls*min(s1;s2)
+ };
+
+
+.aoc2021.d21.t2: {[p1;p2]
+    wins: 0 0;
+    outcomes: count each group sum each 1 2 3 cross 1 2 3 cross 1 2 3;
+    games: flip `p1`p2`s1`s2`invs!enlist each (p1-1;p2-1;0;0;1);
+    active: 0;
+    while[0<count games;
+        games: raze {[a;g;moves;invs]
+            p: (0 1!`p1`p2)a;
+            s: (0 1!`s1`s2)a;
+            g[p]: (g[p]+moves) mod 10;
+            g[s]+: 1+g[p];
+            g[`invs]*: invs;
+            g
+        }[active]'[games]'[key outcomes;value outcomes];
+        wins: wins + $[active=0;1 0;0 1] * exec sum invs from games where (s1>=21)|s2>=21;
+        games: delete from games where (s1>=21)|s2>=21;
+        games: 0!select sum invs by p1, p2, s1, s2 from games;
+        active: (active+1) mod 2
+    ];
+    max wins
+ };
+
+
+//------------------------------------
 //Task 22
 .aoc2021.d22.common: {[x;region]
     x: "\n" vs x;

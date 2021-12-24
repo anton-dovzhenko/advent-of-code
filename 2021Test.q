@@ -299,6 +299,12 @@ if[not 3351i ~ .aoc2021.d20.t2 .input.aoc2021.d20; '"[AssertionException] .aoc20
 
 
 //------------------------------------
+//Task 21
+if[not 739785 ~ .aoc2021.d21.t1[4;8]; '"[AssertionException] .aoc2021.d21.t1"];
+if[not 444356092776315 ~ .aoc2021.d21.t2[4;8]; '"[AssertionException] .aoc2021.d21.t2"];
+
+
+//------------------------------------
 //Task 22
 .input.aoc2021.d22set1:
 "on x=10..12,y=10..12,z=10..12
