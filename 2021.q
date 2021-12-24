@@ -547,4 +547,21 @@ F = 1111"
  };
 
 
+//------------------------------------
+//Task 20
+.aoc2021.d20.common: {[x;T]
+    x: "\n\n" vs x;
+    a: `u#where "#"=first x;
+    p: where each "#"="\n" vs last x;
+    S: max (count p;max last each p);
+    p: `u#raze til[count p] cross' p;
+    g: {x cross x} (neg 4*T)+til S + 1+8*T;
+    do[T; p: `u#g where ({2 sv (y+/:(-1 -1;-1 0;-1 1;0 -1;0 0;0 1;1 -1;1 0; 1 1)) in x}[p] each g) in a];
+    sum all each p within (-2*T;S+2*T)
+ };
+
+
+.aoc2021.d20.t1: .aoc2021.d20.common[;2];
+.aoc2021.d20.t2: .aoc2021.d20.common[;50];
+
 
