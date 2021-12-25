@@ -401,6 +401,17 @@ if[not 39 ~ .aoc2021.d22.t1 .input.aoc2021.d22set1; '"[AssertionException] .aoc2
 if[not 590784 ~ .aoc2021.d22.t1 .input.aoc2021.d22set2; '"[AssertionException] .aoc2021.d22.t1 case 2"];
 if[not 2758514936282235 ~ .aoc2021.d22.t2 .input.aoc2021.d22set3; '"[AssertionException] .aoc2021.d22.t2"];
 
-
-
+//------------------------------------
+//Task 25
+.input.aoc2021.d25:
+"v...>>.vv>
+.vv>>.vv..
+>>.>v>...v
+>>v>>.>.v.
+v>v.vv.v..
+>.>>..v...
+.vv..>.>v.
+v.v..>>v.v
+....v..v.>";
+if[not 58 ~ .aoc2021.d25.t1 .input.aoc2021.d25; '"[AssertionException] .aoc2021.d25.t1 case 1"];
 

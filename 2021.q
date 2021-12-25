@@ -657,3 +657,37 @@ F = 1111"
 .aoc2021.d22.t2: .aoc2021.d22.common[;-0W 0W];
 
 
+//------------------------------------
+//Task 25
+.aoc2021.d25.t1: {
+    x: "\n" vs x;
+    N: count x;
+    M: count first x;
+    s: raze {x cross' til count x} where each x="v";
+    e: raze {x cross' til count x} where each x=">";
+
+    x: {not 0=x 3}{[N;M;x]
+        e: x 0;
+        s: x 1;
+        i: x 2;
+        mc: 0;
+
+        en: flip e +\:1 0;
+        en[0]: en[0] mod M;
+        en: flip en;
+        m: not en in s, e;
+        mc+: sum m;
+        e: (en where m), e where not m;
+
+        sn: flip s +\:0 1;
+        sn[1]: sn[1] mod N;
+        sn: flip sn;
+        m: not sn in s, e;
+        mc+: sum m;
+        s: (sn where m), s where not m;
+
+        (e;s;i+1;mc)
+    }[N;M]/(e;s;0;-1);
+
+    x@2
+ };
