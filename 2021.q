@@ -689,6 +689,45 @@ F = 1111"
 
 
 //------------------------------------
+//Task 23
+//FIXME: refactor
+.aoc2021.d23.common: {[x;field]
+    while[not (1=count x)&all 1>=count each x[;0];
+        x: raze {[x;field]
+            s: x 2; t: x 1; x: x 0;
+            index: where x[`p]~'t@x`a;
+            t[x[`a]index]: t[x[`a]index]+\:0 -1;
+            x: delete from x where i in index;
+            index: where x[`p]~'t@x`a;
+            t[x[`a]index]: t[x[`a]index]+\:0 -1;
+            x: delete from x where i in index;
+            if[0=count x; :enlist (x;t;s)];
+
+            x: flip raze {[t;x;field;index]
+                P1: x[`p]@index;
+                P: ({(distinct raze y+/:\:(0 0;-1 0;1 0;0 -1;0 1)) inter x}[field except x`p] over enlist P1) except enlist P1;
+                P: P except (2 0;4 0;6 0;8 0);
+                if[0=count P;:()];
+                T: t@x[`a]@index;
+                P: $[P1[1]=0; $[T in P;enlist T;()]; P where P[;1]=0];
+                scores: (sum each abs P-\:P1)*(`A`B`C`D!1 10 100 1000)x[`a]@index;
+                x: {[x;index;P] update p: enlist P from x where i=index}[x;index] each P;
+                (enlist each x),' scores
+            }[t;x;field] each til count x;
+
+            ((enlist each x[0]),\:enlist t),'x[1]+s
+
+            }[;field] each x;
+        x: flip value flip 0!select min score by pos, tgt from flip `pos`tgt`score! flip x];
+
+    last first x
+ };
+
+.aoc2021.d23.t1: .aoc2021.d23.common[;(0 0;1 0;2 0;3 0;4 0;5 0;6 0;7 0;8 0;9 0;10 0;2 1; 2 2; 4 1; 4 2; 6 1; 6 2; 8 1; 8 2)];
+.aoc2021.d23.t2: .aoc2021.d23.common[;(0 0;1 0;2 0;3 0;4 0;5 0;6 0;7 0;8 0;9 0;10 0;2 1; 2 2; 2 3;2 4; 4 1; 4 2; 4 3; 4 4; 6 1; 6 2; 6 3;6 4; 8 1; 8 2; 8 3; 8 4)];
+
+
+//------------------------------------
 //Task 25
 .aoc2021.d25.t1: {
     x: "\n" vs x;

@@ -540,10 +540,17 @@ off x=-70369..-16548,y=22648..78696,z=-1892..86821
 on x=-53470..21291,y=-120233..-33476,z=-44150..38147
 off x=-93533..-4276,y=-16170..68771,z=-104985..-24507";
 
-
 if[not 39 ~ .aoc2021.d22.t1 .input.aoc2021.d22set1; '"[AssertionException] .aoc2021.d22.t1 case 1"];
 if[not 590784 ~ .aoc2021.d22.t1 .input.aoc2021.d22set2; '"[AssertionException] .aoc2021.d22.t1 case 2"];
 if[not 2758514936282235 ~ .aoc2021.d22.t2 .input.aoc2021.d22set3; '"[AssertionException] .aoc2021.d22.t2"];
+
+
+//------------------------------------
+//Task 23
+if[not 12521 ~ .aoc2021.d23.t1 enlist (([]a: `B`A`C`D`B`C`D`A; p: (2 1; 2 2; 4 1; 4 2; 6 1; 6 2; 8 1; 8 2));`A`B`C`D!(2 2;4 2; 6 2; 8 2);0); '"[AssertionException] .aoc2021.d23.t1"];
+if[not 44169 ~ .aoc2021.d23.t2 enlist (([]a: `B`D`D`A`C`C`B`D`B`B`A`C`D`A`C`A; p: (2 1; 2 2; 2 3;2 4; 4 1; 4 2; 4 3; 4 4; 6 1; 6 2; 6 3;6 4; 8 1; 8 2; 8 3; 8 4));`A`B`C`D!(2 4;4 4; 6 4; 8 4);0); '"[AssertionException] .aoc2021.d23.t2"];
+
+
 
 //------------------------------------
 //Task 25
