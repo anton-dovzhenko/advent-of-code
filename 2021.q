@@ -546,6 +546,37 @@ F = 1111"
     max .aoc2021.d18.magnitude each {.aoc2021.d18.process 1 0+x[0],'x[1]} each x
  };
 
+//------------------------------------
+//Task 19
+.aoc2021.d19.common: {
+    x: "J"${","vs/:x}each 1_'"\n"vs/:"\n\n" vs x;
+    queue: enlist 0;
+    done: enlist 0;
+    scanners: enlist 0 0 0;
+    while[count[done]<count x;
+        target: (til count x) except done, first queue;
+        target: target!{[x;i;j]
+            res: {
+                y: z[0]*/:y;
+                y: y@\:z[1];
+                d:raze x-/:\:y;
+                (z;raze 3#raze {[x;y;d]c: count (x-\:d) inter y; $[c=12;d;()]}[x;y] each d)
+                }[x i;x j] each (enlist each {x cross x cross x}1 -1) cross enlist each (0 1 2;0 2 1;1 0 2;1 2 0;2 0 1;2 1 0);
+            res: first res where 0<count each res[;1];
+            res
+            }[x;first queue]each target;
+        target: (where not target~\:())#target;
+        done,: key target;
+        scanners,: (value target)[;1];
+        queue: (1_queue), key target;
+        x[key target]: {y[1]+/:(x*\:y[0;0])@\:y[0;1]}'[x key target;value target];
+        ];
+    (x;scanners)
+ };
+
+.aoc2021.d19.t1: {count distinct raze (.aoc2021.d19.common x) 0};
+.aoc2021.d19.t2: {max {sum abs (-) . 3 cut x} each {x cross x} (.aoc2021.d19.common x) 1};
+
 
 //------------------------------------
 //Task 20
