@@ -45,6 +45,26 @@
 
 
 //------------------------------------
+//Task 5
+.aoc2015.d5.t1: {
+    [x]
+    vowels: count x ss "[aeiou]";
+    repeating: count where not differ x;
+    substrs: count @' ss[x] @' ("ab";"cd";"pq";"xy");
+    cntsubs: count substrs except 0;
+    0 < (vowels >= 3) & repeating & not cntsubs
+ }
+
+
+.aoc2015.d5.t2: {
+    [x]
+    dupe: count ({[x;y] (3 < (count x) - count ssr[x;y;""]) & ((count x ss y) > 1) & count y = 2}[x] @' (2 cut x), (2 cut next x)) except 0;
+    between: count ({[x] (x[0] = x[2]) & 3 = count x} @' (3 cut next next x), (3 cut next x), (3 cut x)) except 0;
+    0 < dupe & between
+ };
+ 
+
+//------------------------------------
 //Task 6
 .aoc2015.d6.t1: {
     x: "\n" vs x;
