@@ -4,10 +4,10 @@
 
 //------------------------------------
 //Task 1
-.aoc.d1.t1: {sum "J"$"\n"vs x};
+.aoc2018.d1.t1: {sum "J"$"\n"vs x};
 
 
-.aoc.d1.t2: {
+.aoc2018.d1.t2: {
     x: sums "J"$"\n"vs x;
     x: {2>max count each group x}{y,x + last y}[x]/enlist 0;
     x: group x;
@@ -17,10 +17,10 @@
 
 //------------------------------------
 //Task 2
-.aoc.d2.t1: {prd sum 2 3 in/:(count'') value each group each "\n" vs x};
+.aoc2018.d2.t1: {prd sum 2 3 in/:(count'') value each group each "\n" vs x};
 
 
-.aoc.d2.t2: {
+.aoc2018.d2.t2: {
     x: "\n" vs x;
     x: x@raze (where') (-1+count first x)=(sum'')x=/:\:x;
     (first x) where (=') . x
@@ -28,13 +28,23 @@
 
 
 //------------------------------------
-//Task 3.1, 3.2
-.aoc.parse:{x:-2#" " vs x;"J"$(","vs -1_x 0), "x" vs x 1};
-.aoc.size: {max{(x[0]+x[2];x[1]+x[3])} each x};
-data: .aoc.parse each data;
-size: .aoc.size data;
-count where 1<count each group raze {{(x[0]*size 0)+x 1}each (x 0 1) +/: til[x 2] cross til[x 3]}each data
-(til count data) except {distinct raze exec id from select from x where 1<count each id}select id by data from ungroup update id: i from ([]{{(x[0]*size 0)+x 1}each (x 0 1) +/: til[x 2] cross til[x 3]}each data)
+//Task 3
+.aoc2018.d3.parse: { {"J"$","vs (ssr[;;","]/)(x;"x";" @ ";": ")} each 1_'"\n" vs x};
+
+
+.aoc2018.d3.t1: {
+    x: .aoc2018.d3.parse x;
+    x: raze {(x[1]+til x[3]) cross x[2]+til x[4]} each x;
+    sum 1<count each value group x
+ };
+
+
+.aoc2018.d3.t2: {
+    x: .aoc2018.d3.parse x;
+    x: ([] id: x[;0]; p: {(x[1]+til x[3]) cross x[2]+til x[4]} each x);
+    x: 0!select id by p from ungroup x;
+    first (distinct raze x`id) except raze exec distinct id from x where 1<count each id
+ };
 
 
 //------------------------------------

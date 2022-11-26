@@ -1,13 +1,21 @@
 //------------------------------------
 //Task 1
-if[not 2=.aoc.d1.t1 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc.d1.t1"];
-if[not 2=.aoc.d1.t2 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc.d1.t2"];
+if[not 2=.aoc2018.d1.t1 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc2018.d1.t1"];
+if[not 2=.aoc2018.d1.t2 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc2018.d1.t2"];
 
 
 //------------------------------------
 //Task 2
-if[not 12i=.aoc.d2.t1 "\n" sv ("abcdef";"bababc";"abbcde";"abcccd";"aabcdd";"abcdee";"ababab"); '"[AssertionException] .aoc.d2.t1"];
-if[not "fgij"~.aoc.d2.t2 "\n" sv ("abcde";"fghij";"klmno";"pqrst";"fguij";"axcye";"wvxyz"); '"[AssertionException] .aoc.d2.t2"];
+if[not 12i=.aoc2018.d2.t1 "\n" sv ("abcdef";"bababc";"abbcde";"abcccd";"aabcdd";"abcdee";"ababab"); '"[AssertionException] .aoc2018.d2.t1"];
+if[not "fgij"~.aoc2018.d2.t2 "\n" sv ("abcde";"fghij";"klmno";"pqrst";"fguij";"axcye";"wvxyz"); '"[AssertionException] .aoc2018.d2.t2"];
+
+//------------------------------------
+//Task 3
+.aoc2018.d3.input: "#1 @ 1,3: 4x4
+#2 @ 3,1: 4x4
+#3 @ 5,5: 2x2"
+if[not 4=.aoc2018.d3.t1 .aoc2018.d3.input; '"[AssertionException] .aoc2018.d3.t1"];
+if[not 3~.aoc2018.d3.t2 .aoc2018.d3.input; '"[AssertionException] .aoc2018.d3.t2"];
 
 
 //------------------------------------
