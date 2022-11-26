@@ -3,6 +3,13 @@
 if[not 2=.aoc.d1.t1 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc.d1.t1"];
 if[not 2=.aoc.d1.t2 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc.d1.t2"];
 
+
+//------------------------------------
+//Task 2
+if[not 12i=.aoc.d2.t1 "\n" sv ("abcdef";"bababc";"abbcde";"abcccd";"aabcdd";"abcdee";"ababab"); '"[AssertionException] .aoc.d2.t1"];
+if[not "fgij"~.aoc.d2.t2 "\n" sv ("abcde";"fghij";"klmno";"pqrst";"fguij";"axcye";"wvxyz"); '"[AssertionException] .aoc.d2.t2"];
+
+
 //------------------------------------
 //Task 6
 if[not 17=.aoc.d6.t1("1, 1";"1, 6";"8, 3";"3, 4";"5, 5";"8, 9"); '"[AssertionException] .aoc.d6.t1"];

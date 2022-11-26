@@ -5,6 +5,8 @@
 //------------------------------------
 //Task 1
 .aoc.d1.t1: {sum "J"$"\n"vs x};
+
+
 .aoc.d1.t2: {
     x: sums "J"$"\n"vs x;
     x: {2>max count each group x}{y,x + last y}[x]/enlist 0;
@@ -14,13 +16,15 @@
 
 
 //------------------------------------
-//Task 2.1
-{prd sum {2 3 in count each group x}each x}("abcdef";"bababc";"abbcde";"abcccd";"aabcdd";"abcdee";"ababab")
-//Task 2.2 (brute force, should be Trie)
-{first raze{
-  d:0=last deltas`int$x 0 1;
-  $[1=sum not d; enlist(x 0)@where d;()]
-}each{x cross x}enlist each x}("abcde";"fghij";"klmno";"pqrst";"fguij";"axcye";"wvxyz")
+//Task 2
+.aoc.d2.t1: {prd sum 2 3 in/:(count'') value each group each "\n" vs x};
+
+
+.aoc.d2.t2: {
+    x: "\n" vs x;
+    x: x@raze (where') (-1+count first x)=(sum'')x=/:\:x;
+    (first x) where (=') . x
+ };
 
 
 //------------------------------------
