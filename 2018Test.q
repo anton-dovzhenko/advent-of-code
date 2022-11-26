@@ -1,4 +1,9 @@
 //------------------------------------
+//Task 1
+if[not 2=.aoc.d1.t1 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc.d1.t1"];
+if[not 2=.aoc.d1.t2 "\n" sv string 1 -2 3 1 1 -2; '"[AssertionException] .aoc.d1.t2"];
+
+//------------------------------------
 //Task 6
 if[not 17=.aoc.d6.t1("1, 1";"1, 6";"8, 3";"3, 4";"5, 5";"8, 9"); '"[AssertionException] .aoc.d6.t1"];
 if[not 16=.aoc.d6.t2[("1, 1";"1, 6";"8, 3";"3, 4";"5, 5";"8, 9");32]; '"[AssertionException] .aoc.d6.t2"];

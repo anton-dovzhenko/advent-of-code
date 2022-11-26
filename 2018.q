@@ -3,16 +3,14 @@
 .aoc.common.range: {x[0]+til 1+x[1]-x[0]};
 
 //------------------------------------
-//Task 1.1
-sum"J"$read0 hsym`$input.dir,"2018_1.input"
-//Task 1.2
-{
-    x: x, last[x]+y;
-    g: group x;
-    i: (key g)@where 2<=count each value g;
-    r: i#g;
-    $[0=count i; .z.s[x;y]; (key r)@where value r[;1]=min r[;1]]
-}[0;sums "J"$read0 hsym`$input.dir,"2018_1.input"]
+//Task 1
+.aoc.d1.t1: {sum "J"$"\n"vs x};
+.aoc.d1.t2: {
+    x: sums "J"$"\n"vs x;
+    x: {2>max count each group x}{y,x + last y}[x]/enlist 0;
+    x: group x;
+    (key x)@first where (value x[;1])=min value x[;1]
+ };
 
 
 //------------------------------------
