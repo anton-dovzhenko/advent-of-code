@@ -16,5 +16,5 @@
 
 10000";
 if[not 24000 ~ .aoc2022.d1.t1 .input.aoc2022.d1; '"[AssertionException] .aoc2022.d1.t1"];
-if[not 450010 ~ .aoc2022.d1.t2 .input.aoc2022.d1; '"[AssertionException] .aoc2022.d1.t2"];
+if[not 45000 ~ .aoc2022.d1.t2 .input.aoc2022.d1; '"[AssertionException] .aoc2022.d1.t2"];
 
