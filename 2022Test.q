@@ -27,3 +27,15 @@ if[not 15 ~ .aoc2022.d2.t1 .input.aoc2022.d2; '"[AssertionException] .aoc2022.d2
 if[not 12 ~ .aoc2022.d2.t2 .input.aoc2022.d2; '"[AssertionException] .aoc2022.d2.t2"];
 
 
+//------------------------------------
+//Task 3
+.input.aoc2022.d3: "vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw";
+if[not 157 ~ .aoc2022.d3.t1 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3.t1"];
+if[not 70 ~ .aoc2022.d3.t2 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3.t2"];
+
+
