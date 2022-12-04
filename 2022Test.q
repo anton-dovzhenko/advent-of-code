@@ -38,4 +38,13 @@ CrZsJsPPZsGzwwsLwLmpwMDw";
 if[not 157 ~ .aoc2022.d3.t1 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3.t1"];
 if[not 70 ~ .aoc2022.d3.t2 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3.t2"];
 
-
+//------------------------------------
+//Task 4
+.input.aoc2022.d4: "2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8";
+if[not 2 ~ .aoc2022.d4.t1 .input.aoc2022.d4; '"[AssertionException] .aoc2022.d4.t1"];
+if[not 4 ~ .aoc2022.d4.t2 .input.aoc2022.d4; '"[AssertionException] .aoc2022.d4.t2"];

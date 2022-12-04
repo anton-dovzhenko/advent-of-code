@@ -32,3 +32,20 @@
     a: .Q.a,.Q.A;
     sum (a!1+til 52) raze {[a;x] a where 3=sum a in/:x}[a] each 3 cut "\n" vs x
  };
+
+
+//------------------------------------
+//Task 4
+.aoc2022.d4.t1: {
+    x: "J"$"-"(vs/:)'","vs/:"\n" vs x;
+    contains: (all')(within)./:;
+    `long$sum (contains x)|(contains reverse each x)
+ };
+
+
+.aoc2022.d4.t2: {
+    x: "J"$"-"(vs/:)'","vs/:"\n" vs x;
+    overlaps: (any')(within)./:;
+    `long$sum (overlaps x)|(overlaps reverse each x)
+ };
+
