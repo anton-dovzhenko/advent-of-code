@@ -70,6 +70,6 @@ if[not "MCD" ~ .aoc2022.d5.t2 .input.aoc2022.d5; '"[AssertionException] .aoc2022
 //------------------------------------
 //Task 6
 if[not 10 ~ .aoc2022.d6.t1 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"; '"[AssertionException] .aoc2022.d6.t1"];
-if[not 29 ~ .aoc2022.d6.t2 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg" '"[AssertionException] .aoc2022.d6.t2"];
+if[not 29 ~ .aoc2022.d6.t2 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"; '"[AssertionException] .aoc2022.d6.t2"];
 
 
