@@ -52,7 +52,7 @@ if[not 4 ~ .aoc2022.d4.t2 .input.aoc2022.d4; '"[AssertionException] .aoc2022.d4.
 
 
 //------------------------------------
-//Task 4
+//Task 5
 .input.aoc2022.d5:
 "    [D]
 [N] [C]
@@ -65,3 +65,11 @@ move 2 from 2 to 1
 move 1 from 1 to 2";
 if[not "CMZ" ~ .aoc2022.d5.t1 .input.aoc2022.d5; '"[AssertionException] .aoc2022.d5.t1"];
 if[not "MCD" ~ .aoc2022.d5.t2 .input.aoc2022.d5; '"[AssertionException] .aoc2022.d5.t2"];
+
+
+//------------------------------------
+//Task 6
+if[not 10 ~ .aoc2022.d6.t1 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"; '"[AssertionException] .aoc2022.d6.t1"];
+if[not 29 ~ .aoc2022.d6.t2 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg" '"[AssertionException] .aoc2022.d6.t2"];
+
+

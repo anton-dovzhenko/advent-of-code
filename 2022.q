@@ -84,3 +84,10 @@
     raze last each x
  };
 
+
+//------------------------------------
+//Task 6
+.aoc2022.d6.t1: {4+count[x]-count {$[4=count distinct 4#x;x;1_x]} over x};
+.aoc2022.d6.t2: {14+count[x]-count {$[14=count distinct 14#x;x;1_x]} over x};
+
+
