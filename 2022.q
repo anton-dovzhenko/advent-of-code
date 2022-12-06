@@ -49,3 +49,38 @@
     `long$sum (overlaps x)|(overlaps reverse each x)
  };
 
+
+//------------------------------------
+//Task 5
+.aoc2022.d5.parse: {
+    x: "\n" vs/:"\n\n" vs x;
+    s: x 0;
+    m: x 1;
+    s: flip  (-1_s)@\:where not " "=last s;
+    s: reverse each s except\: " ";
+    m:  ("J"$" "vs/:m)@\:1 3 5;
+    (enlist s), m
+ };
+
+
+.aoc2022.d5.t1: {
+    x: {[s;m]
+        len: m 0; i1: -1+m 1; i2: -1+m 2;
+        s[i2],: reverse (neg len)#s@i1;
+        s[i1]: (neg len)_s@i1;
+        s
+    } over .aoc2022.d5.parse x;
+    raze last each x
+ };
+
+
+.aoc2022.d5.t2: {
+    x: {[s;m]
+        len: m 0; i1: -1+m 1; i2: -1+m 2;
+        s[i2],: (neg len)#s@i1;
+        s[i1]: (neg len)_s@i1;
+        s
+    } over .aoc2022.d5.parse x;
+    raze last each x
+ };
+

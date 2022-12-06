@@ -38,6 +38,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw";
 if[not 157 ~ .aoc2022.d3.t1 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3.t1"];
 if[not 70 ~ .aoc2022.d3.t2 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3.t2"];
 
+
 //------------------------------------
 //Task 4
 .input.aoc2022.d4: "2-4,6-8
@@ -48,3 +49,19 @@ if[not 70 ~ .aoc2022.d3.t2 .input.aoc2022.d3; '"[AssertionException] .aoc2022.d3
 2-6,4-8";
 if[not 2 ~ .aoc2022.d4.t1 .input.aoc2022.d4; '"[AssertionException] .aoc2022.d4.t1"];
 if[not 4 ~ .aoc2022.d4.t2 .input.aoc2022.d4; '"[AssertionException] .aoc2022.d4.t2"];
+
+
+//------------------------------------
+//Task 4
+.input.aoc2022.d5:
+"    [D]
+[N] [C]
+[Z] [M] [P]
+ 1   2   3
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2";
+if[not "CMZ" ~ .aoc2022.d5.t1 .input.aoc2022.d5; '"[AssertionException] .aoc2022.d5.t1"];
+if[not "MCD" ~ .aoc2022.d5.t2 .input.aoc2022.d5; '"[AssertionException] .aoc2022.d5.t2"];
