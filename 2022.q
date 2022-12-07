@@ -92,3 +92,26 @@
 .aoc2022.d6.t2: .aoc2022.d6.common[;14];
 
 
+//------------------------------------
+//Task 7
+.aoc2022.d7.getDirSize: {
+    x: "\n" vs x;
+    d: {[x;y] $[y like "$ cd ..";-1_x;$[y like "$ cd*";x, `$last" " vs y;x]]} scan `, x;
+    s: "J"$first each " "vs/:x;
+    {[d;s;D] sum s where D~/:count[D]#'d}[d;s] each distinct d
+ };
+
+
+.aoc2022.d7.t1: {
+    x: .aoc2022.d7.getDirSize x;
+    sum x where x<=100000
+ };
+
+
+.aoc2022.d7.t2: {
+    x: .aoc2022.d7.getDirSize x;
+    min x where 30000000<=(70000000-max[x])+x
+ };
+
+
+

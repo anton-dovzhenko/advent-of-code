@@ -73,3 +73,30 @@ if[not 10 ~ .aoc2022.d6.t1 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"; '"[AssertionExce
 if[not 29 ~ .aoc2022.d6.t2 "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"; '"[AssertionException] .aoc2022.d6.t2"];
 
 
+//------------------------------------
+//Task 7
+.input.aoc2022.d7: "$ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k";
+if[not 95437 ~ .aoc2022.d7.t1 .input.aoc2022.d7; '"[AssertionException] .aoc2022.d7.t1"];
+if[not 24933642 ~ .aoc2022.d7.t2 .input.aoc2022.d7; '"[AssertionException] .aoc2022.d7.t2"];
