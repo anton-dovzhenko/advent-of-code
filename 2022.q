@@ -126,11 +126,12 @@
 .aoc2022.d8.t2: {
     x: ("J"$'')"\n" vs x;
     f: {(reverse til count x)^first each 1_'where each (til count x)_'x<=\:x};
-    tree: f each x;
-    tree*: reverse each f each reverse each x;
-    tree*: flip f each flip x;
-    tree*: flip reverse each f each reverse each flip x;
+    f: f';
+    rev: reverse';
+    tree: f x;
+    tree*: rev f rev x;
+    tree*: flip f flip x;
+    tree*: flip rev f rev flip x;
     `long$(max/)tree
  };
-
 
