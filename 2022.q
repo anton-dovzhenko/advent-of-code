@@ -114,4 +114,23 @@
  };
 
 
+//------------------------------------
+//Task 8
+.aoc2022.d8.t1: {
+    x: ("J"$'')"\n" vs x;
+    f: {(x>-1,-1_maxs x)|reverse(rx>-1,-1_maxs rx: reverse x)};
+    `long$(sum/)(f each x)| flip f each flip x
+ };
+
+
+.aoc2022.d8.t2: {
+    x: ("J"$'')"\n" vs x;
+    f: {(reverse til count x)^first each 1_'where each (til count x)_'x<=\:x};
+    tree: f each x;
+    tree*: reverse each f each reverse each x;
+    tree*: flip f each flip x;
+    tree*: flip reverse each f each reverse each flip x;
+    `long$(max/)tree
+ };
+
 

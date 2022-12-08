@@ -100,3 +100,14 @@ $ ls
 7214296 k";
 if[not 95437 ~ .aoc2022.d7.t1 .input.aoc2022.d7; '"[AssertionException] .aoc2022.d7.t1"];
 if[not 24933642 ~ .aoc2022.d7.t2 .input.aoc2022.d7; '"[AssertionException] .aoc2022.d7.t2"];
+
+
+//------------------------------------
+//Task 8
+.input.aoc2022.d8: "30373
+25512
+65332
+33549
+35390";
+if[not 21 ~ .aoc2022.d8.t1 .input.aoc2022.d8; '"[AssertionException] .aoc2022.d8.t1"];
+if[not 8 ~ .aoc2022.d8.t2 .input.aoc2022.d8; '"[AssertionException] .aoc2022.d8.t2"];
