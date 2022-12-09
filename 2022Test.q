@@ -111,3 +111,10 @@ if[not 24933642 ~ .aoc2022.d7.t2 .input.aoc2022.d7; '"[AssertionException] .aoc2
 35390";
 if[not 21 ~ .aoc2022.d8.t1 .input.aoc2022.d8; '"[AssertionException] .aoc2022.d8.t1"];
 if[not 8 ~ .aoc2022.d8.t2 .input.aoc2022.d8; '"[AssertionException] .aoc2022.d8.t2"];
+
+//------------------------------------
+//Task 9
+.input.aoc2022.d9_1: "R 4\nU 4\nL 3\nD 1\nR 4\nD 1\nL 5\nR 2";
+.input.aoc2022.d9_2: "R 5\nU 8\nL 8\nD 3\nR 17\nD 10\nL 25\nU 20";
+if[not 13 ~ .aoc2022.d9.t1 .input.aoc2022.d9_1; '"[AssertionException] .aoc2022.d9.t1"];
+if[not 36 ~ .aoc2022.d9.t2 .input.aoc2022.d9_2; '"[AssertionException] .aoc2022.d9.t2"];

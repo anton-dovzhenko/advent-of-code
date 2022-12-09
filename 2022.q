@@ -135,3 +135,19 @@
     `long$(max/)tree
  };
 
+
+//------------------------------------
+//Task 9
+.aoc2022.d9.common: {[x;len]
+    x: flip " "vs/:"\n" vs x;
+    x: flip ("J"$last x;("RULD"!(1 0;0 1;-1 0;0 -1))raze first x);
+    x: raze x[;0]#'enlist each x[;1];
+    x: {x,' {$[1<max abs x-y; y+signum x-y;y]} scan (enlist y + -2#x[0]), -2#'1_x} over (enlist 2 cut (2*len)#0), x;
+    count distinct 2 cut last x
+ };
+
+
+.aoc2022.d9.t1: .aoc2022.d9.common[;2];
+.aoc2022.d9.t2: .aoc2022.d9.common[;10];
+
+
