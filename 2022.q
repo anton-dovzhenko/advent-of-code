@@ -151,3 +151,20 @@
 .aoc2022.d9.t2: .aoc2022.d9.common[;10];
 
 
+//------------------------------------
+//Task 10
+.aoc2022.d10.getRegisters: {
+    x: 0^"J"$last each " "vs/:"\n" vs x;
+    .tmp.first: 1b;
+    x: -1_1_{[x;y]
+        r: last x;
+        x, $[y=0;r;$[.tmp.first;[.tmp.first: 0b;(2#r),r+y]; (1#r),r+y]]
+        } over 1, x;
+    x
+ };
+
+.aoc2022.d10.t1: {{sum y*x@-1+y}[.aoc2022.d10.getRegisters x;20 60 100 140 180 220]};
+.aoc2022.d10.t2: {(10b!"#.") {((1+til count x)-x) within 0 2} each 40 cut .aoc2022.d10.getRegisters x};
+
+
+

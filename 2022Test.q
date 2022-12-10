@@ -112,9 +112,25 @@ if[not 24933642 ~ .aoc2022.d7.t2 .input.aoc2022.d7; '"[AssertionException] .aoc2
 if[not 21 ~ .aoc2022.d8.t1 .input.aoc2022.d8; '"[AssertionException] .aoc2022.d8.t1"];
 if[not 8 ~ .aoc2022.d8.t2 .input.aoc2022.d8; '"[AssertionException] .aoc2022.d8.t2"];
 
+
 //------------------------------------
 //Task 9
 .input.aoc2022.d9_1: "R 4\nU 4\nL 3\nD 1\nR 4\nD 1\nL 5\nR 2";
 .input.aoc2022.d9_2: "R 5\nU 8\nL 8\nD 3\nR 17\nD 10\nL 25\nU 20";
 if[not 13 ~ .aoc2022.d9.t1 .input.aoc2022.d9_1; '"[AssertionException] .aoc2022.d9.t1"];
 if[not 36 ~ .aoc2022.d9.t2 .input.aoc2022.d9_2; '"[AssertionException] .aoc2022.d9.t2"];
+
+
+//------------------------------------
+//Task 10
+.input.aoc2022.d10: "addx 15\naddx -11\naddx 6\naddx -3\naddx 5\naddx -1\naddx -8\naddx 13\naddx 4\nnoop\naddx -1\naddx 5\naddx -1\naddx 5\naddx -1\naddx 5\naddx -1\naddx 5\naddx -1\naddx -35\naddx 1\naddx 24\naddx -19\naddx 1\naddx 16\naddx -11\nnoop\nnoop\naddx 21\naddx -15\nnoop\nnoop\naddx -3\naddx 9\naddx 1\naddx -3\naddx 8\naddx 1\naddx 5\nnoop\nnoop\nnoop\nnoop\nnoop\naddx -36\nnoop\naddx 1\naddx 7\nnoop\nnoop\nnoop\naddx 2\naddx 6\nnoop\nnoop\nnoop\nnoop\nnoop\naddx 1\nnoop\nnoop\naddx 7\naddx 1\nnoop\naddx -13\naddx 13\naddx 7\nnoop\naddx 1\naddx -33\nnoop\nnoop\nnoop\naddx 2\nnoop\nnoop\nnoop\naddx 8\nnoop\naddx -1\naddx 2\naddx 1\nnoop\naddx 17\naddx -9\naddx 1\naddx 1\naddx -3\naddx 11\nnoop\nnoop\naddx 1\nnoop\naddx 1\nnoop\nnoop\naddx -13\naddx -19\naddx 1\naddx 3\naddx 26\naddx -30\naddx 12\naddx -1\naddx 3\naddx 1\nnoop\nnoop\nnoop\naddx -9\naddx 18\naddx 1\naddx 2\nnoop\nnoop\naddx 9\nnoop\nnoop\nnoop\naddx -1\naddx 2\naddx -37\naddx 1\naddx 3\nnoop\naddx 15\naddx -21\naddx 22\naddx -6\naddx 1\nnoop\naddx 2\naddx 1\nnoop\naddx -10\nnoop\nnoop\naddx 20\naddx 1\naddx 2\naddx 2\naddx -6\naddx -11\nnoop\nnoop\nnoop";
+.output.aoc2022.d10: ("##..##..##..##..##..##..##..##..##..##..";
+ "###...###...###...###...###...###...###.";
+ "####....####....####....####....####....";
+ "#####.....#####.....#####.....#####.....";
+ "######......######......######......####";
+ "#######.......#######.......#######.....");
+if[not 13140 ~ .aoc2022.d10.t1 .input.aoc2022.d10; '"[AssertionException] .aoc2022.d10.t1"];
+if[not .output.aoc2022.d10 ~ .aoc2022.d10.t2 .input.aoc2022.d10; '"[AssertionException] .aoc2022.d10.t2"];
+
+
