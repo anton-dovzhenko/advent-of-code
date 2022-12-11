@@ -167,4 +167,44 @@
 .aoc2022.d10.t2: {(10b!"#.") {((1+til count x)-x) within 0 2} each 40 cut .aoc2022.d10.getRegisters x};
 
 
+//------------------------------------
+//Task 11
+.aoc2022.d11.parseInput: {
+    x: {("J"$", " vs last ": " vs x 1;
+            parse "{",ssr[last " = " vs x 2;"old";"x"],"}";
+            x[3]: "J"$last " "vs x 3;
+            ("J"$last " "vs x 4;"J"$last " "vs x 5))
+     } each "\n"vs/:"\n\n" vs x;
+    update done: 0, m: til count x from flip`items`oper`divisible`nextM!flip x
+ };
+
+
+.aoc2022.d11.t1 : {
+    x: .aoc2022.d11.parseInput x;
+    x: (20*count x){
+        M: first x;
+        Items: ((M`oper) M`items) div 3;
+        nextM: (10b!M`nextM)0=Items mod M`divisible;
+        x: update items: enlist `long$(), done: done+count Items from x where m in M`m;
+        x: {[x;y] update items: (items,'y[0])from x where m=y[1]} over enlist[x], Items,'nextM;
+        x: (1_x), 1#x;
+        x
+     }/x;
+    prd 2#desc x`done
+ };
+
+
+.aoc2022.d11.t2 : {
+    x: .aoc2022.d11.parseInput x;
+    x: (10000*count x){
+        M: first x;
+        Items: ((M`oper) M`items) mod prd x`divisible;
+        nextM: (10b!M`nextM)0=Items mod M`divisible;
+        x: update items: enlist `long$(), done: done+count Items from x where m in M`m;
+        x: {[x;y] update items: (items,'y[0])from x where m=y[1]} over enlist[x], Items,'nextM;
+        x: (1_x), 1#x;
+        x
+     }/x;
+    prd 2#desc x`done
+ };
 
