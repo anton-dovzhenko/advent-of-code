@@ -167,3 +167,12 @@ if[not 10605 ~ .aoc2022.d11.t1 .input.aoc2022.d11; '"[AssertionException] .aoc20
 if[not 2713310158 ~ .aoc2022.d11.t2 .input.aoc2022.d11; '"[AssertionException] .aoc2022.d11.t2"];
 
 
+//------------------------------------
+//Task 12
+.input.aoc2022.d12: "Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi";
+if[not 31 ~ .aoc2022.d12.t1 .input.aoc2022.d12; '"[AssertionException] .aoc2022.d12.t1"];
+if[not 29 ~ .aoc2022.d12.t2 .input.aoc2022.d12; '"[AssertionException] .aoc2022.d12.t2"];

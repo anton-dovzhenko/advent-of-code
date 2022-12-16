@@ -179,7 +179,7 @@
  };
 
 
-.aoc2022.d11.t1 : {
+.aoc2022.d11.t1: {
     x: .aoc2022.d11.parseInput x;
     x: (20*count x){
         M: first x;
@@ -194,7 +194,7 @@
  };
 
 
-.aoc2022.d11.t2 : {
+.aoc2022.d11.t2: {
     x: .aoc2022.d11.parseInput x;
     x: (10000*count x){
         M: first x;
@@ -208,3 +208,39 @@
     prd 2#desc x`done
  };
 
+
+//------------------------------------
+//Task 12
+.aoc2022.d12.findMinSteps: {
+    x: {
+        start: select from x where steps<0W;
+        x: delete from x where h<>1+`int$"z", p in start`p;
+        start: start cross ([]move: (0 1;1 0;0 -1;-1 0));
+        start: select h1: h, steps1: 1+steps, p: p+move from start;
+        nextx: ej[`p;x;start];
+        nextx: select from nextx where h1>=h-1, steps1<steps;
+        x: x lj select steps: min steps1 by p from nextx;
+        x
+     } over x;
+    exec first steps from x where h=1+`int$"z"
+ };
+
+
+.aoc2022.d12.t1: {
+    x: `int$/:"\n" vs x;
+    x: update steps: 0W from ([] h: raze x; p: (til count x) cross til count first x);
+    x: update steps: 0 from x where h=`int$"S";
+    x: update h: -1+`int$"a" from x where h in `int$"S";
+    x: update h: 1+`int$"z" from x where h=`int$"E";
+    .aoc2022.d12.findMinSteps x
+ };
+
+
+.aoc2022.d12.t2: {
+    x: `int$/:"\n" vs x;
+    x: update steps: 0W from ([] h: raze x; p: (til count x) cross til count first x);
+    x: update h: `int$"a" from x where h in `int$"S";
+    x: update steps: 0 from x where h=`int$"a";
+    x: update h: 1+`int$"z" from x where h=`int$"E";
+    .aoc2022.d12.findMinSteps x
+ };
