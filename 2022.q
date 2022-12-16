@@ -244,3 +244,40 @@
     x: update h: 1+`int$"z" from x where h=`int$"E";
     .aoc2022.d12.findMinSteps x
  };
+
+
+//------------------------------------
+//Task 15
+.aoc2022.d15.parse: {
+    x: " "vs/:"\n" vs ssr[;":";""] ssr[;",";""] x;
+    x: x[;2 3 8 9];
+    "J"${last each "="vs/:x} each x
+ };
+
+
+.aoc2022.d15.t1: {[x;row]
+    x: .aoc2022.d15.parse x;
+    b: -2#'x;
+    x: asc distinct raze last each {[x;y]
+        d: (sum/) 1_abs deltas 2 cut x;
+        axis: abs x[1]-y;
+        (x;$[axis>d;();(x[0]+(til 1+d-axis),neg til 1+d-axis)])
+     }[;row] each x;
+    count x except distinct first each b where b[;1]=row
+ };
+
+
+.aoc2022.d15.t2: {[x;maxLen]
+    x: .aoc2022.d15.parse x;
+    x: (2#'x),'(abs x[;0]-x[;2])+ abs x[;1]-x[;3];
+    x: {
+        x: x[;0],'x[;2]-(abs x[;1]-z);
+        x: x where x[;1]>-1;
+        x: (0|x[;0]-x[;1]),'y&x[;0]+x[;1];
+        {$[last[x]>=-1+first[y]; (-1_x), max(last x;last y); x,y]} over asc x
+     }[x;maxLen] each til maxLen+1;
+    Y: first where 2<count each x;
+    X: avg (x Y) 1 2;
+    `long$Y+X*4e6
+ };
+

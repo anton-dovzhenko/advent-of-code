@@ -176,3 +176,25 @@ acctuvwj
 abdefghi";
 if[not 31 ~ .aoc2022.d12.t1 .input.aoc2022.d12; '"[AssertionException] .aoc2022.d12.t1"];
 if[not 29 ~ .aoc2022.d12.t2 .input.aoc2022.d12; '"[AssertionException] .aoc2022.d12.t2"];
+
+
+//------------------------------------
+//Task 15
+.input.aoc2022.d15: "Sensor at x=2, y=18: closest beacon is at x=-2, y=15
+Sensor at x=9, y=16: closest beacon is at x=10, y=16
+Sensor at x=13, y=2: closest beacon is at x=15, y=3
+Sensor at x=12, y=14: closest beacon is at x=10, y=16
+Sensor at x=10, y=20: closest beacon is at x=10, y=16
+Sensor at x=14, y=17: closest beacon is at x=10, y=16
+Sensor at x=8, y=7: closest beacon is at x=2, y=10
+Sensor at x=2, y=0: closest beacon is at x=2, y=10
+Sensor at x=0, y=11: closest beacon is at x=2, y=10
+Sensor at x=20, y=14: closest beacon is at x=25, y=17
+Sensor at x=17, y=20: closest beacon is at x=21, y=22
+Sensor at x=16, y=7: closest beacon is at x=15, y=3
+Sensor at x=14, y=3: closest beacon is at x=15, y=3
+Sensor at x=20, y=1: closest beacon is at x=15, y=3";
+if[not 26 ~ .aoc2022.d15.t1[.input.aoc2022.d15;10]; '"[AssertionException] .aoc2022.d15.t1"];
+if[not 56000011 ~ .aoc2022.d15.t2[.input.aoc2022.d15;20]; '"[AssertionException] .aoc2022.d15.t2"];
+
+
