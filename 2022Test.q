@@ -198,3 +198,20 @@ if[not 26 ~ .aoc2022.d15.t1[.input.aoc2022.d15;10]; '"[AssertionException] .aoc2
 if[not 56000011 ~ .aoc2022.d15.t2[.input.aoc2022.d15;20]; '"[AssertionException] .aoc2022.d15.t2"];
 
 
+//------------------------------------
+//Task 18
+.input.aoc2022.d18: "2,2,2
+1,2,2
+3,2,2
+2,1,2
+2,3,2
+2,2,1
+2,2,3
+2,2,4
+2,2,6
+1,2,5
+3,2,5
+2,1,5
+2,3,5";
+if[not 64 ~ .aoc2022.d18.t1 .input.aoc2022.d18; '"[AssertionException] .aoc2022.d18.t1"];
+if[not 58 ~ .aoc2022.d18.t2 .input.aoc2022.d18; '"[AssertionException] .aoc2022.d18.t2"];

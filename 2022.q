@@ -281,3 +281,28 @@
     `long$Y+X*4e6
  };
 
+
+//------------------------------------
+//Task 18
+.aoc2022.d18.t1: {
+    x: "J"$","vs/:"\n" vs x;
+    sum {6-2*sum (x[y]+/:(1 0 0;-1 0 0;0 1 0;0 -1 0;0 0 1;0 0 -1)) in y#x}[x] each til count x
+ };
+
+
+.aoc2022.d18.t2: {
+    x: "J"$","vs/:"\n" vs x;
+    bounds: (-1+min x;1+max x);
+    cube: (cross/) {x[0]+til 1+x[1]-x[0]} each flip bounds;
+    c: enlist bounds[0]; // complement
+    c: {[x;b;c]
+        c: distinct raze c+\:/:(0 0 0;1 0 0;-1 0 0;0 1 0;0 -1 0;0 0 1; 0 0 -1);
+        c: c except x;
+        c: c where all each (c>=\:b[0])&c<=\:b[1];
+        c
+     }[x;bounds] over c;
+    inner: cube except c, x;
+    x: x, inner;
+    sum {6-2*sum (x[y]+/:(1 0 0;-1 0 0;0 1 0;0 -1 0;0 0 1;0 0 -1)) in y#x}[x] each til count x
+ };
+
