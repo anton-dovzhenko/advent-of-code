@@ -15,6 +15,30 @@
 
 
 //------------------------------------
+//Task 5
+.aoc2023.d5.t1: {
+    x: "\n\n" vs x;
+    s: "J"$" " vs last ": " vs first x;
+    m: flip each "J"${" " vs/: x} each 1_'"\n"vs/:1_x;
+    min{[s;m] s+sum (m[0]-m[1]) * s within/:m[1],'m[1]+m[2]-1} over enlist[s], m
+ };
+
+
+.aoc2023.d5.t2: {
+    x: "\n\n" vs x;
+    s: {(x[0];x[0]+x[1]-1)} each 2 cut "J"$" " vs last ": " vs first x;
+    x: flip each {(x[1];x[1]+x[2]-1;x[0]-x[1])} each flip each "J"${" " vs/: x} each 1_'"\n"vs/:1_x;
+    x: {(,/){(x[0 1], x[1]+1)!(2#x[2]), 0} each asc x} each x;
+    min raze {[s;x]
+        raze {[x;s]
+            s: 2 cut distinct s[1]&s[0]|asc s, key x;
+            {[x;s] s+0^value[x] key[x] bin s[0]}[x] each s
+        }[x] each s
+    }over enlist[s], x
+ };
+
+
+//------------------------------------
 //Task 7
 .aoc2023.d7.t1: {
     x: update "J"$points from flip`cards`points!flip" "vs/:"\n" vs x;
