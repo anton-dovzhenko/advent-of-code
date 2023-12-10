@@ -68,3 +68,9 @@
         ((flip map x 0) i[x[1] mod count i];x[1] + 1;x 2)
      }[i;map] over (start;0;`long$())
  };
+
+
+//------------------------------------
+//Task 9
+.aoc2023.d9.t1: {sum {sum last each {0<>sum abs x}{1_deltas x}\x} each "J"$" "vs/:"\n" vs x};
+.aoc2023.d9.t2: {sum {{y-x} over reverse first each {0<>sum abs x}{1_deltas x}\x} each "J"$" "vs/:"\n" vs x};
