@@ -37,3 +37,34 @@
     x: `score xdesc `cards xasc x;
     sum {x*1+til count x} reverse x`points
  };
+
+
+//------------------------------------
+//Task 8
+.aoc2023.d8.t1: {
+    x: "\n\n" vs x;
+    i: ("LR"!0 1)x 0;
+    x: `${raze", " vs/:" = (" vs -1_x}each "\n" vs first 1_x;
+    map: x[;0]!x[;1 2];
+    last {[i;map;x]
+        if[x[0]=`ZZZ;:x];
+        (map[x[0]] i[x[1] mod count i];x[1] + 1)
+        }[i;map] over (`AAA;0)
+ };
+
+
+.aoc2023.d8.t2: {
+    x: "\n\n" vs x;
+    i: ("LR"!0 1)x 0;
+    x: `${raze", " vs/:" = (" vs -1_x}each "\n" vs first 1_x;
+    map: x[;0]!x[;1 2];
+    start: {x where x like "*A"}key map;
+
+    // TODO: import LCM
+    last {[i;map;x]
+        if[0=count x[0]; :x];
+        if[any x[0] like "*Z";x[2],: x[1]];
+        x[0]: x[0] where not x[0] like "*Z";
+        ((flip map x 0) i[x[1] mod count i];x[1] + 1;x 2)
+     }[i;map] over (start;0;`long$())
+ };

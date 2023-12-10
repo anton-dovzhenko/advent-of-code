@@ -29,3 +29,13 @@ if[not 6440 ~ .aoc2023.d7.t1 .input.aoc2023.d7; '"[AssertionException] .aoc2023.
 if[not 5905 ~ .aoc2023.d7.t2 .input.aoc2023.d7; '"[AssertionException] .aoc2023.d7.t2"];
 
 
+//------------------------------------
+//Task 8
+.input.aoc2023.d8.t1: "LLR
+
+AAA = (BBB, BBB)
+BBB = (AAA, ZZZ)
+ZZZ = (ZZZ, ZZZ)";
+
+
+if[not 6 ~ .aoc2023.d8.t1 .input.aoc2023.d8.t1; '"[AssertionException] .aoc2023.d8.t1"];
