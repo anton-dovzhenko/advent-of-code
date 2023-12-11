@@ -88,3 +88,23 @@ if[not 6 ~ .aoc2023.d8.t1 .input.aoc2023.d8.t1; '"[AssertionException] .aoc2023.
 if[not 114 ~ .aoc2023.d9.t1 .input.aoc2023.d9; '"[AssertionException] .aoc2023.d9.t1"];
 if[not 2 ~ .aoc2023.d9.t2 .input.aoc2023.d9; '"[AssertionException] .aoc2023.d9.t2"];
 
+
+//------------------------------------
+//Task 11
+.input.aoc2023.d11:
+"...#......
+.......#..
+#.........
+..........
+......#...
+.#........
+.........#
+..........
+.......#..
+#...#.....";
+
+if[not 374 ~ .aoc2023.d11.t[;2] .input.aoc2023.d11; '"[AssertionException] .aoc2023.d11 case 1"];
+if[not 1030 ~ .aoc2023.d11.t[;10] .input.aoc2023.d11; '"[AssertionException] .aoc2023.d11 case 2"];
+if[not 8410 ~ .aoc2023.d11.t[;100] .input.aoc2023.d11; '"[AssertionException] .aoc2023.d11 case 3"];
+
+

@@ -98,3 +98,26 @@
 //Task 9
 .aoc2023.d9.t1: {sum {sum last each {0<>sum abs x}{1_deltas x}\x} each "J"$" "vs/:"\n" vs x};
 .aoc2023.d9.t2: {sum {{y-x} over reverse first each {0<>sum abs x}{1_deltas x}\x} each "J"$" "vs/:"\n" vs x};
+
+
+//------------------------------------
+//Task 11
+.aoc2023.d11.t: {[x;E]
+    x: "\n" vs x;
+    R: where all each "."=x;
+    C: where all each "."=flip x;
+    x: where each "#"=x;
+    x: raze {x cross y}'[til count x;x];
+    distance: {[E;R;C;p1;p2]
+        d: (sum/) abs p1-p2;
+        b: asc each p1,'p2;
+        d + (E-1)*(sum R within b 0) + (sum C within b 1)
+    }[E;R;C];
+    first {0<>count x 1}{[x;d] (x[0]+sum d[first x 1]'[x 1];1_x 1)}[;distance]/(0;x)
+ };
+
+.aoc2023.d11.t1: .aoc2023.d11.t[;2];
+.aoc2023.d11.t2: .aoc2023.d11.t[;1000000];
+
+
+
