@@ -120,4 +120,11 @@
 .aoc2023.d11.t2: .aoc2023.d11.t[;1000000];
 
 
+//------------------------------------
+//Task 12
+//TODO: nice, but inefficient. Improve
+.aoc2023.d11.t1: {
+    x: {(x 0;"J"$"," vs x 1)} each " "vs/:"\n" vs x;
+    `long$sum {sum x[1]~/:{x where 0<x:count each "0" vs raze string x} each (cross/)(".#?"!(0;1;0 1))x 0}each x
+ };
 
