@@ -123,8 +123,21 @@
 //------------------------------------
 //Task 12
 //TODO: nice, but inefficient. Improve
-.aoc2023.d11.t1: {
+.aoc2023.d12.t1: {
     x: {(x 0;"J"$"," vs x 1)} each " "vs/:"\n" vs x;
     `long$sum {sum x[1]~/:{x where 0<x:count each "0" vs raze string x} each (cross/)(".#?"!(0;1;0 1))x 0}each x
  };
 
+
+//------------------------------------
+//Task 13
+.aoc2023.d13.t1: {
+    sum {
+        x: "#"="\n" vs x;
+        h: 2 sv x;
+        v: 2 sv flip x;
+        h: 0^1+first where {{{l: min(count x;count y); (l#x)~(l#y)} . (reverse y#x;y _ x) }[x] each 1+til -1+count x} h;
+        v: 0^1+first where {{{l: min(count x;count y); (l#x)~(l#y)} . (reverse y#x;y _ x) }[x] each 1+til -1+count x} v;
+        h+v*100
+     } each "\n\n" vs x
+ };
