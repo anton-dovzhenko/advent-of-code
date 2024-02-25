@@ -15,6 +15,23 @@
 
 
 //------------------------------------
+//Task 2
+.aoc2023.d2.t1: {
+    x: flip ": " vs/: "\n" vs x;
+    ids: "J"$last each " " vs/:x 0;
+    cubes: {x: flip " "vs/:x; max each group ("J"$x 0)!(`$x 1)} each ", " vs/:ssr[;";";","] each x 1;
+    sum ids where 0<=min each (`red`green`blue!12 13 14) -/:cubes
+ };
+
+
+.aoc2023.d2.t2: {
+    x: last flip ": " vs/: "\n" vs x;
+    x: {x: flip " "vs/:x; max each group ("J"$x 0)!(`$x 1)} each ", " vs/:ssr[;";";","] each x;
+    sum prd each x
+ };
+
+
+//------------------------------------
 //Task 5
 .aoc2023.d5.t1: {
     x: "\n\n" vs x;
